@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Passion+One:wght@400;700;900&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -7,7 +8,7 @@
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  @apply bg-[#00041A] dark:bg-[#00041A];
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
