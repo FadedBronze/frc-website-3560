@@ -11,18 +11,22 @@ export default function Footer() {
       const mechawolf = document.querySelector(".mechawolf") as HTMLElement;
       const rect = mechawolf.getBoundingClientRect();
 
+      const sensitivity = 0.02;
+
       // idk if this is right but I experimented it seems good
       const offsetX = rect.width * 0.3;
-      const offsetY = 0;
+      const offsetY = 1;
 
       const wolfX = rect.left + rect.width / 2 + offsetX;
       const wolfY = rect.top + rect.height / 2 + offsetY;
       const mouseOffsetX = e.clientX - wolfX;
-      const mouseOffsetY = e.clientY - wolfY;
+      const mouseOffsetY = Math.min(e.clientY - wolfY, -15);
 
-      const angle = Math.atan2(mouseOffsetY, mouseOffsetX) * (360 / Math.PI);
+      console.log(mouseOffsetY)
 
-      mechawolf.style.transform = `rotate(${angle}deg)`;
+      const angle = Math.atan2(mouseOffsetY, mouseOffsetX) * sensitivity * (360 / Math.PI);
+
+      mechawolf.style.transform = `translateY(50%) translateY(80px) translateX(80px) rotate(${angle + 360 * sensitivity}deg)`;
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -131,10 +135,7 @@ export default function Footer() {
         </div>
       </div>
       {width > 900 && (
-        <img
-          className="absolute bottom-1/2 translate-y-2/3 translate-x-1/5 right-0 mechawolf"
-          src={Logo}
-        />
+        <div className="absolute origin-bottom-right bottom-1/2 right-0 mechawolf"><img className="animate-[breathe_7s_ease-in-out_infinite]" src={Logo} /></div>
       )}
     </footer>
   );
