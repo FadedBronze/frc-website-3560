@@ -10,6 +10,8 @@ import {
   Cuboid,
   WandSparkles,
   Wrench,
+  CircleArrowLeft,
+  CircleArrowRight,
 } from "lucide-react";
 
 export function meta({}: Route.MetaArgs) {
@@ -26,8 +28,11 @@ function MainText() {
   return (
     <article className="relative w-full lg:w-1/2">
       <div className="w-14 bg-blue-400 h-1 rounded mb-3" />
-      <h1 className="font-[Passion_One] text-3xl mb-1">
-        FRC TEAM 3560 MECHAWOLVES
+      <h1 className="font-[Passion_One] text-3xl mb-1 uppercase ">
+        FRC Team 3560{" "}
+        <span className="hover:text-blue-400 transition-colors duration-300">
+          MECHAWOLVES
+        </span>
       </h1>
       <p className="mb-6">
         Ready to build the future? Join our robotics club and dive into hands-on
@@ -46,7 +51,6 @@ function ResponsiveIframe(props: any) {
   const divRef = useRef<HTMLDivElement>(null);
   const { width, height } = windowSizeContext();
   const [divWidth, setDivWidth] = useState(480);
-  const [divHeight, setDivHeight] = useState(360);
 
   const setWidth = () => {
     if (divRef.current == null) return;
@@ -71,15 +75,22 @@ function ResponsiveIframe(props: any) {
 export default function Home() {
   const displays = [
     { image: "https://3560.ca/wp-content/uploads/2024/09/6.png" },
-    { image: "https://3560.ca/wp-content/uploads/2024/09/6.png" },
-    { image: "https://3560.ca/wp-content/uploads/2024/09/6.png" },
-    { image: "https://3560.ca/wp-content/uploads/2024/09/6.png" },
-    { image: "https://3560.ca/wp-content/uploads/2024/09/6.png" },
-    { image: "https://3560.ca/wp-content/uploads/2024/09/6.png" },
-    { image: "https://3560.ca/wp-content/uploads/2024/09/6.png" },
+    { image: "https://3560.ca/wp-content/uploads/2024/09/1.png" },
+    { image: "https://3560.ca/wp-content/uploads/2024/09/8.png" },
+    { image: "https://3560.ca/wp-content/uploads/2024/09/5.png" },
+    { image: "https://3560.ca/wp-content/uploads/2024/09/4.png" },
+    { image: "https://3560.ca/wp-content/uploads/2024/09/3.png" },
+    { image: "https://3560.ca/wp-content/uploads/2024/09/2.png" },
   ];
 
   const [currentDisplay, setCurrentDisplay] = useState(0);
+
+  useEffect(() => {
+    const int = setInterval(() => {
+      setCurrentDisplay((prev) => (prev + 1) % displays.length);
+    }, 5000);
+    return () => clearInterval(int);
+  });
 
   return (
     <>
@@ -95,16 +106,35 @@ export default function Home() {
         <div className="px-[45px] lg:px-[145px] h-full flex items-center">
           <MainText />
         </div>
-        <div className="b-[145px] absolute bottom-5 -translate-y-1/2 left-1/2 -translate-x-1/2 flex gap-3">
-          {displays.map((_, i) => (
-            <div
-              className={
-                "rounded-full w-2 h-2 " +
-                (i == currentDisplay ? "bg-blue-400" : "bg-blue-200")
-              }
-            ></div>
-          ))}
+        <div className="flex absolute bottom-3 -translate-y-1/2 left-1/2 -translate-x-1/2 items-center justify-center gap-4">
+          <CircleArrowLeft
+            size={24}
+            className="hover:scale-[115%] transition-transform duration-150"
+            onClick={() =>
+              setCurrentDisplay(
+                (prev) => (prev - 1 + displays.length) % displays.length
+              )
+            }
+          />
+          <div className="b-[145px]  flex gap-3">
+            {displays.map((_, i) => (
+              <div
+                className={
+                  "rounded-full w-2 h-2 " +
+                  (i == currentDisplay ? "bg-blue-400" : "bg-blue-200")
+                }
+              ></div>
+            ))}
+          </div>
+          <CircleArrowRight
+            size={24}
+            className="hover:scale-[115%] transition-transform duration-150"
+            onClick={() =>
+              setCurrentDisplay((prev) => (prev + 1) % displays.length)
+            }
+          />
         </div>
+
         <div className="font-[Passion_One] text-blue-950 text-3xl absolute bottom-0 translate-y-1/2 left-0 whitespace-nowrap overflow-hidden w-full">
           {Array.from({ length: 4 }).map((_, index) => (
             <div
