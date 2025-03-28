@@ -1,6 +1,7 @@
 import type { Route } from "./+types/home";
 import { useState } from "react";
 import Navbar from "../../src/components/Navbar"
+import Footer from "src/components/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -35,8 +36,8 @@ export default function Home() {
 
   return (
     <>
+      <Navbar />
       <div className="w-screen lg:px-[145px] px-[45px] py-10">
-        <Navbar />
         <section className="relative h-[700px] w-screen mt-[-80px] lg:ml-[-145px] ml-[-45px] overflow-x-clip">
           {displays[currentDisplay].image && <img className="w-full object-center object-cover h-full absolute" src={displays[currentDisplay].image} />}
           <div className="bg-black opacity-85 w-full h-full absolute"></div>
@@ -51,6 +52,7 @@ export default function Home() {
           <div className="font-[Passion_One] text-blue-950 text-lg absolute bottom-0 translate-y-1/2 -translate-x-1/2 left-1/2">MECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVES</div>
         </section>
       </div>
+      <Footer />
     </>
   );
 }

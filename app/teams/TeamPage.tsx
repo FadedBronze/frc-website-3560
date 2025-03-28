@@ -26,7 +26,7 @@ export function TeamPage({
   return (
     <>
       <Navbar />
-      <main className="flex flex-col justify-center pt-16 pb-4 font-[Inter] px-36 gap-28">
+      <main className="flex flex-col justify-center pt-16 pb-4 font-[Inter] px-36 gap-28 mt-10">
         <div className="flex flex-row gap-8">
           <div className="flex flex-col gap-4">
             <Bar color="#5398FF" width="dk" custom="w-20" />

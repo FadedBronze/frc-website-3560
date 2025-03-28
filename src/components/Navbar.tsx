@@ -26,18 +26,18 @@ function NavDropdown(props) {
 
 export default function Navbar() {
   return (
-    <div className="flex gap-4 justify-end w-full z-10 relative sticky">
+    <div className="flex gap-4 justify-end w-full z-10 relative sticky lg:px-[145px] px-[45px] pt-10 -mb-10">
       {
         [{
           name: "SUBTEAMS",
           link: "dropdown",
           options: [
-            { name: "Mechanical", link: "https://" },
-            { name: "CAD", link: "https://" },
-            { name: "Programming", link: "https://" },
-            { name: "Electrical", link: "https://" },
-            { name: "Buisiness", link: "https://" },
-            { name: "Graphic Design", link: "https://" },
+            { name: "Mechanical", link: "/mechanical" },
+            { name: "CAD", link: "/cad" },
+            { name: "Programming", link: "/programming" },
+            { name: "Electrical", link: "/electrical" },
+            { name: "Buisiness", link: "/business" },
+            { name: "Graphic Design", link: "/graphicdesign" },
           ]
         },{
           name: "REGISTRATION",
@@ -50,7 +50,7 @@ export default function Navbar() {
           link: "https://"
         },{
           name: "HOME",
-          link: "https://"
+          link: "/"
         },{
           name: "ABOUT US",
           link: "https://"
