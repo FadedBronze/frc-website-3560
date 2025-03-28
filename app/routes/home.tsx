@@ -114,7 +114,29 @@ export default function Home() {
               {Array.from({ length: 4 }).map((_, i) => (
                 <span
                   key={i}
-                  className="hover:text-blue-700 transition-colors duration-300 relative"
+                  className="hover:text-blue-800 transition-colors duration-300 relative marquee-item"
+                  onMouseOver={(e) => {
+                    const allSpans = document.querySelectorAll(".marquee-item");
+                    const currentIndex = Array.from(allSpans).indexOf(
+                      e.currentTarget
+                    );
+                    const before = allSpans[currentIndex - 1] as HTMLElement;
+                    const after = allSpans[currentIndex + 1] as HTMLElement;
+
+                    if (before) before.style.color = "#1c398e";
+                    if (after) after.style.color = "#1c398e";
+                  }}
+                  onMouseLeave={(e) => {
+                    const allSpans = document.querySelectorAll(".marquee-item");
+                    const currentIndex = Array.from(allSpans).indexOf(
+                      e.currentTarget
+                    );
+                    const before = allSpans[currentIndex - 1] as HTMLElement;
+                    const after = allSpans[currentIndex + 1] as HTMLElement;
+
+                    if (before) before.style.color = "";
+                    if (after) after.style.color = "";
+                  }}
                 >
                   MECHAWOLVES
                 </span>
