@@ -1,13 +1,29 @@
-import { Mails, Phone } from "lucide-react";
+import { Mails, Phone, Twitter, Youtube, Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="flex h-[500px] bg-[#5398FF] mt-48 text-[#00041A] px-36 items-center justify-between overflow-hidden">
+    <footer className="flex relative h-[500px] bg-[#5398FF] mt-48 text-[#00041A] px-36 items-center justify-between overflow-hidden">
       {/* <Bar
           color="#00041A"
           custom="rotate-90 w-[450px] translate-y-[70px] h-[5px]"
           width="dsads"
         /> */}
+      <div className="absolute top-0 left-18 -translate-x-1/2 h-full">
+        <div className="flex gap-3 absolute left-1/2 top-1/2 -translate-1/2 flex-col z-10">
+          {[
+            { link: "mailto:3560frc@gmail.com", icon: Mails },
+            { link: "tel:+19057912400", icon: Phone },
+            { link: "https://x.com/Team3560", icon: Twitter },
+            { link: "https://www.youtube.com/@chinguacousyrobotics7775", icon: Youtube },
+            { link: "https://www.instagram.com/3560frc/", icon: Instagram }
+          ].map((social) => (
+            <a target="_blanc" className="rounded-full bg-[#00041A] p-3" href={social.link}>
+              <social.icon color="white" />
+            </a>
+          ))}
+        </div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-1 bg-[#00041A]"></div>
+      </div>
       <div className="flex flex-col gap-12">
         <h1 className="uppercase font-[Passion_One] text-4xl">Team 3560</h1>
         <div className="flex gap-20">
@@ -17,7 +33,7 @@ export default function Footer() {
             </h1>
             <ul className="font-semibold">
               <li>
-                <a href="/home">Home</a>
+                <a href="/">Home</a>
               </li>
               <li>
                 <a href="/about-us">About Us</a>

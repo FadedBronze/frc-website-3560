@@ -5,8 +5,8 @@ import { TeamPage } from "./TeamPage";
 export function CAD() {
   return (
     <TeamPage
-      teamName="CAD"
-      teamDescription="The CAD (Computer-Aided Design) team is responsible for creating detailed 3D models of the robot before any physical building begins. Using advanced design software, they craft precise digital blueprints that outline every component and system of the robot. This planning phase is essential to ensuring the robot’s structure is sound and meets the functional requirements set by the competition."
+      teamName="Computer Aided Design"
+      teamDescription="The CAD team is responsible for creating detailed 3D models of the robot before any physical building begins. Using advanced design software, they craft precise digital blueprints that outline every component and system of the robot. This planning phase is essential to ensuring the robot’s structure is sound and meets the functional requirements set by the competition."
       teamList={[
         "Simulating how different parts will fit together",
         "Identifying potential design issues",
