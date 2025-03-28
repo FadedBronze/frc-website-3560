@@ -1,6 +1,8 @@
+import { Menu } from "lucide-react";
 import DropdownArrow from "/DropdownArrow.svg";
 import DropdownArrowUnfilled from "/DropdownArrowUnfilled.svg";
 import { useState, type JSX } from "react";
+import windowSizeContext from "src/contexts/windowSizeContext"
 
 interface NavDropdownProps {
   name: string;
@@ -43,9 +45,11 @@ function NavDropdown(props: NavDropdownProps): JSX.Element {
 }
 
 export default function Navbar() {
+  const { width, height } = windowSizeContext();
+
   return (
     <div className="flex gap-4 justify-end w-full z-10 sticky lg:px-[145px] px-[45px] pt-10 -mb-10 text-lg">
-      {[
+      {width > 816 ? [
         {
           name: "HOME",
           link: "/",
@@ -89,7 +93,7 @@ export default function Navbar() {
             {link.name}
           </a>
         )
-      )}
+      ) : <Menu/>}
     </div>
   );
 }

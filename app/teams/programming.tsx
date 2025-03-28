@@ -1,5 +1,6 @@
 import aaryan from "./assets/team/aaryan.png";
 import jahvon from "./assets/team/jahvon.jpg";
+import samyat from "./assets/team/samyat.jpg";
 import { TeamPage } from "./TeamPage";
 
 export function Programming() {
@@ -37,10 +38,7 @@ export function Programming() {
       members={[
         { pName: "Aaryan Banerjee", src: aaryan },
         { pName: "Jahvon Cockburn", src: jahvon },
-        {
-          pName: "Samyat Gautam",
-          src: "https://picsum.photos/200/300?grayscale",
-        },
+        { pName: "Samyat Gautam", src: samyat, },
       ]}
     />
   );

@@ -27,13 +27,10 @@ function ResponsiveIframe(props: any) {
   const divRef = useRef<HTMLDivElement>(null);
   const { width, height } = windowSizeContext();
   const [divWidth, setDivWidth] = useState(480);
-  const [divHeight, setDivHeight] = useState(360);
   
   const setWidth = () => {
     if (divRef.current == null) return;
     setDivWidth(divRef.current.clientWidth);
-    setDivHeight(divRef.current.clientHeight);
-    console.log(divWidth, divHeight);
   };
 
   useEffect(setWidth, []);
@@ -42,7 +39,7 @@ function ResponsiveIframe(props: any) {
 
   return (
     <div ref={divRef} {...props}>
-      <iframe width={divWidth} height={divHeight} src={props.src}></iframe>
+      <iframe width={divWidth} height={divWidth * 1080/1920} src={props.src}></iframe>
     </div>
   )
 }
@@ -77,9 +74,9 @@ export default function Home() {
         <div className="font-[Passion_One] text-blue-950 text-3xl absolute bottom-0 translate-y-1/2 -translate-x-1/2 left-1/2">MECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVESMECHAWOLVES</div>
       </section>
       <div className="w-full lg:px-[145px] px-[45px] py-10">
-        <section className="flex gap-4 py-30">
-          <ResponsiveIframe style={{width: "50%"}} src="https://www.youtube.com/embed/dQw4w9WgXcQ" />
-          <article style={{width: "50%"}}>
+        <section className="flex gap-4 py-30 grid grid-cols-1 md:grid-cols-2">
+          <ResponsiveIframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" />
+          <article>
             <h2 className="font-[Passion_One] text-3xl mb-3">WELCOME TO 3560</h2>
             <p>At 3560 FRC Robotics, we are a passionate team of students and mentors dedicated to designing, building, and programming robots for competition. Our mission is to foster innovation, teamwork, and problem-solving skills while preparing the next generation of STEM leaders. Through hands-on experience and collaboration, we aim to inspire a love for technology and make a positive impact on our community.</p>
           </article>
