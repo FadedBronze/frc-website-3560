@@ -3,8 +3,8 @@ import { Programming } from "~/programming/programming";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Teams ~ Programming" },
+    { name: "3560", content: "FRC Team 3560's Programming Team" },
   ];
 }
 
