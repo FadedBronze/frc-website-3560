@@ -22,8 +22,6 @@ export default function Footer() {
       const mouseOffsetX = e.clientX - wolfX;
       const mouseOffsetY = Math.min(e.clientY - wolfY, -15);
 
-      console.log(mouseOffsetY)
-
       const angle = Math.atan2(mouseOffsetY, mouseOffsetX) * sensitivity * (360 / Math.PI);
 
       mechawolf.style.transform = `translateY(50%) translateY(80px) translateX(80px) rotate(${angle + 360 * sensitivity}deg)`;
@@ -37,7 +35,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="py-10 flex relative sm:h-[500px] bg-[#5398FF] mt-48 text-[#00041A] px-10 lg:px-36 items-center justify-between overflow-hidden">
+    <footer className="py-10 flex relative sm:h-[500px] bg-[#5398FF] mt-48 text-[#00041A] lg:px-8 max-sm:ml-0 max-lg:-ml-18 px-0 items-center justify-left overflow-hidden">
       {width > 1024 && (
         <div className="absolute top-0 left-18 -translate-x-1/2 h-full">
           <div className="flex gap-3 absolute left-1/2 top-1/2 -translate-1/2 flex-col z-10">
@@ -45,10 +43,7 @@ export default function Footer() {
               { link: "mailto:3560frc@gmail.com", icon: Mails },
               { link: "tel:+19057912400", icon: Phone },
               { link: "https://x.com/Team3560", icon: Twitter },
-              {
-                link: "https://www.youtube.com/@chinguacousyrobotics7775",
-                icon: Youtube,
-              },
+              { link: "https://www.youtube.com/@chinguacousyrobotics7775", icon: Youtube, },
               { link: "https://www.instagram.com/3560frc/", icon: Instagram },
             ].map((social) => (
               <a

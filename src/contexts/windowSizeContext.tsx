@@ -4,13 +4,13 @@ const windowSizeContext = createContext<{
   width: number,
   height: number,
 }>({
-  width: 1440,
-  height: 1080,
+  width: 0,
+  height: 0,
 });
 
 export function WindowSizeContextProvider(props: { children: ReactElement }) {
-  const [width, setWidth] = useState(1440);
-  const [height, setHeight] = useState(1080);
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
 
   useEffect(() => {
     window.addEventListener("resize", () => {
