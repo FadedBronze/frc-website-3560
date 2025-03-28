@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Mails, Phone, Twitter, Youtube, Instagram } from "lucide-react";
 import windowSizeContext from "src/contexts/windowSizeContext";
 import Logo from "public/Logo.svg";
@@ -5,13 +6,34 @@ import Logo from "public/Logo.svg";
 export default function Footer() {
   const { width } = windowSizeContext();
 
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const mechawolf = document.querySelector(".mechawolf") as HTMLElement;
+      const rect = mechawolf.getBoundingClientRect();
+
+      // idk if this is right but I experimented it seems good
+      const offsetX = rect.width * 0.3;
+      const offsetY = 0;
+
+      const wolfX = rect.left + rect.width / 2 + offsetX;
+      const wolfY = rect.top + rect.height / 2 + offsetY;
+      const mouseOffsetX = e.clientX - wolfX;
+      const mouseOffsetY = e.clientY - wolfY;
+
+      const angle = Math.atan2(mouseOffsetY, mouseOffsetX) * (360 / Math.PI);
+
+      mechawolf.style.transform = `rotate(${angle}deg)`;
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   return (
     <footer className="py-10 flex relative sm:h-[500px] bg-[#5398FF] mt-48 text-[#00041A] px-10 lg:px-36 items-center justify-between overflow-hidden">
-      {/* <Bar
-          color="#00041A"
-          custom="rotate-90 w-[450px] translate-y-[70px] h-[5px]"
-          width="dsads"
-        /> */}
       {width > 1024 && (
         <div className="absolute top-0 left-18 -translate-x-1/2 h-full">
           <div className="flex gap-3 absolute left-1/2 top-1/2 -translate-1/2 flex-col z-10">
@@ -26,8 +48,9 @@ export default function Footer() {
               { link: "https://www.instagram.com/3560frc/", icon: Instagram },
             ].map((social) => (
               <a
-                target="_blanc"
-                className="rounded-full bg-[#00041A] p-3 hover:scale-[110%]"
+                key={social.link}
+                target="_blank"
+                className="rounded-full bg-[#00041A] p-3 hover:scale-[110%] transition-transform duration-200"
                 href={social.link}
               >
                 <social.icon color="white" />
@@ -40,8 +63,8 @@ export default function Footer() {
       <div className="flex flex-col gap-12 translate-x-1/5">
         <h1 className="uppercase font-[Passion_One] text-4xl">Team 3560</h1>
         <div className="flex sm:flex-row flex-col gap-10 sm:gap-20">
-          <div className="flex max-xl:flex-col gap-4">
-            <h1 className="uppercase font-[Passion_One] text-3xl xl:text-right">
+          <div className="flex flex-col max-xl:flex-col gap-4">
+            <h1 className="uppercase font-[Passion_One] text-3xl">
               Main Pages
             </h1>
             <ul className="font-semibold">
@@ -65,10 +88,8 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="flex max-xl:flex-col gap-4">
-            <h1 className="uppercase font-[Passion_One] text-3xl xl:text-right">
-              Divisions
-            </h1>
+          <div className="flex flex-col max-xl:flex-col gap-4">
+            <h1 className="uppercase font-[Passion_One] text-3xl">Divisions</h1>
             <ul className="font-semibold">
               <li>
                 <a href="/cad">CAD</a>
@@ -87,8 +108,8 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="flex max-xl:flex-col gap-4">
-            <h1 className="uppercase font-[Passion_One] text-3xl xl:text-right">
+          <div className="flex flex-col max-xl:flex-col gap-4">
+            <h1 className="uppercase font-[Passion_One] text-3xl">
               Contact info
             </h1>
             <ul className="font-semibold">
@@ -111,7 +132,7 @@ export default function Footer() {
       </div>
       {width > 900 && (
         <img
-          className="absolute bottom-1/2 translate-y-2/3 translate-x-1/5 right-0 animate-[breathe_7s_ease-in-out_infinite]"
+          className="absolute bottom-1/2 translate-y-2/3 translate-x-1/5 right-0 mechawolf"
           src={Logo}
         />
       )}
