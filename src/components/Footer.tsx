@@ -54,9 +54,6 @@ export default function Footer() {
                 <a href="/programming">Programming</a>
               </li>
               <li>
-                <a href="/graphic-design">Graphic Design</a>
-              </li>
-              <li>
                 <a href="/business">Business</a>
               </li>
             </ul>
