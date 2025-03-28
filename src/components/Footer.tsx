@@ -14,17 +14,24 @@ export default function Footer() {
             { link: "mailto:3560frc@gmail.com", icon: Mails },
             { link: "tel:+19057912400", icon: Phone },
             { link: "https://x.com/Team3560", icon: Twitter },
-            { link: "https://www.youtube.com/@chinguacousyrobotics7775", icon: Youtube },
-            { link: "https://www.instagram.com/3560frc/", icon: Instagram }
+            {
+              link: "https://www.youtube.com/@chinguacousyrobotics7775",
+              icon: Youtube,
+            },
+            { link: "https://www.instagram.com/3560frc/", icon: Instagram },
           ].map((social) => (
-            <a target="_blanc" className="rounded-full bg-[#00041A] p-3" href={social.link}>
+            <a
+              target="_blanc"
+              className="rounded-full bg-[#00041A] p-3"
+              href={social.link}
+            >
               <social.icon color="white" />
             </a>
           ))}
         </div>
         <div className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-1 bg-[#00041A]"></div>
       </div>
-      <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-12 translate-x-1/5">
         <h1 className="uppercase font-[Passion_One] text-4xl">Team 3560</h1>
         <div className="flex gap-20">
           <div className="flex flex-col gap-4">
