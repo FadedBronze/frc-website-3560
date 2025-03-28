@@ -106,7 +106,7 @@ export default function Home() {
         <div className="px-[45px] lg:px-[145px] h-full flex items-center">
           <MainText />
         </div>
-        <div className="flex absolute bottom-3 -translate-y-1/2 left-1/2 -translate-x-1/2 items-center justify-center gap-4">
+        <div className="flex absolute bottom-6 -translate-y-1/2 left-1/2 -translate-x-1/2 items-center justify-center gap-4">
           <CircleArrowLeft
             size={24}
             className="hover:scale-[115%] transition-transform duration-150"
