@@ -51,8 +51,6 @@ function ResponsiveIframe(props: any) {
   const setWidth = () => {
     if (divRef.current == null) return;
     setDivWidth(divRef.current.clientWidth);
-    setDivHeight(divRef.current.clientHeight);
-    console.log(divWidth, divHeight);
   };
 
   useEffect(setWidth, []);
@@ -61,7 +59,11 @@ function ResponsiveIframe(props: any) {
 
   return (
     <div ref={divRef} {...props}>
-      <iframe width={divWidth} height={divHeight} src={props.src}></iframe>
+      <iframe
+        width={divWidth}
+        height={(divWidth * 1080) / 1920}
+        src={props.src}
+      ></iframe>
     </div>
   );
 }
@@ -122,12 +124,9 @@ export default function Home() {
         </div>
       </section>
       <div className="w-full lg:px-[145px] px-[45px] py-10">
-        <section className="flex gap-8 py-30">
-          <ResponsiveIframe
-            style={{ width: "50%" }}
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-          />
-          <article style={{ width: "50%" }}>
+        <section className="gap-8 py-30 grid grid-cols-1 md:grid-cols-2">
+          <ResponsiveIframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" />
+          <article>
             <h2 className="font-[Passion_One] text-3xl mb-3">
               WELCOME TO 3560
             </h2>
@@ -157,7 +156,7 @@ export default function Home() {
               team’s success.
             </p>
           </article>
-          <div className="grid grid-cols-3 gap-16 pt-10 -mb-16">
+          <div className="grid lg:grid-cols-3 sm:grid-cols-2 max:sm:grid-cols-1 gap-16 pt-10 -mb-16">
             {[
               {
                 name: "PROGRAMMING",
