@@ -6,7 +6,7 @@ export default function Footer() {
   const { width } = windowSizeContext();
 
   return (
-    <footer className="flex relative sm:h-[500px] bg-[#5398FF] mt-48 text-[#00041A] px-10 lg:px-36 items-center justify-between overflow-hidden">
+    <footer className="py-10 flex relative sm:h-[500px] bg-[#5398FF] mt-48 text-[#00041A] px-10 lg:px-36 items-center justify-between overflow-hidden">
       {/* <Bar
           color="#00041A"
           custom="rotate-90 w-[450px] translate-y-[70px] h-[5px]"
