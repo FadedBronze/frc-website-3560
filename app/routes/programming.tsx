@@ -1,5 +1,5 @@
 import type { Route } from "./+types/programming";
-import { Programming } from "~/programming/programming";
+import { Programming } from "~/teams/programming";
 
 export function meta({}: Route.MetaArgs) {
   return [
