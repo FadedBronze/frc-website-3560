@@ -77,19 +77,28 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <h1 className="uppercase font-[Passion_One] text-3xl">Contact</h1>
             <ul className="font-semibold">
-              <li className="flex gap-2 justify-center">
-                <Mails color="#00041A" size={20} />
-                <a href="mailto:3560frc@gmail.com">3560frc@gmail.com</a>
+              <li>
+                <a
+                  href="mailto:3560frc@gmail.com"
+                  className="flex gap-2 items-center"
+                >
+                  <Mails color="#00041A" size={20} />
+                  3560frc@gmail.com
+                </a>
               </li>
-              <li className="flex gap-2 ustify-center">
-                <Phone color="#00041A" size={20} />
-                <a href="tel:+19057912400">+1 905-791-2400</a>
+              <li>
+                <a href="tel:+19057912400" className="flex gap-2 items-center">
+                  <Phone color="#00041A" size={20} />
+                  +1 905-791-2400
+                </a>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <div className="w-[800px] h-[800px] aspect-square rounded-full bg-[#94BBF6] translate-x-[250px] translate-y-[250px]"></div>
+      <div className="translate-x-[250px] translate-y-[250px]">
+        <div className="rounded-full bg-[#94bbf6] min-w-[800px] min-h-[800px] aspect-square animate-[breathe_7s_ease-in-out_infinite]"></div>
+      </div>
     </footer>
   );
 }

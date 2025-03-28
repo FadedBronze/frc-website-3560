@@ -105,7 +105,7 @@ function Bar({
 
 function Box({ title, body }: { title: string; body: string }) {
   return (
-    <div className="bg-[#5398FF] min-h-40 h-auto flex-grow text-[#00041A] rounded-lg p-7 justify-center gap-1 flex flex-col">
+    <div className="bg-[#5398FF] min-h-40 h-auto flex-grow text-[#00041A] rounded-lg p-7 justify-center gap-1 flex flex-col hover:-translate-y-1 transition-all duration-300">
       <h1 className="uppercase text-2xl font-[Passion_One]">{title}</h1>
       <p>{body}</p>
     </div>
