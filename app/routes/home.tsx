@@ -89,7 +89,7 @@ export default function Home() {
             <h2 className="font-[Passion_One] text-3xl mb-3">SUBDIVISIONS</h2>
             <p>The 3560 FRC Robotics team is divided into specialized subteams that work together to bring the robot to life. The Mechanical team handles the design and assembly of the robot’s structure, while the Programming team writes the code for its functions. The Electrical team manages wiring and power systems, and the CAD team creates 3D models to plan the robot’s design. The Graphic team focuses on branding and visual content, and the Business team oversees fundraising, sponsorships, and outreach to ensure the team’s success.</p>
           </article>
-          <div className="grid grid-cols-3 gap-16 pt-10 -mb-16">
+          <div className="grid lg:grid-cols-3 sm:grid-cols-2 max:sm:grid-cols-1 gap-16 pt-10 -mb-16">
             {[
               { 
                 name: "PROGRAMMING",
