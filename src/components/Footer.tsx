@@ -3,11 +3,6 @@ import { Mails, Phone, Twitter, Youtube, Instagram } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="flex relative h-[500px] bg-[#5398FF] mt-48 text-[#00041A] px-36 items-center justify-between overflow-hidden">
-      {/* <Bar
-          color="#00041A"
-          custom="rotate-90 w-[450px] translate-y-[70px] h-[5px]"
-          width="dsads"
-        /> */}
       <div className="absolute top-0 left-18 -translate-x-1/2 h-full">
         <div className="flex gap-3 absolute left-1/2 top-1/2 -translate-1/2 flex-col z-10">
           {[
@@ -22,7 +17,7 @@ export default function Footer() {
           ].map((social) => (
             <a
               target="_blanc"
-              className="rounded-full bg-[#00041A] p-3"
+              className="rounded-full bg-[#00041A] p-3 hover:scale-[110%] transition-transform duration-200"
               href={social.link}
             >
               <social.icon color="white" />

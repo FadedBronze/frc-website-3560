@@ -1,5 +1,5 @@
 import type { Route } from "./+types/cad";
-import { CAD } from "~/teams/cad";
+import { CAD } from "~/routes/teams/cad";
 
 export function meta({}: Route.MetaArgs) {
   return [

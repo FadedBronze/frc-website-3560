@@ -1,5 +1,5 @@
 import type { Route } from "./+types/business";
-import { Business } from "~/teams/business";
+import { Business } from "~/routes/teams/business";
 
 export function meta({}: Route.MetaArgs) {
   return [

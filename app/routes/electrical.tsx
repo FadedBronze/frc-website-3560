@@ -1,5 +1,5 @@
 import type { Route } from "./+types/electrical";
-import { Electrical } from "~/teams/electrical";
+import { Electrical } from "~/routes/teams/electrical";
 
 export function meta({}: Route.MetaArgs) {
   return [
