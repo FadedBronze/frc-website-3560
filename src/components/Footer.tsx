@@ -11,10 +11,8 @@ export default function Footer() {
       const mechawolf = document.querySelector(".mechawolf") as HTMLElement;
       const rect = mechawolf.getBoundingClientRect();
 
-      // idk if this is right but I experimented it seems good
       const offsetX = rect.width * 0.3;
       const offsetY = 0;
-
       const wolfX = rect.left + rect.width / 2 + offsetX;
       const wolfY = rect.top + rect.height / 2 + offsetY;
       const mouseOffsetX = e.clientX - wolfX;
