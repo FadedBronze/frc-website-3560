@@ -4,11 +4,13 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --color-wolf-blue: #5398ff;
+  --color-wolf-black: #00041a;
 }
 
 html,
 body {
-  @apply bg-[#00041A] dark:bg-[#00041A];
+  @apply bg-wolf-black dark:bg-wolf-black;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;

@@ -30,7 +30,7 @@ function NavDropdown(props: NavDropdownProps): JSX.Element {
         />
       </span>
       {props.open && (
-        <div className="absolute bg-black/70 backdrop-blur py-2 rounded -translate-x-1/2 gap-3 left-1/2 flex flex-col">
+        <div className="absolute bg-wolf-black/70 backdrop-blur py-2 rounded -translate-x-1/2 gap-3 left-1/2 flex flex-col">
           {options.map((option) => (
             <a
               key={option.name}
@@ -62,9 +62,9 @@ const links = [
     name: "Info",
     break: true,
     options: [
-      { name: "Home", link: "/", }, 
-      { name: "About us", link: "https://", },
-      { name: "FAQ", link: "https://", },
+      { name: "Home", link: "/" },
+      { name: "About us", link: "https://" },
+      { name: "FAQ", link: "https://" },
     ],
   },
   {
@@ -77,7 +77,7 @@ const links = [
         onClick: () => {
           const blurDiv = document.createElement("div");
           blurDiv.className =
-            "fixed top-0 left-0 w-full h-full bg-black/50 backdrop-blur-sm z-[9999]";
+            "fixed top-0 left-0 w-full h-full bg-wolf-black/50 backdrop-blur-sm z-[9999]";
 
           const modal = document.createElement("div");
           modal.className =
@@ -91,7 +91,7 @@ const links = [
           closeButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon"><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>`;
           closeButton.className =
             "fixed top-2.5 right-2.5 text-white rounded p-1 cursor-pointer scale-[200%]";
-            
+
           blurDiv.addEventListener("click", () => {
             document.body.removeChild(modal);
             document.body.removeChild(blurDiv);
@@ -142,8 +142,12 @@ export default function Navbar() {
                 ) : (
                   <a
                     key={link.name}
-                    href={link.link}
-                    className="font-[Passion_One]"
+                    href={
+                      link.link === window.location.pathname
+                        ? undefined
+                        : link.link
+                    }
+                    className="font-[Passion_One] cursor-pointer"
                   >
                     {link.name.toUpperCase()}
                   </a>
@@ -156,31 +160,30 @@ export default function Navbar() {
         <button className="">
           <>
             {menuOpen ? (
-              <X className="relative z-10" onClick={() => setMenuOpen(false)} />
+              <X className="fixed z-10" onClick={() => setMenuOpen(false)} />
             ) : (
-              <Menu
-                className="relative z-10"
-                onClick={() => setMenuOpen(true)}
-              />
+              <Menu className="fixed z-10" onClick={() => setMenuOpen(true)} />
             )}
           </>
+          {menuOpen && (
+            <div className="w-screen h-screen fixed bg-wolf-black/20 backdrop-blur-sm left-0 top-0"></div>
+          )}
+
           <nav
-            style={{
-              transform: menuOpen ? "translateX(0%)" : "translateX(100%)",
-              transition: "transform 400ms cubic-bezier(0.4, 0.0, 0.2, 1)",
-            }}
-            className="absolute top-0 left-0 w-full bg-blue-400 h-fit text-left font-[Passion_One] rounded p-10 text-white"
+            className={`${
+              menuOpen ? "translate-x-0" : "translate-x-full"
+            } fixed top-0 right-0 w-4/5 bg-wolf-blue h-screen text-left font-[Passion_One] rounded p-10 text-wolf-black ransition-transform duration-300 ease-[cubic-bezier(0.4,0.0,0.2,1)] flex flex-col gap-5`}
           >
             {links.map((link) => (
-              <div key={link.name} className="[&:not(:last-child)]:mb-4">
-                <h3 className="text-3xl">{link.name}</h3>
+              <div key={link.name}>
+                <h3 className="text-3xl uppercase">{link.name}</h3>
                 <div>
                   {link.options.map((link) =>
                     link.onClick ? (
                       <span
                         key={link.name}
                         onClick={link.onClick}
-                        className="transition-transform duration-100 hover:scale-[1.1] origin-left text-xl block font-[Inter] cursor-pointer"
+                        className="transition-transform duration-100 hover:scale-[1.1] origin-left text-lg block font-[Inter] cursor-pointer"
                       >
                         {link.name}
                       </span>
@@ -188,7 +191,7 @@ export default function Navbar() {
                       <a
                         href={link.link}
                         key={link.name}
-                        className="transition-transform duration-100 hover:scale-[1.1] origin-left text-xl block font-[Inter]"
+                        className="transition-transform duration-100 hover:scale-[1.1] origin-left text-lg block font-[Inter]"
                       >
                         {link.name}
                       </a>

@@ -45,7 +45,7 @@ function MainText() {
         onClick={() => {
           document.querySelector("#contact")?.scrollIntoView();
         }}
-        className="rounded-sm px-4 py-2 border-1 border-white text-xl font-[Passion_One] hover:text-[#00041A] hover:bg-white transition-colors duration-200 cursor-pointer"
+        className="rounded-sm px-4 py-2 border-1 border-white text-xl font-[Passion_One] hover:text-wolf-black hover:bg-white transition-colors duration-200 cursor-pointer"
       >
         Contact Us
       </button>
@@ -146,7 +146,7 @@ export default function Home() {
             src={display.image}
           />
         ))}
-        <div className="bg-black opacity-85 w-full h-full absolute"></div>
+        <div className="bg-wolf-black opacity-85 w-full h-full absolute"></div>
         <div className="px-[45px] lg:px-[145px] h-full flex items-center">
           <MainText />
         </div>
@@ -165,7 +165,7 @@ export default function Home() {
               <div
                 className={
                   "rounded-full w-2 h-2 " +
-                  (i == currentDisplay ? "bg-blue-400" : "bg-blue-200")
+                  (i == currentDisplay ? "bg-wolf-blue" : "bg-blue-200")
                 }
               ></div>
             ))}
@@ -294,7 +294,7 @@ export default function Home() {
                     onClick={() => {
                       window.location.href = `/${subteam.name.toLowerCase()}`;
                     }}
-                    className="rounded-sm px-4 py-3 bg-blue-400 font-[Passion_One] text-[#00041A] hover:bg-blue-500 hover:-translate-y-1 transition-all duration-300 cursor-pointer text-xl"
+                    className="rounded-sm px-4 py-3 bg-wolf-blue font-[Passion_One] text-wolf-black hover:bg-blue-500 hover:-translate-y-1 transition-all duration-300 cursor-pointer text-xl"
                   >
                     Learn More
                   </button>

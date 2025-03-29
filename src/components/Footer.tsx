@@ -41,7 +41,7 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="py-10 flex relative sm:h-[500px] bg-[#5398FF] mt-24 md:mt-48 text-[#00041A] lg:px-8 max-sm:ml-0 max-lg:-ml-18 px-0 items-center justify-left overflow-hidden"
+      className="py-10 flex relative sm:h-[500px] bg-wolf-blue mt-24 md:mt-48 text-wolf-black lg:px-8 max-sm:ml-0 max-lg:-ml-18 px-0 items-center justify-left overflow-hidden"
     >
       {width > 1024 && (
         <div className="absolute top-0 left-18 -translate-x-1/2 h-full">
@@ -59,14 +59,14 @@ export default function Footer() {
               <a
                 key={social.link}
                 target="_blank"
-                className="rounded-full bg-[#00041A] p-3 hover:scale-[110%] transition-transform duration-200"
+                className="rounded-full bg-wolf-black p-3 hover:scale-[110%] transition-transform duration-200"
                 href={social.link}
               >
                 <social.icon color="white" />
               </a>
             ))}
           </div>
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-1 bg-[#00041A]"></div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-1 bg-wolf-black"></div>
         </div>
       )}
       <div className="flex flex-col gap-12 translate-x-1/3">
