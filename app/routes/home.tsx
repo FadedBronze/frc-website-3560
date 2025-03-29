@@ -92,6 +92,41 @@ export default function Home() {
     return () => clearInterval(int);
   });
 
+  const [position, setPosition] = useState(0);
+  const [velocity, setVelocity] = useState(0);
+
+  useEffect(() => {
+    let lastTime = performance.now();
+    let lastScrollY = window.scrollY;
+    let timeout = setTimeout(() => setVelocity(0), 100);
+
+    const handleScroll = () => {
+     const now = performance.now();
+      const deltaTime = now - lastTime;
+      clearTimeout(timeout);
+
+      if (deltaTime > 0) {
+        const scrollDistance = Math.abs(window.scrollY - lastScrollY);
+        const velocity = scrollDistance / deltaTime; // Scroll speed
+
+        // Adjust marquee speed dynamically
+        const newSpeed = Math.max(2, velocity * 10); // Faster scroll = lower duration
+        setPosition(newSpeed + window.scrollY);
+        setVelocity(newSpeed);
+      }
+
+      timeout = setTimeout(() => setVelocity(0), 100);
+      lastScrollY = window.scrollY;
+      lastTime = now;
+      console.log(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const cappedVel = Math.min(velocity/5, 1);
+
   return (
     <>
       <Navbar />
@@ -109,7 +144,7 @@ export default function Home() {
         <div className="flex absolute bottom-6 -translate-y-1/2 left-1/2 -translate-x-1/2 items-center justify-center gap-4">
           <CircleArrowLeft
             size={24}
-            className="hover:scale-[115%] transition-transform duration-150"
+            className="opacity-20 hover:scale-[115%] transition-transform duration-150"
             onClick={() =>
               setCurrentDisplay(
                 (prev) => (prev - 1 + displays.length) % displays.length
@@ -128,45 +163,31 @@ export default function Home() {
           </div>
           <CircleArrowRight
             size={24}
-            className="hover:scale-[115%] transition-transform duration-150"
+            className="opacity-20 hover:scale-[115%] transition-transform duration-150"
             onClick={() =>
               setCurrentDisplay((prev) => (prev + 1) % displays.length)
             }
           />
         </div>
 
-        <div className="font-[Passion_One] text-blue-950 text-3xl absolute bottom-0 translate-y-1/2 left-0 whitespace-nowrap overflow-hidden w-full">
+        <div style={{
+          color: `rgb(${cappedVel*255*0.3}, ${8+cappedVel*247*0.6}, ${34+cappedVel*221})`,
+          transition: 'color',
+          letterSpacing: "-2px",
+        }} className="font-[Passion_One] text-7xl absolute bottom-0 translate-y-[calc(100%-7px)] left-0 whitespace-nowrap overflow-hidden w-full">
           {Array.from({ length: 4 }).map((_, index) => (
             <div
               key={index}
-              className="whitespace-nowrap inline-block animate-[marquee_10s_linear_infinite]"
+              className="whitespace-nowrap inline-block"
+              style={{
+                transform: `translateX(-${position/2}px)`,
+                transition: `transform`,
+              }}
             >
               {Array.from({ length: 4 }).map((_, i) => (
                 <span
                   key={i}
-                  className="hover:text-blue-800 transition-colors duration-300 relative marquee-item"
-                  onMouseOver={(e) => {
-                    const allSpans = document.querySelectorAll(".marquee-item");
-                    const currentIndex = Array.from(allSpans).indexOf(
-                      e.currentTarget
-                    );
-                    const before = allSpans[currentIndex - 1] as HTMLElement;
-                    const after = allSpans[currentIndex + 1] as HTMLElement;
-
-                    if (before) before.style.color = "#1c398e";
-                    if (after) after.style.color = "#1c398e";
-                  }}
-                  onMouseLeave={(e) => {
-                    const allSpans = document.querySelectorAll(".marquee-item");
-                    const currentIndex = Array.from(allSpans).indexOf(
-                      e.currentTarget
-                    );
-                    const before = allSpans[currentIndex - 1] as HTMLElement;
-                    const after = allSpans[currentIndex + 1] as HTMLElement;
-
-                    if (before) before.style.color = "";
-                    if (after) after.style.color = "";
-                  }}
+                  className="transition-colors duration-500 relative marquee-item"
                 >
                   MECHAWOLVES
                 </span>
