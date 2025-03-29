@@ -26,7 +26,7 @@ function NavDropdown(props: NavDropdownProps): JSX.Element {
         {props.name.toUpperCase()}{" "}
         <img
           className="-mt-1 ml-1 w-4"
-          src={props.open ? DropdownArrow : DropdownArrowUnfilled}
+          src={props.open ? DropdownArrowUnfilled : DropdownArrow}
         />
       </span>
       {props.open && (
@@ -48,15 +48,6 @@ function NavDropdown(props: NavDropdownProps): JSX.Element {
 
 const links = [
   {
-    name: "Info",
-    break: true,
-    options: [
-      { name: "Home", link: "/", }, 
-      { name: "About us", link: "https://", },
-      { name: "FAQ", link: "https://", },
-    ],
-  },
-  {
     name: "Subdivisions",
     break: false,
     options: [
@@ -65,6 +56,15 @@ const links = [
       { name: "Programming", link: "/programming" },
       { name: "Electrical", link: "/electrical" },
       { name: "Buisiness", link: "/business" },
+    ],
+  },
+  {
+    name: "Info",
+    break: true,
+    options: [
+      { name: "Home", link: "/", }, 
+      { name: "About us", link: "https://", },
+      { name: "FAQ", link: "https://", },
     ],
   },
   {
