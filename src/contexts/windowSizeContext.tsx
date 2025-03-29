@@ -13,14 +13,14 @@ export function WindowSizeContextProvider(props: { children: ReactElement }) {
   const [height, setHeight] = useState(0);
 
   const resizeFn = () => {
-    console.log("hi");
     setWidth(window.innerWidth);
-    setHeight(window.innerWidth);
+    setHeight(window.innerHeight);
   };
 
   useEffect(() => {
     resizeFn();
     window.addEventListener("resize", resizeFn)
+    return () => window.removeEventListener("resize", resizeFn);
   }, []);
 
   return <windowSizeContext.Provider value={{ width, height }}>{props.children}</windowSizeContext.Provider>

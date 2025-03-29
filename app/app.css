@@ -15,6 +15,10 @@ body {
   }
 }
 
+body {
+  overflow-x: hidden;
+}
+
 @keyframes breathe {
   0% {
     transform: scale(1);

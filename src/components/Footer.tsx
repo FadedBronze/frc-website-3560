@@ -9,6 +9,9 @@ export default function Footer() {
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const mechawolf = document.querySelector(".mechawolf") as HTMLElement;
+
+      if (!mechawolf) return;
+
       const rect = mechawolf.getBoundingClientRect();
 
       const sensitivity = 0.02;
