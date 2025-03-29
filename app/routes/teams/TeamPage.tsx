@@ -1,8 +1,7 @@
 import Footer from "src/components/Footer";
 import computer from "./assets/computer.png";
-import aaryan from "./assets/team/aaryan.png";
-import jahvon from "./assets/team/jahvon.jpg";
 import Navbar from "src/components/Navbar";
+import windowSizeContext from "src/contexts/windowSizeContext";
 
 export function TeamPage({
   teamName,
@@ -23,11 +22,14 @@ export function TeamPage({
   cultureDescriptionTwo: string;
   members: { pName: string; src: string }[];
 }) {
+
+  const {width} = windowSizeContext();
+
   return (
     <>
       <Navbar />
-      <main className="flex flex-col justify-center pt-16 pb-4 font-[Inter] px-36 gap-28 mt-10">
-        <div className="flex flex-row gap-8">
+      <main className="flex flex-col justify-center pt-16 pb-4 font-[Inter] px-10 lg:px-36 gap-16 md:gap-28 mt-10">
+        <div className="flex max-xl:flex-col gap-8">
           <div className="flex flex-col gap-4">
             <Bar color="#5398FF" width="dk" custom="w-20" />
             <h1 className="uppercase text-4xl font-[Passion_One]">
@@ -48,13 +50,13 @@ export function TeamPage({
         </div>
         <div className="flex flex-col w-full gap-8">
           <div className="flex justify-between items-center w-full gap-12">
-            <Bar color="#D9D9D9" />
+            {width > 800 && <Bar color="#D9D9D9" />}
             <h1 className="uppercase text-3xl font-[Passion_One]">
               Tools, Concepts, and Technology
             </h1>
-            <Bar color="#D9D9D9" />
+            {width > 800 && <Bar color="#D9D9D9" />}
           </div>
-          <div className="flex flex-grow gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
             {tools.map((tool, index) => (
               <Box key={index} title={tool.title} body={tool.body} />
             ))}
@@ -74,7 +76,7 @@ export function TeamPage({
           <h1 className="uppercase text-4xl font-[Passion_One]">
             {teamName.charAt(0).toUpperCase() + teamName.slice(1)} Team
           </h1>
-          <div className="flex gap-8 w-full">
+          <div className="grid md:grid-cols-4 grid-cols-2 gap-8 w-full">
             {members.map((member, index) => (
               <TeamMember key={index} pName={member.pName} src={member.src} />
             ))}
@@ -105,7 +107,7 @@ function Bar({
 
 function Box({ title, body }: { title: string; body: string }) {
   return (
-    <div className="bg-[#5398FF] min-h-40 h-auto flex-grow text-[#00041A] rounded-lg p-7 justify-center gap-1 flex flex-col hover:-translate-y-1 transition-all duration-300">
+    <div className="bg-[#5398FF] min-h-32 md:min-h-40 h-auto flex-grow text-[#00041A] rounded-lg p-4 md:p-7 justify-center gap-1 flex flex-col hover:-translate-y-1 transition-all duration-300">
       <h1 className="uppercase text-2xl font-[Passion_One]">{title}</h1>
       <p>{body}</p>
     </div>
@@ -114,11 +116,11 @@ function Box({ title, body }: { title: string; body: string }) {
 
 function TeamMember({ pName, src }: { pName: string; src: string }) {
   return (
-    <div className="flex flex-col justify-center items-center gap-4 flex-grow max-w-64">
+    <div className="flex flex-col justify-center items-center gap-4 flex-grow">
       <img
         src={src}
         alt=""
-        className="h-80 rounded-lg object-center object-cover w-full"
+        className="h-full rounded-lg object-center object-cover w-full"
       />
       <p className="font-[Passion_One] text-xl">{pName}</p>
     </div>

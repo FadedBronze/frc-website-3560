@@ -119,7 +119,6 @@ export default function Home() {
       timeout = setTimeout(() => setVelocity(0), 100);
       lastScrollY = window.scrollY;
       lastTime = now;
-      console.log(window.scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -201,7 +200,7 @@ export default function Home() {
         </div>
       </section>
       <div className="w-full lg:px-[145px] px-[45px] py-10">
-        <section className="gap-8 py-30 grid grid-cols-1 md:grid-cols-2">
+        <section className="gap-8 py-16 md:py-30 grid grid-cols-1 md:grid-cols-2">
           <ResponsiveIframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" />
           <article>
             <h2 className="font-[Passion_One] text-3xl mb-3">
@@ -219,7 +218,7 @@ export default function Home() {
           </article>
         </section>
         <section>
-          <article className="mb-16">
+          <article className="mb-8 md:mb-16">
             <h2 className="font-[Passion_One] text-3xl mb-3">SUBDIVISIONS</h2>
             <p>
               The 3560 FRC Robotics team is divided into specialized subteams
