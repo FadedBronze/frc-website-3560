@@ -40,7 +40,13 @@ function MainText() {
         cool projects, learn new skills, and compete in exciting challenges.
         Don’t wait—sign up today and start your robotics adventure!
       </p>
-      <button className="rounded-sm px-4 py-2 border-1 border-white text-xl font-[Passion_One] hover:text-[#00041A] hover:bg-white transition-colors duration-200 cursor-pointer">
+      <button
+        role="link"
+        onClick={() => {
+          document.querySelector("#contact")?.scrollIntoView();
+        }}
+        className="rounded-sm px-4 py-2 border-1 border-white text-xl font-[Passion_One] hover:text-[#00041A] hover:bg-white transition-colors duration-200 cursor-pointer"
+      >
         Contact Us
       </button>
     </article>
@@ -216,11 +222,11 @@ export default function Home() {
             <p>
               At 3560 FRC Robotics, we are a passionate team of students and
               mentors dedicated to designing, building, and programming robots
-              for competition. Our mission is to foster innovation, teamwork,
-              and problem-solving skills while preparing the next generation of
-              STEM leaders. Through hands-on experience and collaboration, we
-              aim to inspire a love for technology and make a positive impact on
-              our community.
+              for competition. Since 2011, our mission has been to foster
+              innovation, teamwork, and problem-solving skills while preparing
+              the next generation of STEM leaders. Through hands-on experience
+              and collaboration, we aim to inspire a love for technology and
+              make a positive impact on our community.
             </p>
           </article>
         </section>
