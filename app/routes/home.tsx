@@ -89,19 +89,23 @@ export default function Home() {
     const int = setInterval(() => {
       setCurrentDisplay((prev) => (prev + 1) % displays.length);
     }, 5000);
+
     return () => clearInterval(int);
-  });
+  }, [displays.length]);
 
   return (
     <>
       <Navbar />
       <section className="relative h-[700px] w-full mt-[-80px] overflow-x-clip">
-        {displays[currentDisplay].image && (
+        {displays.map((display, index) => (
           <img
-            className="w-full object-center object-cover h-full absolute"
-            src={displays[currentDisplay].image}
+            key={index}
+            className={`w-full object-center object-cover h-full absolute transition-opacity duration-1000 ${
+              index === currentDisplay ? "opacity-100" : "opacity-0"
+            }`}
+            src={display.image}
           />
-        )}
+        ))}
         <div className="bg-black opacity-85 w-full h-full absolute"></div>
         <div className="px-[45px] lg:px-[145px] h-full flex items-center">
           <MainText />
