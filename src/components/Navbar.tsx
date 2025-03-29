@@ -71,7 +71,38 @@ const links = [
     name: "Outreach",
     break: true,
     options: [
-      { name: "Sponsorship", link: "https://" },
+      {
+        name: "Sponsorship",
+        link: "",
+        onClick: () => {
+          const blurDiv = document.createElement("div");
+          blurDiv.className =
+            "fixed top-0 left-0 w-full h-full bg-black/50 backdrop-blur-sm z-[9999]";
+
+          const modal = document.createElement("div");
+          modal.className =
+            "fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 bg-white z-[10000] rounded-lg overflow-hidden shadow-lg";
+
+          const iframe = document.createElement("iframe");
+          iframe.src = "/sponsorship.pdf";
+          iframe.className = "w-full h-full border-none";
+
+          const closeButton = document.createElement("button");
+          closeButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x-icon lucide-circle-x"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>`;
+          closeButton.className =
+            "absolute top-2.5 right-2.5 bg-red-500 text-white rounded p-1 cursor-pointer";
+            
+          closeButton.addEventListener("click", () => {
+            document.body.removeChild(modal);
+            document.body.removeChild(blurDiv);
+          });
+
+          modal.appendChild(iframe);
+          modal.appendChild(closeButton);
+          document.body.appendChild(modal);
+          document.body.appendChild(blurDiv);
+        },
+      },
       { name: "Registration", link: "https://forms.gle/TJJUcq6VW8N8g7cE7" },
       { name: "Contact us", link: "#contact" },
     ],
@@ -99,15 +130,25 @@ export default function Navbar() {
             />
           ) : (
             <Fragment key={link.name}>
-              {link.options.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.link}
-                  className="font-[Passion_One]"
-                >
-                  {link.name.toUpperCase()}
-                </a>
-              ))}
+              {link.options.map((link) =>
+                link.onClick ? (
+                  <span
+                    key={link.name}
+                    onClick={link.onClick}
+                    className="font-[Passion_One] cursor-pointer"
+                  >
+                    {link.name.toUpperCase()}
+                  </span>
+                ) : (
+                  <a
+                    key={link.name}
+                    href={link.link}
+                    className="font-[Passion_One]"
+                  >
+                    {link.name.toUpperCase()}
+                  </a>
+                )
+              )}
             </Fragment>
           )
         )
@@ -134,15 +175,25 @@ export default function Navbar() {
               <div key={link.name} className="[&:not(:last-child)]:mb-4">
                 <h3 className="text-3xl">{link.name}</h3>
                 <div>
-                  {link.options.map((link) => (
-                    <a
-                      href={link.link}
-                      key={link.name}
-                      className="transition-transform duration-100 hover:scale-[1.1] origin-left text-xl block font-[Inter]"
-                    >
-                      {link.name}
-                    </a>
-                  ))}
+                  {link.options.map((link) =>
+                    link.onClick ? (
+                      <span
+                        key={link.name}
+                        onClick={link.onClick}
+                        className="transition-transform duration-100 hover:scale-[1.1] origin-left text-xl block font-[Inter] cursor-pointer"
+                      >
+                        {link.name}
+                      </span>
+                    ) : (
+                      <a
+                        href={link.link}
+                        key={link.name}
+                        className="transition-transform duration-100 hover:scale-[1.1] origin-left text-xl block font-[Inter]"
+                      >
+                        {link.name}
+                      </a>
+                    )
+                  )}
                 </div>
               </div>
             ))}
