@@ -102,7 +102,7 @@ export default function Home() {
     let timeout = setTimeout(() => setVelocity(0), 100);
 
     const handleScroll = () => {
-     const now = performance.now();
+      const now = performance.now();
       const deltaTime = now - lastTime;
       clearTimeout(timeout);
 
@@ -126,7 +126,7 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const cappedVel = Math.min(velocity/5, 1);
+  const cappedVel = Math.min(velocity / 5, 1);
 
   return (
     <>
@@ -174,24 +174,31 @@ export default function Home() {
           />
         </div>
 
-        <div style={{
-          color: `rgb(${cappedVel*255*0.3}, ${8+cappedVel*247*0.6}, ${34+cappedVel*221})`,
-          transition: 'color',
-          letterSpacing: "-2px",
-        }} className="font-[Passion_One] text-7xl absolute bottom-0 translate-y-[calc(100%-7px)] left-0 whitespace-nowrap overflow-hidden w-full">
+        <div
+          style={{
+            color: `rgb(${cappedVel * 255 * 0.3}, ${
+              8 + cappedVel * 247 * 0.6
+            }, ${34 + cappedVel * 221})`,
+            transition: "color",
+            letterSpacing: "-2px",
+          }}
+          className="font-[Passion_One] text-7xl absolute bottom-1 translate-y-[calc(100%-7px)] left-0 whitespace-nowrap overflow-hidden w-full"
+        >
           {Array.from({ length: 4 }).map((_, index) => (
             <div
               key={index}
               className="whitespace-nowrap inline-block"
               style={{
-                transform: `translateX(-${position/2}px)`,
+                transform: `translateX(-${position / 2}px)`,
                 transition: `transform`,
               }}
             >
               {Array.from({ length: 4 }).map((_, i) => (
                 <span
                   key={i}
-                  className="transition-colors duration-500 relative marquee-item"
+                  className={`transition-colors duration-500 relative marquee-item ${
+                    velocity === 0 ? "hover:text-blue-950" : ""
+                  }`}
                 >
                   MECHAWOLVES
                 </span>
