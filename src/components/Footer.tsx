@@ -9,6 +9,9 @@ export default function Footer() {
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const mechawolf = document.querySelector(".mechawolf") as HTMLElement;
+
+      if (!mechawolf) return;
+
       const rect = mechawolf.getBoundingClientRect();
 
       const sensitivity = 0.03;
@@ -36,7 +39,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="py-10 flex relative sm:h-[500px] bg-[#5398FF] mt-48 text-[#00041A] lg:px-8 max-sm:ml-0 max-lg:-ml-18 px-0 items-center justify-left overflow-hidden">
+    <footer className="py-10 flex relative sm:h-[500px] bg-[#5398FF] mt-24 md:mt-48 text-[#00041A] lg:px-8 max-sm:ml-0 max-lg:-ml-18 px-0 items-center justify-left overflow-hidden">
       {width > 1024 && (
         <div className="absolute top-0 left-18 -translate-x-1/2 h-full">
           <div className="flex gap-3 absolute left-1/2 top-1/2 -translate-1/2 flex-col z-10">
