@@ -15,9 +15,9 @@ export default function Registration() {
           <Box title="Time & Place" body="Room 123 during break and Room 123 after school." />
         </div>
         <p>Don’t miss out on this opportunity to delve into the world of robotics, learn new skills, and collaborate with peers. Fill out the registration form below to secure your spot and start your journey with Team 3560 today!</p>
-        <button className="mt-10 rounded-sm px-6 text-2xl py-4 bg-wolf-blue font-[Passion_One] text-wolf-black hover:bg-blue-500 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+        <a href="https://forms.gle/TJJUcq6VW8N8g7cE7" className="mt-10 block w-fit rounded-sm px-6 text-2xl py-4 bg-wolf-blue font-[Passion_One] text-wolf-black hover:bg-blue-500 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
           Register
-        </button>
+        </a>
       </article>
       <Footer />
     </>

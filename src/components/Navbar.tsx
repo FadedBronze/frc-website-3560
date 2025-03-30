@@ -103,7 +103,7 @@ const links = [
           document.body.appendChild(blurDiv);
         },
       },
-      { name: "Registration", link: "https://forms.gle/TJJUcq6VW8N8g7cE7" },
+      { name: "Registration", link: "/registration" },
       { name: "Contact us", link: "#contact" },
     ],
   },
