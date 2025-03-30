@@ -14,6 +14,8 @@ import {
   CircleArrowLeft,
   CircleArrowRight,
 } from "lucide-react";
+import { WolfButton } from "src/components/WolfButton";
+import { openSponsorModal } from "src/functions/sponsor";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -29,7 +31,8 @@ function Testimonials() {
   const testimonials: Record<string, string> = {
     "David Smith":
       "This was a great experience for me to learn and grow in the field of stem. Thank you 3560!",
-    "Paul Longboat": "This was a great experience for me to learn and grow in the field of stem. Wow 3560!",
+    "Paul Longboat":
+      "This was a great experience for me to learn and grow in the field of stem. Wow 3560!",
     "Samuel Van Wilderman":
       "This was a great experience for me to learn and grow in the field of stem. Yipee 3560!",
   };
@@ -40,15 +43,26 @@ function Testimonials() {
 
   return (
     <section className="color-wolf-black flex flex-col gap-4 w-screen my-20">
-      <div
-        className="w-screen h-[441px] relative"
-      >
-        { width > 600 && <img className="absolute left-0 translate-x-[-160px] lg:translate-x-[-60px] scale-x-[-1.0] scale-y-[-1.0]" src={BlueSection} /> }
-        { width > 600 && <img className="absolute right-0 translate-x-[160px] lg:translate-x-[60px] scale-x-[1.0]" src={BlueSection} /> }
-        <div className="absolute top-0 h-full bg-wolf-blue" style={{
-          width: width > 600 ? "66.66%" : "100%",
-          left: width > 600 ? "16.66%" : "0%",
-        }}></div>
+      <div className="w-screen h-[441px] relative">
+        {width > 600 && (
+          <img
+            className="absolute left-0 translate-x-[-160px] lg:translate-x-[-60px] scale-x-[-1.0] scale-y-[-1.0]"
+            src={BlueSection}
+          />
+        )}
+        {width > 600 && (
+          <img
+            className="absolute right-0 translate-x-[160px] lg:translate-x-[60px] scale-x-[1.0]"
+            src={BlueSection}
+          />
+        )}
+        <div
+          className="absolute top-0 h-full bg-wolf-blue"
+          style={{
+            width: width > 600 ? "66.66%" : "100%",
+            left: width > 600 ? "16.66%" : "0%",
+          }}
+        ></div>
         <div className="flex flex-col items-center justify-center gap-8 relative z-10 w-full h-full mt-4 lg:px-[145px] px-[45px]">
           <p className="text-3xl text-wolf-black font-medium italic text-center">
             "{testimonials[Object.keys(testimonials)[activeTestimonial]]}"
@@ -89,15 +103,13 @@ function MainText() {
         cool projects, learn new skills, and compete in exciting challenges.
         Don’t wait—sign up today and start your robotics adventure!
       </p>
-      <button
-        role="link"
-        onClick={() => {
+      <WolfButton
+        title="Contact Us"
+        callback={() => {
           document.querySelector("#contact")?.scrollIntoView();
         }}
-        className="rounded-sm px-4 py-2 border-1 border-white text-xl font-[Passion_One] hover:text-wolf-black hover:bg-white transition-colors duration-200 cursor-pointer"
-      >
-        Contact Us
-      </button>
+        hollow
+      />
     </article>
   );
 }
@@ -251,7 +263,7 @@ export default function Home() {
               {Array.from({ length: 4 }).map((_, i) => (
                 <span
                   key={i}
-                  className={`transition-colors duration-500 relative marquee-item ${
+                  className={`transition-colors duration-500 relative marquee-item select-none ${
                     velocity === 0 ? "hover:text-blue-950" : ""
                   }`}
                 >
@@ -341,14 +353,11 @@ export default function Home() {
                   </h3>
                   <p className="mb-5">{subteam.description}</p>
                   {subteam.name !== "GRAPHICS" && (
-                    <button
-                      onClick={() => {
-                        window.location.href = `/${subteam.name.toLowerCase()}`;
-                      }}
-                      className="rounded-sm px-4 py-3 bg-wolf-blue font-[Passion_One] text-wolf-black hover:bg-blue-500 hover:-translate-y-1 transition-all duration-300 cursor-pointer text-xl"
-                    >
-                      Learn More
-                    </button>
+                    <WolfButton
+                      title="Learn More"
+                      href={`/${subteam.name.toLowerCase()}`}
+                      hollow={false}
+                    />
                   )}
                   <subteam.src className="absolute top-1/2 -translate-y-1/2 right-0 -translate-x-[200%] scale-[7.0] opacity-10"></subteam.src>
                 </article>
@@ -357,6 +366,27 @@ export default function Home() {
           </section>
         </div>
         <Testimonials />
+        <div className="px-36 mt-12 flex flex-col gap-8">
+          <div>
+            <h1 className="text-3xl font-[Passion_One] uppercase">
+              Ready to get in touch?
+            </h1>
+            <p className="text-xl">
+              Mechawolves is a passionate team of engineers working to make
+              change within FRC and Robotics. We would love your support for a
+              bright future of innovation and possibility!
+            </p>
+          </div>
+
+          <div className="flex gap-4">
+            <WolfButton
+              title="Sponsorship Package"
+              callback={openSponsorModal}
+              hollow
+            />
+            <WolfButton title="Let's Chat" href="/" />
+          </div>
+        </div>
       </div>
       <Footer />
     </>
