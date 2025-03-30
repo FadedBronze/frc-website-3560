@@ -1,4 +1,5 @@
 import type { Route } from "./+types/home";
+import BlueSection from "public/BlueSection.svg"
 import { useState, useRef, useEffect } from "react";
 import Navbar from "src/components/Navbar";
 import Footer from "src/components/Footer";
@@ -22,6 +23,34 @@ export function meta({}: Route.MetaArgs) {
       content: "Chinguacousy SS' FRC Team - 3560 Mechawolves",
     },
   ];
+}
+
+function Testimonials() {
+  const testimonials = { 
+    "David": "Best FRC to ever exist",
+    "Paul": "Best FRC for world domination",
+    "Samuel": "Most inpiring team ever",
+  };
+
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+  return (
+      <section className="color-wolf-black flex flex-col gap-4 w-screen -ml-10 lg:-ml-36 relative h-48 my-20">
+        <img className="absolute left-0 top-0" src={BlueSection}/>
+        <div className="flex flex-col items-center justify-center gap-4 relative z-10 w-full h-full">
+          <p>{testimonials[Object.keys(testimonials)[activeTestimonial]]}</p>
+          <div className="flex gap-4">
+            {Object.keys(testimonials).map((name, i) => (
+              <p onMouseOver={() => setActiveTestimonial(i)} style={{
+                color: i == activeTestimonial ? "var(--color-wolf-black)" : "white",
+                transform: i == activeTestimonial ? "translateY(-5px)" : "",
+                transition: "transform 200ms linear"
+              }}>{i == activeTestimonial ? "—" : ""} {name}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+  )
 }
 
 function MainText() {
@@ -245,7 +274,7 @@ export default function Home() {
               team’s success.
             </p>
           </article>
-          <div className="grid lg:grid-cols-3 sm:grid-cols-2 max:sm:grid-cols-1 gap-16 pt-10 -mb-16">
+          <div className="grid lg:grid-cols-3 sm:grid-cols-2 max:sm:grid-cols-1 gap-16 pt-10">
             {[
               {
                 name: "PROGRAMMING",
@@ -304,6 +333,7 @@ export default function Home() {
             ))}
           </div>
         </section>
+        <Testimonials />
       </div>
       <Footer />
     </>
