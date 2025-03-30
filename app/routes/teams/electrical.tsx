@@ -1,5 +1,6 @@
 import blake from "./assets/team/blake.png";
 import ravi from "./assets/team/ravi.png";
+import electrical from "./assets/repr/electrical.png";
 import { TeamPage } from "./TeamPage";
 
 export function Electrical() {
@@ -13,6 +14,7 @@ export function Electrical() {
         "Troubleshooting electrical issues and optimizing connections",
         "Collaborating with Programming, Mechanical, and CAD teams to ensure full system integration",
       ]}
+      teamImage={electrical}
       tools={[
         {
           title: "Multimeter",

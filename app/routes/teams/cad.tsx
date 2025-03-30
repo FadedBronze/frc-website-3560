@@ -1,5 +1,6 @@
 import devesh from "./assets/team/devesh.png";
 import amer from "./assets/team/amer.png";
+import cad from "./assets/repr/cad.png";
 import { TeamPage } from "./TeamPage";
 
 export function CAD() {
@@ -13,6 +14,7 @@ export function CAD() {
         "Refining designs for optimal performance",
         "Collaborating with Mechanical and Electrical teams to accommodate all moving parts, wiring, and sensors",
       ]}
+      teamImage={cad}
       tools={[
         {
           title: "SolidWorks",

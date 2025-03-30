@@ -78,22 +78,34 @@ export default function Footer() {
             </h1>
             <ul className="font-semibold">
               <li>
-                <a href="/">Home</a>
+                <a href="/" className="hover:underline">
+                  Home
+                </a>
               </li>
               <li>
-                <a href="/about-us">About Us</a>
+                <a href="/about-us" className="hover:underline">
+                  About Us
+                </a>
               </li>
               <li>
-                <a href="/sponsorship">Sponsorship</a>
+                <a href="/sponsorship" className="hover:underline">
+                  Sponsorship
+                </a>
               </li>
               <li>
-                <a href="/registration">Registration</a>
+                <a href="/registration" className="hover:underline">
+                  Registration
+                </a>
               </li>
               <li>
-                <a href="/faq">FAQ</a>
+                <a href="/faq" className="hover:underline">
+                  FAQ
+                </a>
               </li>
               <li>
-                <a href="/first">FIRST</a>
+                <a href="/first" className="hover:underline">
+                  FIRST
+                </a>
               </li>
             </ul>
           </div>
@@ -101,19 +113,29 @@ export default function Footer() {
             <h1 className="uppercase font-[Passion_One] text-3xl">Divisions</h1>
             <ul className="font-semibold">
               <li>
-                <a href="/cad">CAD</a>
+                <a href="/cad" className="hover:underline">
+                  CAD
+                </a>
               </li>
               <li>
-                <a href="/mechanical">Mechanical</a>
+                <a href="/mechanical" className="hover:underline">
+                  Mechanical
+                </a>
               </li>
               <li>
-                <a href="/electrical">Electrical</a>
+                <a href="/electrical" className="hover:underline">
+                  Electrical
+                </a>
               </li>
               <li>
-                <a href="/programming">Programming</a>
+                <a href="/programming" className="hover:underline">
+                  Programming
+                </a>
               </li>
               <li>
-                <a href="/business">Business</a>
+                <a href="/business" className="hover:underline">
+                  Business
+                </a>
               </li>
             </ul>
           </div>
@@ -125,13 +147,16 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:3560frc@gmail.com"
-                  className="flex gap-2 items-center"
+                  className="flex gap-2 items-center hover:underline"
                 >
                   <Mails color="#00041A" size={20} /> 3560frc@gmail.com
                 </a>
               </li>
               <li>
-                <a href="tel:+19057912400" className="flex gap-2 items-center">
+                <a
+                  href="tel:+19057912400"
+                  className="flex gap-2 items-center hover:underline"
+                >
                   <Phone color="#00041A" size={20} /> +1 905-791-2400
                 </a>
               </li>

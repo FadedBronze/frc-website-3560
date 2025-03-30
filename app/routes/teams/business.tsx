@@ -1,5 +1,6 @@
 import amber from "./assets/team/amber.png";
 import jenisha from "./assets/team/jenisha.png";
+import business from "./assets/repr/business.png";
 import { TeamPage } from "./TeamPage";
 
 export function Business() {
@@ -15,6 +16,7 @@ export function Business() {
         "Handling media relations and marketing materials",
         "Documentation and award submissions",
       ]}
+      teamImage={business}
       tools={[
         {
           title: "Budgeting Tools",

@@ -9,6 +9,7 @@ export function TeamPage({
   teamName,
   teamDescription,
   teamList,
+  teamImage,
   tools,
   cultureDescriptionOne,
   cultureList,
@@ -18,6 +19,7 @@ export function TeamPage({
   teamName: string;
   teamDescription: string;
   teamList: string[];
+  teamImage: string;
   tools: { title: string; body: string }[];
   cultureDescriptionOne: string;
   cultureList: string[];
@@ -44,9 +46,9 @@ export function TeamPage({
             </ul>
           </div>
           <img
-            src={computer}
+            src={teamImage}
             alt=""
-            className="rounded-lg object-center object-cover"
+            className="rounded-lg object-center object-cover w-[512px] h-[300px]"
           />
         </div>
         <div className="flex flex-col w-full gap-8">
