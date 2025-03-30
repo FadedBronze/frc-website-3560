@@ -41,7 +41,7 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="py-10 flex relative sm:h-[500px] bg-wolf-blue mt-24 md:mt-48 text-wolf-black lg:px-8 max-sm:ml-0 max-lg:-ml-18 px-0 items-center justify-left overflow-hidden"
+      className="py-10 flex relative lg:px-[145px] px-[45px] sm:h-[500px] bg-wolf-blue mt-24 md:mt-48 text-wolf-black items-center justify-left overflow-hidden"
     >
       {width > 1024 && (
         <div className="absolute top-0 left-18 -translate-x-1/2 h-full">
@@ -69,7 +69,7 @@ export default function Footer() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-1 bg-wolf-black"></div>
         </div>
       )}
-      <div className="flex flex-col gap-12 translate-x-1/3">
+      <div className="flex flex-col gap-12">
         <h1 className="uppercase font-[Passion_One] text-4xl">Team 3560</h1>
         <div className="flex sm:flex-row flex-col gap-10 sm:gap-20">
           <div className="flex flex-col max-xl:flex-col gap-4">
