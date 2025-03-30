@@ -26,13 +26,26 @@ export function meta({}: Route.MetaArgs) {
 }
 
 function Testimonials() {
-  const testimonials: Record<string, string> = {
-    David:
-      "This was a great experience for me to learn and grow in the field of stem. Thank you 3560!",
-    Paul: "This was a great experience for me to learn and grow in the field of stem. Wow 3560!",
-    Samuel:
-      "This was a great experience for me to learn and grow in the field of stem. Yipee 3560!",
-  };
+  const testimonials = [
+    {
+      name: "David",
+      quote:
+        "This was a great experience for me to learn and grow in the field of stem. Thank you 3560!a",
+      title: "3560 Alumni",
+    },
+    {
+      name: "Paul",
+      quote:
+        "This was a great experience for me to learn and grow in the field of stem. Thank you 3560!b",
+      title: "Teacher",
+    },
+    {
+      name: "Samuel",
+      quote:
+        "This was a great experience for me to learn and grow in the field of stem. Thank you 3560!c",
+      title: "Mentor",
+    },
+  ];
 
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
@@ -46,26 +59,55 @@ function Testimonials() {
           backgroundPosition: "center",
         }}
       >
-        <div className="flex flex-col items-center justify-center gap-4 relative z-10 w-full h-full">
-          <div className="w-32 h-32 aspect-square rounded-full bg-blue-300 flex items-center justify-center">
-            <span className="text-white text-2xl font-bold">3560</span>
+        <div className="flex flex-col items-center justify-center gap-4 relative w-full h-full">
+          <div>
+            <div className="w-64 h-64 rounded-full bg-blue-500 flex items-center justify-center">
+              <span className="text-white text-2xl font-bold text-center -translate-y-4">
+                {testimonials[activeTestimonial].name}
+                <br />
+                {testimonials[activeTestimonial].title}
+              </span>
+            </div>
+            <div className="w-64 h-[60px] bg-wolf-blue absolute -translate-y-[60px]"></div>
           </div>
+
           <p className="text-2xl text-wolf-black font-medium italic">
-            {testimonials[Object.keys(testimonials)[activeTestimonial]]}
+            "{testimonials[activeTestimonial].quote}"
           </p>
-          <div className="flex gap-4">
-            {Object.keys(testimonials).map((name, i) => (
-              <p
-                onMouseOver={() => setActiveTestimonial(i)}
-                className={`${
-                  i == activeTestimonial
-                    ? "text-wolf-black -translate-y-[5px]"
-                    : "text-white"
-                } text-2xl font-[Passion_One] transition-transform duration-300`}
+          <div className="flex flex-col items-center gap-4">
+            <div className="flex gap-4">
+              <button
+                onClick={() => {
+                  setActiveTestimonial(
+                    (activeTestimonial - 1 + testimonials.length) %
+                      testimonials.length
+                  );
+                }}
+                className="p-2 rounded-full bg-wolf-blue hover:bg-blue-500 transition-colors duration-300"
               >
-                {i == activeTestimonial ? "-" : ""} {name}
-              </p>
-            ))}
+                <CircleArrowLeft size={24} />
+              </button>
+              <button
+                onClick={() => {
+                  setActiveTestimonial(
+                    (activeTestimonial + 1) % testimonials.length
+                  );
+                }}
+                className="p-2 rounded-full bg-wolf-blue hover:bg-blue-500 transition-colors duration-300"
+              >
+                <CircleArrowRight size={24} />
+              </button>
+            </div>
+            <div className="flex gap-2 overflow-hidden relative w-16 justify-center items-center">
+              {testimonials.map((_, index) => (
+                <div
+                  key={index}
+                  className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+                    index === activeTestimonial ? "bg-blue-300" : "bg-gray-300"
+                  }`}
+                ></div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import savyasaachi from "./assets/team/savyasaachi.png";
 import saket from "./assets/team/saket.png";
+import ishan from "./assets/team/ishan.jpg";
 import mechanical from "./assets/repr/mechanical.png";
 import { TeamPage } from "./TeamPage";
 
@@ -39,6 +40,7 @@ export function Mechanical() {
       members={[
         { pName: "Savyasaachi Shimoga-Yogesh", src: savyasaachi },
         { pName: "Saket Cherooli", src: saket },
+        { pName: "Ishan Kenth", src: ishan },
       ]}
     />
   );
