@@ -77,10 +77,60 @@ export function TeamPage({
           <h1 className="uppercase text-4xl font-[Passion_One]">
             {teamName.charAt(0).toUpperCase() + teamName.slice(1)} Team
           </h1>
-          <div className="grid md:grid-cols-4 grid-cols-2 gap-8 w-full">
-            {members.map((member, index) => (
-              <TeamMember key={index} pName={member.pName} src={member.src} />
-            ))}
+          <div className="flex flex-col gap-8 w-full items-center">
+            <div className="flex flex-col gap-10 w-fit items-center">
+              <h2 className="uppercase text-3xl font-[Passion_One]">Leads</h2>
+              <div className="grid grid-cols-2 gap-8 justify-center">
+                {members.slice(0, 2).map((member, index) => (
+                  <div key={index} className="flex justify-center">
+                    <TeamMember pName={member.pName} src={member.src} />
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="flex flex-col gap-10 w-fit items-center mt-10">
+              <h2 className="uppercase text-3xl font-[Passion_One]">
+                General Members
+              </h2>
+              {/* <div className="flex flex-col gap-8">
+                {Array.from({
+                  length: Math.ceil((members.length - 2) / 4),
+                }).map((_, groupIndex) => (
+                  <div
+                    key={groupIndex}
+                    className="flex flex-row gap-8 justify-center"
+                  >
+                    {members
+                      .slice(2)
+                      .slice(groupIndex * 4, groupIndex * 4 + 4)
+                      .map((member, index) => (
+                        <div key={index} className="flex justify-center">
+                          <TeamMember pName={member.pName} src={member.src} />
+                        </div>
+                      ))}
+                  </div>
+                ))}
+              </div> */}
+              <div className="flex flex-col gap-20">
+                {Array.from({
+                  length: Math.ceil((members.length - 2) / 4),
+                }).map((_, groupIndex) => (
+                  <div
+                    key={groupIndex}
+                    className="flex flex-row gap-8 justify-center"
+                  >
+                    {members
+                      .slice(2)
+                      .slice(groupIndex * 4, groupIndex * 4 + 4)
+                      .map((member, index) => (
+                        <div key={index} className="flex justify-center">
+                          <TeamMember pName={member.pName} src={member.src} />
+                        </div>
+                      ))}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </main>
@@ -108,13 +158,16 @@ function Bar({
 
 function TeamMember({ pName, src }: { pName: string; src: string }) {
   return (
-    <div className="flex flex-col justify-center items-center gap-4 flex-grow">
-      <img
-        src={src}
-        alt=""
-        className="h-full rounded-lg object-center object-cover w-full"
-      />
-      <p className="font-[Passion_One] text-xl">{pName}</p>
+    <div className="flex flex-col justify-center items-center gap-4 w-60">
+      <div
+        style={{
+          backgroundImage: `url(${src})`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+        className="h-90 w-60 rounded-lg"
+      ></div>
+      <p className="font-[Inter] font-semibold">{pName}</p>
     </div>
   );
 }

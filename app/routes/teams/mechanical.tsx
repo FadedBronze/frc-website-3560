@@ -1,6 +1,8 @@
 import savyasaachi from "./assets/team/savyasaachi.png";
 import saket from "./assets/team/saket.png";
 import ishan from "./assets/team/ishan.jpg";
+import laksh from "./assets/team/laksh.png";
+import armaan from "./assets/team/armaan.png";
 import mechanical from "./assets/repr/mechanical.png";
 import { TeamPage } from "./TeamPage";
 
@@ -41,6 +43,8 @@ export function Mechanical() {
         { pName: "Savyasaachi Shimoga-Yogesh", src: savyasaachi },
         { pName: "Saket Cherooli", src: saket },
         { pName: "Ishan Kenth", src: ishan },
+        { pName: "Laksh Kumar", src: laksh },
+        { pName: "Armaan Sheikh", src: armaan },
       ]}
     />
   );
