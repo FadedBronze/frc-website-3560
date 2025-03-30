@@ -140,7 +140,9 @@ export default function Footer() {
         </div>
       </div>
       {width > 900 && (
-        <div className="absolute origin-bottom-right bottom-1/2 right-0 mechawolf">
+        <div className="absolute origin-bottom-right bottom-1/2 right-0 mechawolf" style={{
+          transform: "translateY(50%) translateY(80px) translateX(80px)",
+        }}>
           <img
             className="animate-[breathe_7s_ease-in-out_infinite]"
             src={Logo}
