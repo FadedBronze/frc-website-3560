@@ -27,31 +27,31 @@ export function meta({}: Route.MetaArgs) {
 
 function Testimonials() {
   const testimonials: Record<string, string> = {
-    David:
+    "David Smith":
       "This was a great experience for me to learn and grow in the field of stem. Thank you 3560!",
-    Paul: "This was a great experience for me to learn and grow in the field of stem. Wow 3560!",
-    Samuel:
+    "Paul Longboat": "This was a great experience for me to learn and grow in the field of stem. Wow 3560!",
+    "Samuel Van Wilderman":
       "This was a great experience for me to learn and grow in the field of stem. Yipee 3560!",
   };
 
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
+  const { width } = windowSizeContext();
+
   return (
     <section className="color-wolf-black flex flex-col gap-4 w-screen my-20">
       <div
-        className="w-screen h-[23vw]"
-        style={{
-          backgroundImage: `url(${BlueSection})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
+        className="w-screen h-[441px] relative"
       >
-        <div className="flex flex-col items-center justify-center gap-4 relative z-10 w-full h-full">
-          <div className="w-32 h-32 aspect-square rounded-full bg-blue-300 flex items-center justify-center">
-            <span className="text-white text-2xl font-bold">3560</span>
-          </div>
-          <p className="text-2xl text-wolf-black font-medium italic">
-            {testimonials[Object.keys(testimonials)[activeTestimonial]]}
+        { width > 600 && <img className="absolute left-0 translate-x-[-160px] lg:translate-x-[-60px] scale-x-[-1.0] scale-y-[-1.0]" src={BlueSection} /> }
+        { width > 600 && <img className="absolute right-0 translate-x-[160px] lg:translate-x-[60px] scale-x-[1.0]" src={BlueSection} /> }
+        <div className="absolute top-0 h-full bg-wolf-blue" style={{
+          width: width > 600 ? "66.66%" : "100%",
+          left: width > 600 ? "16.66%" : "0%",
+        }}></div>
+        <div className="flex flex-col items-center justify-center gap-8 relative z-10 w-full h-full mt-4 lg:px-[145px] px-[45px]">
+          <p className="text-3xl text-wolf-black font-medium italic text-center">
+            "{testimonials[Object.keys(testimonials)[activeTestimonial]]}"
           </p>
           <div className="flex gap-4">
             {Object.keys(testimonials).map((name, i) => (
@@ -210,12 +210,13 @@ export default function Home() {
             }
           />
           <div className="b-[145px]  flex gap-3">
-            {displays.map((_, i) => (
+            {displays.map((display, i) => (
               <div
                 className={
                   "rounded-full w-2 h-2 " +
                   (i == currentDisplay ? "bg-wolf-blue" : "bg-blue-200")
                 }
+                key={display.image}
               ></div>
             ))}
           </div>

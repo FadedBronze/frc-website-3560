@@ -2,7 +2,7 @@ import Footer from "src/components/Footer";
 import Navbar from "src/components/Navbar";
 import Box from "src/components/Box";
 
-import computer from "./assets/computer.png";
+//import computer from "./assets/computer.png";
 import windowSizeContext from "src/contexts/windowSizeContext";
 
 export function TeamPage({

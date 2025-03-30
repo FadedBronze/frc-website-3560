@@ -63,8 +63,8 @@ const links = [
     break: true,
     options: [
       { name: "Home", link: "/" },
-      { name: "About us", link: "https://" },
-      { name: "FAQ", link: "https://" },
+      { name: "Gallery", link: "/gallery" },
+      { name: "FAQ", link: "#FAQ" },
     ],
   },
   {
