@@ -1,5 +1,5 @@
 import type { Route } from "./+types/home";
-import BlueSection from "public/BlueSection.svg"
+import BlueSection from "public/BlueSection.svg";
 import { useState, useRef, useEffect } from "react";
 import Navbar from "src/components/Navbar";
 import Footer from "src/components/Footer";
@@ -26,31 +26,51 @@ export function meta({}: Route.MetaArgs) {
 }
 
 function Testimonials() {
-  const testimonials = { 
-    "David": "Best FRC to ever exist",
-    "Paul": "Best FRC for world domination",
-    "Samuel": "Most inpiring team ever",
+  const testimonials: Record<string, string> = {
+    David:
+      "This was a great experience for me to learn and grow in the field of stem. Thank you 3560!",
+    Paul: "This was a great experience for me to learn and grow in the field of stem. Wow 3560!",
+    Samuel:
+      "This was a great experience for me to learn and grow in the field of stem. Yipee 3560!",
   };
 
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   return (
-      <section className="color-wolf-black flex flex-col gap-4 w-screen -ml-10 lg:-ml-36 relative h-48 my-20">
-        <img className="absolute left-0 top-0" src={BlueSection}/>
+    <section className="color-wolf-black flex flex-col gap-4 w-screen my-20">
+      <div
+        className="w-screen h-[23vw]"
+        style={{
+          backgroundImage: `url(${BlueSection})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="flex flex-col items-center justify-center gap-4 relative z-10 w-full h-full">
-          <p>{testimonials[Object.keys(testimonials)[activeTestimonial]]}</p>
+          <div className="w-32 h-32 aspect-square rounded-full bg-blue-300 flex items-center justify-center">
+            <span className="text-white text-2xl font-bold">3560</span>
+          </div>
+          <p className="text-2xl text-wolf-black font-medium italic">
+            {testimonials[Object.keys(testimonials)[activeTestimonial]]}
+          </p>
           <div className="flex gap-4">
             {Object.keys(testimonials).map((name, i) => (
-              <p onMouseOver={() => setActiveTestimonial(i)} style={{
-                color: i == activeTestimonial ? "var(--color-wolf-black)" : "white",
-                transform: i == activeTestimonial ? "translateY(-5px)" : "",
-                transition: "transform 200ms linear"
-              }}>{i == activeTestimonial ? "—" : ""} {name}</p>
+              <p
+                onMouseOver={() => setActiveTestimonial(i)}
+                className={`${
+                  i == activeTestimonial
+                    ? "text-wolf-black -translate-y-[5px]"
+                    : "text-white"
+                } text-2xl font-[Passion_One] transition-transform duration-300`}
+              >
+                {i == activeTestimonial ? "-" : ""} {name}
+              </p>
             ))}
           </div>
         </div>
-      </section>
-  )
+      </div>
+    </section>
+  );
 }
 
 function MainText() {
@@ -241,98 +261,100 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <div className="w-full lg:px-[145px] px-[45px] py-10">
-        <section className="gap-8 py-16 md:py-30 grid grid-cols-1 md:grid-cols-2">
-          <ResponsiveIframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" />
-          <article>
-            <h2 className="font-[Passion_One] text-3xl mb-3">
-              WELCOME TO 3560
-            </h2>
-            <p>
-              At 3560 FRC Robotics, we are a passionate team of students and
-              mentors dedicated to designing, building, and programming robots
-              for competition. Since 2011, our mission has been to foster
-              innovation, teamwork, and problem-solving skills while preparing
-              the next generation of STEM leaders. Through hands-on experience
-              and collaboration, we aim to inspire a love for technology and
-              make a positive impact on our community.
-            </p>
-          </article>
-        </section>
-        <section>
-          <article className="mb-8 md:mb-16">
-            <h2 className="font-[Passion_One] text-3xl mb-3">SUBDIVISIONS</h2>
-            <p>
-              The 3560 FRC Robotics team is divided into specialized subteams
-              that work together to bring the robot to life. The Mechanical team
-              handles the design and assembly of the robot’s structure, while
-              the Programming team writes the code for its functions. The
-              Electrical team manages wiring and power systems, and the CAD team
-              creates 3D models to plan the robot’s design. The Graphic team
-              focuses on branding and visual content, and the Business team
-              oversees fundraising, sponsorships, and outreach to ensure the
-              team’s success.
-            </p>
-          </article>
-          <div className="grid lg:grid-cols-3 sm:grid-cols-2 max:sm:grid-cols-1 gap-16 pt-10">
-            {[
-              {
-                name: "PROGRAMMING",
-                src: Code,
-                description:
-                  "The Programming team writes the code that controls the robot, developing software for autonomous and driver-controlled functions using advanced logic and problem-solving.",
-              },
-              {
-                name: "MECHANICAL",
-                src: Wrench,
-                description:
-                  "The Mechanical team designs, builds, and assembles the robot’s physical components, focusing on structure, movement, and durability to ensure peak performance.",
-              },
-              {
-                name: "ELECTRICAL",
-                src: Lightbulb,
-                description:
-                  "The Electrical team handles the wiring and power systems, ensuring that all components are properly connected and the robot operates safely and efficiently.",
-              },
-              {
-                name: "CAD",
-                src: Cuboid,
-                description:
-                  "The CAD (Computer-Aided Design) team creates detailed 3D models of the robot, using precision design to plan and simulate its structure before building.",
-              },
-              {
-                name: "GRAPHICS",
-                src: WandSparkles,
-                description:
-                  "The Graphic team focuses on branding and visual design, creating logos, team merchandise, and digital content to represent the team’s identity.",
-              },
-              {
-                name: "BUSINESS",
-                src: BriefcaseBusiness,
-                description:
-                  "The Business team manages outreach, fundraising, and sponsorships, ensuring the team has the resources and support needed for success. They also handle marketing and team communications.",
-              },
-            ].map((subteam) => (
-              <article className="relative">
-                <h3 className="font-[Passion_One] text-2xl mb-3">
-                  {subteam.name}
-                </h3>
-                <p className="mb-5">{subteam.description}</p>
-                {subteam.name !== "GRAPHICS" && (
-                  <button
-                    onClick={() => {
-                      window.location.href = `/${subteam.name.toLowerCase()}`;
-                    }}
-                    className="rounded-sm px-4 py-3 bg-wolf-blue font-[Passion_One] text-wolf-black hover:bg-blue-500 hover:-translate-y-1 transition-all duration-300 cursor-pointer text-xl"
-                  >
-                    Learn More
-                  </button>
-                )}
-                <subteam.src className="absolute top-1/2 -translate-y-1/2 right-0 -translate-x-[200%] scale-[7.0] opacity-10"></subteam.src>
-              </article>
-            ))}
-          </div>
-        </section>
+      <div className="w-full py-10 flex flex-col gap-4">
+        <div className="lg:px-[145px] px-[45px] w-full h-full">
+          <section className="gap-8 py-16 md:py-30 grid grid-cols-1 md:grid-cols-2">
+            <ResponsiveIframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" />
+            <article>
+              <h2 className="font-[Passion_One] text-3xl mb-3">
+                WELCOME TO 3560
+              </h2>
+              <p>
+                At 3560 FRC Robotics, we are a passionate team of students and
+                mentors dedicated to designing, building, and programming robots
+                for competition. Since 2011, our mission has been to foster
+                innovation, teamwork, and problem-solving skills while preparing
+                the next generation of STEM leaders. Through hands-on experience
+                and collaboration, we aim to inspire a love for technology and
+                make a positive impact on our community.
+              </p>
+            </article>
+          </section>
+          <section>
+            <article className="mb-8 md:mb-16">
+              <h2 className="font-[Passion_One] text-3xl mb-3">SUBDIVISIONS</h2>
+              <p>
+                The 3560 FRC Robotics team is divided into specialized subteams
+                that work together to bring the robot to life. The Mechanical
+                team handles the design and assembly of the robot’s structure,
+                while the Programming team writes the code for its functions.
+                The Electrical team manages wiring and power systems, and the
+                CAD team creates 3D models to plan the robot’s design. The
+                Graphic team focuses on branding and visual content, and the
+                Business team oversees fundraising, sponsorships, and outreach
+                to ensure the team’s success.
+              </p>
+            </article>
+            <div className="grid lg:grid-cols-3 sm:grid-cols-2 max:sm:grid-cols-1 gap-16 pt-10">
+              {[
+                {
+                  name: "PROGRAMMING",
+                  src: Code,
+                  description:
+                    "The Programming team writes the code that controls the robot, developing software for autonomous and driver-controlled functions using advanced logic and problem-solving.",
+                },
+                {
+                  name: "MECHANICAL",
+                  src: Wrench,
+                  description:
+                    "The Mechanical team designs, builds, and assembles the robot’s physical components, focusing on structure, movement, and durability to ensure peak performance.",
+                },
+                {
+                  name: "ELECTRICAL",
+                  src: Lightbulb,
+                  description:
+                    "The Electrical team handles the wiring and power systems, ensuring that all components are properly connected and the robot operates safely and efficiently.",
+                },
+                {
+                  name: "CAD",
+                  src: Cuboid,
+                  description:
+                    "The CAD (Computer-Aided Design) team creates detailed 3D models of the robot, using precision design to plan and simulate its structure before building.",
+                },
+                {
+                  name: "GRAPHICS",
+                  src: WandSparkles,
+                  description:
+                    "The Graphic team focuses on branding and visual design, creating logos, team merchandise, and digital content to represent the team’s identity.",
+                },
+                {
+                  name: "BUSINESS",
+                  src: BriefcaseBusiness,
+                  description:
+                    "The Business team manages outreach, fundraising, and sponsorships, ensuring the team has the resources and support needed for success. They also handle marketing and team communications.",
+                },
+              ].map((subteam) => (
+                <article className="relative">
+                  <h3 className="font-[Passion_One] text-2xl mb-3">
+                    {subteam.name}
+                  </h3>
+                  <p className="mb-5">{subteam.description}</p>
+                  {subteam.name !== "GRAPHICS" && (
+                    <button
+                      onClick={() => {
+                        window.location.href = `/${subteam.name.toLowerCase()}`;
+                      }}
+                      className="rounded-sm px-4 py-3 bg-wolf-blue font-[Passion_One] text-wolf-black hover:bg-blue-500 hover:-translate-y-1 transition-all duration-300 cursor-pointer text-xl"
+                    >
+                      Learn More
+                    </button>
+                  )}
+                  <subteam.src className="absolute top-1/2 -translate-y-1/2 right-0 -translate-x-[200%] scale-[7.0] opacity-10"></subteam.src>
+                </article>
+              ))}
+            </div>
+          </section>
+        </div>
         <Testimonials />
       </div>
       <Footer />

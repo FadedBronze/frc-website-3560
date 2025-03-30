@@ -1,6 +1,7 @@
 import aaryan from "./assets/team/aaryan.png";
 import jahvon from "./assets/team/jahvon.jpg";
 import samyat from "./assets/team/samyat.jpg";
+import computer from "./assets/repr/programming.png";
 import { TeamPage } from "./TeamPage";
 
 export function Programming() {
@@ -17,6 +18,7 @@ export function Programming() {
         "Graphics programming - using linear algebra to translate raw data",
         "AI vision - using algorithms to assess the position of objects and more",
       ]}
+      teamImage={computer}
       tools={[
         {
           title: "WPILib",
@@ -38,7 +40,7 @@ export function Programming() {
       members={[
         { pName: "Aaryan Banerjee", src: aaryan },
         { pName: "Jahvon Cockburn", src: jahvon },
-        { pName: "Samyat Gautam", src: samyat, },
+        { pName: "Samyat Gautam", src: samyat },
       ]}
     />
   );

@@ -1,5 +1,6 @@
 import savyasaachi from "./assets/team/savyasaachi.png";
 import saket from "./assets/team/saket.png";
+import mechanical from "./assets/repr/mechanical.png";
 import { TeamPage } from "./TeamPage";
 
 export function Mechanical() {
@@ -13,6 +14,7 @@ export function Mechanical() {
         "Troubleshooting mechanical issues and refining designs",
         "Collaborating with CAD, Electrical, and Programming teams to ensure seamless integration",
       ]}
+      teamImage={mechanical}
       tools={[
         {
           title: "CNC Machine",
