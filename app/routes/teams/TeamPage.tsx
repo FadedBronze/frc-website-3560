@@ -88,49 +88,32 @@ export function TeamPage({
                 ))}
               </div>
             </div>
-            <div className="flex flex-col gap-10 w-fit items-center mt-10">
-              <h2 className="uppercase text-3xl font-[Passion_One]">
-                General Members
-              </h2>
-              {/* <div className="flex flex-col gap-8">
-                {Array.from({
-                  length: Math.ceil((members.length - 2) / 4),
-                }).map((_, groupIndex) => (
-                  <div
-                    key={groupIndex}
-                    className="flex flex-row gap-8 justify-center"
-                  >
-                    {members
-                      .slice(2)
-                      .slice(groupIndex * 4, groupIndex * 4 + 4)
-                      .map((member, index) => (
-                        <div key={index} className="flex justify-center">
-                          <TeamMember pName={member.pName} src={member.src} />
-                        </div>
-                      ))}
-                  </div>
-                ))}
-              </div> */}
-              <div className="flex flex-col gap-20">
-                {Array.from({
-                  length: Math.ceil((members.length - 2) / 4),
-                }).map((_, groupIndex) => (
-                  <div
-                    key={groupIndex}
-                    className="flex flex-row gap-8 justify-center"
-                  >
-                    {members
-                      .slice(2)
-                      .slice(groupIndex * 4, groupIndex * 4 + 4)
-                      .map((member, index) => (
-                        <div key={index} className="flex justify-center">
-                          <TeamMember pName={member.pName} src={member.src} />
-                        </div>
-                      ))}
-                  </div>
-                ))}
+            {members.length > 2 && (
+              <div className="flex flex-col gap-10 w-fit items-center mt-10">
+                <h2 className="uppercase text-3xl font-[Passion_One]">
+                  General Members
+                </h2>
+                <div className="flex flex-col gap-20">
+                  {Array.from({
+                    length: Math.ceil((members.length - 2) / 4),
+                  }).map((_, groupIndex) => (
+                    <div
+                      key={groupIndex}
+                      className="flex flex-row gap-8 justify-center"
+                    >
+                      {members
+                        .slice(2)
+                        .slice(groupIndex * 4, groupIndex * 4 + 4)
+                        .map((member, index) => (
+                          <div key={index} className="flex justify-center">
+                            <TeamMember pName={member.pName} src={member.src} />
+                          </div>
+                        ))}
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </main>
