@@ -13,6 +13,7 @@ import {
   Wrench,
   CircleArrowLeft,
   CircleArrowRight,
+  Plus,
 } from "lucide-react";
 import { WolfButton } from "src/components/WolfButton";
 import { openSponsorModal } from "src/functions/sponsor";
@@ -163,6 +164,78 @@ export default function Home() {
   const [position, setPosition] = useState(0);
   const [velocity, setVelocity] = useState(0);
 
+  const teamDescriptions = [
+    {
+      name: "PROGRAMMING",
+      src: Code,
+      description:
+        "The Programming team writes the code that controls the robot, developing software for autonomous and driver-controlled functions using advanced logic and problem-solving.",
+    },
+    {
+      name: "MECHANICAL",
+      src: Wrench,
+      description:
+        "The Mechanical team designs, builds, and assembles the robot’s physical components, focusing on structure, movement, and durability to ensure peak performance.",
+    },
+    {
+      name: "ELECTRICAL",
+      src: Lightbulb,
+      description:
+        "The Electrical team handles the wiring and power systems, ensuring that all components are properly connected and the robot operates safely and efficiently.",
+    },
+    {
+      name: "CAD",
+      src: Cuboid,
+      description:
+        "The CAD (Computer-Aided Design) team creates detailed 3D models of the robot, using precision design to plan and simulate its structure before building.",
+    },
+    {
+      name: "GRAPHICS",
+      src: WandSparkles,
+      description:
+        "The Graphic team focuses on branding and visual design, creating logos, team merchandise, and digital content to represent the team’s identity.",
+    },
+    {
+      name: "BUSINESS",
+      src: BriefcaseBusiness,
+      description:
+        "The Business team manages outreach, fundraising, and sponsorships, ensuring the team has the resources and support needed for success. They also handle marketing and team communications.",
+    },
+  ];
+
+  const faq = [
+    {
+      question: "What does FRC stand for?",
+      answer:
+        "FRC stands for FIRST Robotics Competition. It is a global high school robotics competition where teams of students design, build, and program robots to complete specific tasks in a competitive environment.",
+    },
+    {
+      question: "Who can join Mechawolves?",
+      answer:
+        "Mechawolves is open to all students at our school who are interested in robotics, technology, engineering, and programming. No prior experience is needed, as we provide training and mentorship to all new members.",
+    },
+    {
+      question: "What skills can I learn by joining the team?",
+      answer:
+        "By joining Mechawolves, you’ll gain hands-on experience in robotics, programming, CAD (computer-aided design), mechanical engineering, and electronics. You’ll also develop valuable teamwork, problem-solving, and leadership skills that are essential for future STEM careers.",
+    },
+    {
+      question: "How often does the team meet?",
+      answer:
+        "We meet regularly after school, with additional meetings during the build season leading up to competitions. Our schedule includes weekly practice sessions, special workshops, and collaborative events with other teams.",
+    },
+    {
+      question: "Do I need any experience to join?",
+      answer:
+        "No prior experience is necessary! We welcome students of all skill levels and backgrounds. Our team mentors and experienced members will guide you through the process of learning robotics, programming, and other related skills.",
+    },
+    {
+      question: "What impact does Mechawolves have on the community?",
+      answer:
+        "Mechawolves not only sparks interest in STEM among students but also engages with the local community through outreach programs, demonstrations, and partnerships. We strive to inspire the next generation of engineers, coders, and innovators!",
+    },
+  ];
+
   useEffect(() => {
     let lastTime = performance.now();
     let lastScrollY = window.scrollY;
@@ -309,44 +382,7 @@ export default function Home() {
               </p>
             </article>
             <div className="grid lg:grid-cols-3 sm:grid-cols-2 max:sm:grid-cols-1 gap-16 pt-10">
-              {[
-                {
-                  name: "PROGRAMMING",
-                  src: Code,
-                  description:
-                    "The Programming team writes the code that controls the robot, developing software for autonomous and driver-controlled functions using advanced logic and problem-solving.",
-                },
-                {
-                  name: "MECHANICAL",
-                  src: Wrench,
-                  description:
-                    "The Mechanical team designs, builds, and assembles the robot’s physical components, focusing on structure, movement, and durability to ensure peak performance.",
-                },
-                {
-                  name: "ELECTRICAL",
-                  src: Lightbulb,
-                  description:
-                    "The Electrical team handles the wiring and power systems, ensuring that all components are properly connected and the robot operates safely and efficiently.",
-                },
-                {
-                  name: "CAD",
-                  src: Cuboid,
-                  description:
-                    "The CAD (Computer-Aided Design) team creates detailed 3D models of the robot, using precision design to plan and simulate its structure before building.",
-                },
-                {
-                  name: "GRAPHICS",
-                  src: WandSparkles,
-                  description:
-                    "The Graphic team focuses on branding and visual design, creating logos, team merchandise, and digital content to represent the team’s identity.",
-                },
-                {
-                  name: "BUSINESS",
-                  src: BriefcaseBusiness,
-                  description:
-                    "The Business team manages outreach, fundraising, and sponsorships, ensuring the team has the resources and support needed for success. They also handle marketing and team communications.",
-                },
-              ].map((subteam) => (
+              {teamDescriptions.map((subteam) => (
                 <article className="relative">
                   <h3 className="font-[Passion_One] text-2xl mb-3">
                     {subteam.name}
@@ -366,7 +402,7 @@ export default function Home() {
           </section>
         </div>
         <Testimonials />
-        <div className="px-36 mt-12 flex flex-col gap-8">
+        <div className="px-36 mt-10 flex flex-col gap-8">
           <div>
             <h1 className="text-3xl font-[Passion_One] uppercase">
               Ready to get in touch?
@@ -385,6 +421,43 @@ export default function Home() {
               hollow
             />
             <WolfButton title="Let's Chat" href="/" />
+          </div>
+        </div>
+        <div className="px-36 mt-22 flex flex-col gap-8">
+          <h1 className="text-3xl font-[Passion_One] uppercase">
+            Frequently Asked Questions
+          </h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {faq.map((qa, index) => (
+              <div key={index} className="flex flex-col gap-4 h-6">
+                <button
+                  className="cursor-pointer flex z-10 gap-2"
+                  onClick={(e) => {
+                    e.currentTarget.parentElement?.classList.toggle("h-6");
+
+                    const answer =
+                      e.currentTarget.parentElement?.querySelector("p");
+
+                    answer?.classList.toggle("-translate-y-10");
+                    answer?.classList.toggle("opacity-0");
+
+                    e.currentTarget
+                      .querySelector("svg")
+                      ?.classList.toggle("rotate-90");
+                  }}
+                >
+                  <Plus
+                    size={28}
+                    strokeWidth={3}
+                    className={`transition-transform duration-300`}
+                  />
+                  <h1 className="text-2xl font-semibold">{qa.question}</h1>
+                </button>
+                <p className="text-lg opacity-0 -translate-y-10 transition-all duration-300">
+                  {qa.answer}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
