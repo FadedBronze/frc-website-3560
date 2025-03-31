@@ -14,9 +14,11 @@ import {
   CircleArrowLeft,
   CircleArrowRight,
   Plus,
+  LucideChevronDown,
 } from "lucide-react";
 import { WolfButton } from "src/components/WolfButton";
 import { openSponsorModal } from "src/functions/sponsor";
+import { AnimatePresence, motion } from "motion/react";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -203,39 +205,6 @@ export default function Home() {
     },
   ];
 
-  const faq = [
-    {
-      question: "What does FRC stand for?",
-      answer:
-        "FRC stands for FIRST Robotics Competition. It is a global high school robotics competition where teams of students design, build, and program robots to complete specific tasks in a competitive environment.",
-    },
-    {
-      question: "Who can join Mechawolves?",
-      answer:
-        "Mechawolves is open to all students at our school who are interested in robotics, technology, engineering, and programming. No prior experience is needed, as we provide training and mentorship to all new members.",
-    },
-    {
-      question: "What skills can I learn by joining the team?",
-      answer:
-        "By joining Mechawolves, you’ll gain hands-on experience in robotics, programming, CAD (computer-aided design), mechanical engineering, and electronics. You’ll also develop valuable teamwork, problem-solving, and leadership skills that are essential for future STEM careers.",
-    },
-    {
-      question: "How often does the team meet?",
-      answer:
-        "We meet regularly after school, with additional meetings during the build season leading up to competitions. Our schedule includes weekly practice sessions, special workshops, and collaborative events with other teams.",
-    },
-    {
-      question: "Do I need any experience to join?",
-      answer:
-        "No prior experience is necessary! We welcome students of all skill levels and backgrounds. Our team mentors and experienced members will guide you through the process of learning robotics, programming, and other related skills.",
-    },
-    {
-      question: "What impact does Mechawolves have on the community?",
-      answer:
-        "Mechawolves not only sparks interest in STEM among students but also engages with the local community through outreach programs, demonstrations, and partnerships. We strive to inspire the next generation of engineers, coders, and innovators!",
-    },
-  ];
-
   useEffect(() => {
     let lastTime = performance.now();
     let lastScrollY = window.scrollY;
@@ -266,6 +235,45 @@ export default function Home() {
   }, []);
 
   const cappedVel = Math.min(velocity / 5, 1);
+
+  const [faq, setFaq] = useState([
+    {
+      question: 'What does "FRC" stand for?',
+      answer:
+        "FRC stands for FIRST Robotics Competition. It is a global high school robotics competition where teams of students design, build, and program robots to complete specific tasks in a competitive environment.",
+      expanded: false,
+    },
+    {
+      question: "Who can join Mechawolves?",
+      answer:
+        "Mechawolves is open to all students at our school who are interested in robotics, technology, engineering, and programming. No prior experience is needed, as we provide training and mentorship to all new members.",
+      expanded: false,
+    },
+    {
+      question: "Do I need any experience to join?",
+      answer:
+        "No prior experience is necessary! We welcome students of all skill levels and backgrounds. Our team mentors and experienced members will guide you through the process of learning robotics, programming, and other related skills.",
+      expanded: false,
+    },
+    {
+      question: "What skills can I learn by joining the team?",
+      answer:
+        "By joining Mechawolves, you'll gain hands-on experience in robotics, programming, CAD (computer-aided design), mechanical engineering, and electronics. You'll also develop valuable teamwork, problem-solving, and leadership skills that are essential for future STEM careers.",
+      expanded: false,
+    },
+    {
+      question: "How often does the team meet?",
+      answer:
+        "We meet regularly after school, with additional meetings during the build season leading up to competitions. Our schedule includes weekly practice sessions, special workshops, and collaborative events with other teams.",
+      expanded: false,
+    },
+    {
+      question: "What impact does Mechawolves have on the community?",
+      answer:
+        "Mechawolves not only sparks interest in STEM among students but also engages with the local community through outreach programs, demonstrations, and partnerships. We strive to inspire the next generation of engineers, coders, and innovators!",
+      expanded: false,
+    },
+  ]);
 
   return (
     <>
@@ -427,35 +435,49 @@ export default function Home() {
           <h1 className="text-3xl font-[Passion_One] uppercase">
             Frequently Asked Questions
           </h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 border border-gray-800 bg-gray-900/75 rounded-2xl shadow-sm">
             {faq.map((qa, index) => (
-              <div key={index} className="flex flex-col gap-4 h-6">
-                <button
-                  className="cursor-pointer flex z-10 gap-2"
-                  onClick={(e) => {
-                    e.currentTarget.parentElement?.classList.toggle("h-6");
-
-                    const answer =
-                      e.currentTarget.parentElement?.querySelector("p");
-
-                    answer?.classList.toggle("-translate-y-10");
-                    answer?.classList.toggle("opacity-0");
-
-                    e.currentTarget
-                      .querySelector("svg")
-                      ?.classList.toggle("rotate-90");
-                  }}
-                >
-                  <Plus
-                    size={28}
-                    strokeWidth={3}
-                    className={`transition-transform duration-300`}
-                  />
-                  <h1 className="text-2xl font-semibold">{qa.question}</h1>
-                </button>
-                <p className="text-lg opacity-0 -translate-y-10 transition-all duration-300">
-                  {qa.answer}
-                </p>
+              <div className="flex flex-col gap-6 justify-between">
+                <div key={index} className="flex flex-col gap-4">
+                  <button
+                    className="cursor-pointer flex z-10 justify-between items-center"
+                    onClick={() => {
+                      setFaq((prevFaq) =>
+                        prevFaq.map((item, i) =>
+                          i === index
+                            ? { ...item, expanded: !item.expanded }
+                            : item
+                        )
+                      );
+                    }}
+                  >
+                    <h1 className="text-xl font-semibold">{qa.question}</h1>
+                    <motion.div
+                      animate={{ rotate: qa.expanded ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <LucideChevronDown />
+                    </motion.div>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {qa.expanded && (
+                      <motion.div
+                        key="answer"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <p className="text-lg transition-all duration-300">
+                          {qa.answer}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+                {index < 4 && (
+                  <div className="w-full border border-gray-800"></div>
+                )}
               </div>
             ))}
           </div>
