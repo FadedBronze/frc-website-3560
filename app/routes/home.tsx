@@ -414,7 +414,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex gap-4">
+          <div id="FAQ" className="flex gap-4">
             <WolfButton
               title="Sponsorship Package"
               callback={openSponsorModal}
