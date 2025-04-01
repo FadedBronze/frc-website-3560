@@ -15,10 +15,16 @@ import {
   CircleArrowRight,
   Plus,
   LucideChevronDown,
+  LucideArrowRightCircle,
 } from "lucide-react";
 import { WolfButton } from "src/components/WolfButton";
 import { openSponsorModal } from "src/functions/sponsor";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
+import imA from "./teams/assets/team/aaryan.png";
+import imB from "./teams/assets/team/amber.png";
+import imC from "./teams/assets/team/armaan.png";
+import imD from "./teams/assets/team/blake.png";
+import imE from "./teams/assets/team/devesh.png";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -31,14 +37,48 @@ export function meta({}: Route.MetaArgs) {
 }
 
 function Testimonials() {
-  const testimonials: Record<string, string> = {
-    "David Smith":
-      "This was a great experience for me to learn and grow in the field of stem. Thank you 3560!",
-    "Paul Longboat":
-      "This was a great experience for me to learn and grow in the field of stem. Wow 3560!",
-    "Samuel Van Wilderman":
-      "This was a great experience for me to learn and grow in the field of stem. Yipee 3560!",
-  };
+  const testimonials: {
+    name: string;
+    title: string;
+    quote: string;
+    image: string;
+  }[] = [
+    {
+      name: "David Smith",
+      title: "Student",
+      quote:
+        "Being a part of 3560 Mechawolves has been an incredible journey. I've learned so much about robotics, teamwork, and problem-solving. The hands-on experience and the support from mentors have truly inspired me to pursue a career in STEM. Thank you, 3560, for giving me this opportunity to grow and excel!",
+      image: imA,
+    },
+    {
+      name: "Paul Longboat",
+      title: "Mentor",
+      quote:
+        "Mentoring the students at 3560 Mechawolves has been one of the most rewarding experiences of my life. Watching these young minds collaborate, innovate, and overcome challenges is truly inspiring. This team is not just about building robots; it's about building future leaders and innovators. I'm proud to be a part of this journey.",
+      image: imB,
+    },
+    {
+      name: "Samuel Van Wilderman",
+      title: "Alumni",
+      quote:
+        "As an alumnus of 3560 Mechawolves, I can confidently say that this team shaped my future. The skills I gained in programming, engineering, and teamwork have been invaluable in my career. Beyond the technical knowledge, the friendships and memories I made here will last a lifetime. Thank you, 3560, for an unforgettable experience!",
+      image: imC,
+    },
+    {
+      name: "Emily Carter",
+      title: "Parent",
+      quote:
+        "Seeing my child thrive as part of the 3560 Mechawolves team has been heartwarming. The dedication, creativity, and passion of the students and mentors are truly remarkable. This program has not only taught my child technical skills but also instilled confidence and a sense of purpose. I couldn't be more grateful for this amazing team.",
+      image: imD,
+    },
+    {
+      name: "Jessica Lee",
+      title: "Sponsor",
+      quote:
+        "Supporting 3560 Mechawolves has been an honor. This team exemplifies the spirit of innovation and collaboration. Their commitment to excellence and community outreach is inspiring. I'm thrilled to see how our sponsorship contributes to empowering the next generation of STEM leaders. Keep up the fantastic work, 3560!",
+      image: imE,
+    },
+  ];
 
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
@@ -46,7 +86,7 @@ function Testimonials() {
 
   return (
     <section className="color-wolf-black flex flex-col gap-4 w-screen my-20">
-      <div className="w-screen h-[441px] relative">
+      <div className="w-screen h-[441px] relative flex items-center justify-center">
         {width > 600 && (
           <img
             className="absolute left-0 translate-x-[-160px] lg:translate-x-[-60px] scale-x-[-1.0] scale-y-[-1.0]"
@@ -66,23 +106,55 @@ function Testimonials() {
             left: width > 600 ? "16.66%" : "0%",
           }}
         ></div>
-        <div className="flex flex-col items-center justify-center gap-8 relative z-10 w-full h-full mt-4 lg:px-[145px] px-[45px]">
+        {/* <div className="flex flex-col items-center justify-center gap-8 relative z-10 w-full h-full mt-4 lg:px-[145px] px-[45px]">
           <p className="text-3xl text-wolf-black font-medium italic text-center">
             "{testimonials[Object.keys(testimonials)[activeTestimonial]]}"
           </p>
           <div className="flex gap-4">
             {Object.keys(testimonials).map((name, i) => (
-              <p
+              <button
                 onMouseOver={() => setActiveTestimonial(i)}
-                className={`${
-                  i == activeTestimonial
-                    ? "text-wolf-black -translate-y-[5px]"
-                    : "text-white"
-                } text-2xl font-[Passion_One] transition-transform duration-300`}
+                // className={`${
+                //   i == activeTestimonial
+                //     ? "text-wolf-black -translate-y-[5px]"
+                //     : "text-white"
+                // } text-2xl font-[Passion_One] transition-transform duration-300`}
+                className="text-wolf-black text-xl font-semibold p-3 px-4 bg-blue-300 rounded-sm"
               >
-                {i == activeTestimonial ? "-" : ""} {name}
-              </p>
+                {name}
+              </button>
             ))}
+          </div>
+        </div> */}
+        <div className="w-3/4 h-3/4 relative p-8  flex gap-10 items-center">
+          <img
+            className="h-full aspect-square rounded-full object-cover object-top"
+            src={testimonials[activeTestimonial].image}
+          />
+          <div className="flex flex-col justify-between h-3/4">
+            <p className="text-xl italic">
+              {testimonials[activeTestimonial].quote}
+            </p>
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-2xl font-bold">
+                  {testimonials[activeTestimonial].name}
+                </h1>
+                <h2 className="text-lg font-medium">
+                  {testimonials[activeTestimonial].title}
+                </h2>
+              </div>
+              <button
+                className="cursor-pointer"
+                onClick={() =>
+                  setActiveTestimonial(
+                    (prev) => (prev + 1) % testimonials.length
+                  )
+                }
+              >
+                <LucideArrowRightCircle size={32} />
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -440,7 +512,7 @@ export default function Home() {
               <div className="flex flex-col gap-6 justify-between">
                 <div key={index} className="flex flex-col gap-4">
                   <button
-                    className="cursor-pointer flex z-10 justify-between items-center"
+                    className="cursor-pointer flex z-10 justify-between items-center outline-0"
                     onClick={() => {
                       setFaq((prevFaq) =>
                         prevFaq.map((item, i) =>
