@@ -126,12 +126,24 @@ function Testimonials() {
             ))}
           </div>
         </div> */}
-        <div className="w-3/4 h-3/4 relative p-8  flex gap-10 items-center">
-          <img
+        <div className="w-3/4 h-3/4 relative p-8 flex gap-10 items-center">
+          <motion.img
             className="h-full aspect-square rounded-full object-cover object-top"
             src={testimonials[activeTestimonial].image}
+            initial={{ filter: "blur(8px)" }}
+            animate={{ filter: "none" }}
+            exit={{ filter: "blur(8px)" }}
+            transition={{ duration: 0.3 }}
+            key={activeTestimonial + "-image"}
           />
-          <div className="flex flex-col justify-between h-3/4">
+          <motion.div
+            className="flex flex-col justify-between h-3/4"
+            initial={{ opacity: 0, x: 10, filter: "blur(2px)" }}
+            animate={{ opacity: 1, x: 0, filter: "none" }}
+            exit={{ opacity: 0, x: -10, filter: "blur(2px)" }}
+            transition={{ duration: 0.5 }}
+            key={activeTestimonial}
+          >
             <p className="text-xl italic">
               {testimonials[activeTestimonial].quote}
             </p>
@@ -155,7 +167,7 @@ function Testimonials() {
                 <LucideArrowRightCircle size={32} />
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
