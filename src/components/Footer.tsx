@@ -99,6 +99,7 @@ export default function Footer() {
               <FooterLink title="Electrical" href="/electrical" />
               <FooterLink title="Programming" href="/programming" />
               <FooterLink title="Business" href="/business" />
+              <FooterLink title="Executive" href="/executive" />
             </ul>
           </div>
           <div className="flex flex-col max-xl:flex-col gap-4">

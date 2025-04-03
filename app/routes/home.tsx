@@ -512,7 +512,7 @@ export default function Home() {
               callback={openSponsorModal}
               hollow
             />
-            <WolfButton title="Let's Chat" href="/" />
+            <WolfButton title="Let's Chat" href="#contact" />
           </div>
         </div>
         <div className="px-36 mt-22 flex flex-col gap-8">
