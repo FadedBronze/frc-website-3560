@@ -9,5 +9,6 @@ export default [
   route("mechanical", "routes/mechanical.tsx"),
   route("business", "routes/business.tsx"),
   route("gallery", "routes/gallery.tsx"),
+  route("contact", "routes/contact.tsx"),
   route("executive", "routes/executive.tsx"),
 ] satisfies RouteConfig;

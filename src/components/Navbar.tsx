@@ -49,6 +49,15 @@ function NavDropdown(props: NavDropdownProps): JSX.Element {
 
 const links = [
   {
+    name: "Info",
+    break: true,
+    options: [
+      { name: "Home", link: "/" },
+      { name: "Gallery", link: "/gallery" },
+      { name: "FAQ", link: "#FAQ" },
+    ],
+  },
+  {
     name: "Subdivisions",
     break: false,
     options: [
@@ -57,15 +66,7 @@ const links = [
       { name: "Programming", link: "/programming" },
       { name: "Electrical", link: "/electrical" },
       { name: "Buisiness", link: "/business" },
-    ],
-  },
-  {
-    name: "Info",
-    break: true,
-    options: [
-      { name: "Home", link: "/" },
-      { name: "Gallery", link: "/gallery" },
-      { name: "FAQ", link: "#FAQ" },
+      { name: "Executive", link: "/executive" },
     ],
   },
   {
@@ -78,7 +79,7 @@ const links = [
         onClick: openSponsorModal,
       },
       { name: "Registration", link: "/registration" },
-      { name: "Contact us", link: "#contact" },
+      { name: "Contact us", link: "/contact" },
     ],
   },
 ];
