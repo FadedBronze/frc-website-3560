@@ -13,9 +13,18 @@ import {
   Wrench,
   CircleArrowLeft,
   CircleArrowRight,
+  Plus,
+  LucideChevronDown,
+  LucideArrowRightCircle,
 } from "lucide-react";
 import { WolfButton } from "src/components/WolfButton";
 import { openSponsorModal } from "src/functions/sponsor";
+import { AnimatePresence, motion } from "framer-motion";
+import imA from "./teams/assets/team/aaryan.png";
+import imB from "./teams/assets/team/amber.png";
+import imC from "./teams/assets/team/armaan.png";
+import imD from "./teams/assets/team/blake.png";
+import imE from "./teams/assets/team/devesh.png";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -28,14 +37,48 @@ export function meta({}: Route.MetaArgs) {
 }
 
 function Testimonials() {
-  const testimonials: Record<string, string> = {
-    "David Smith":
-      "This was a great experience for me to learn and grow in the field of stem. Thank you 3560!",
-    "Paul Longboat":
-      "This was a great experience for me to learn and grow in the field of stem. Wow 3560!",
-    "Samuel Van Wilderman":
-      "This was a great experience for me to learn and grow in the field of stem. Yipee 3560!",
-  };
+  const testimonials: {
+    name: string;
+    title: string;
+    quote: string;
+    image: string;
+  }[] = [
+    {
+      name: "David Smith",
+      title: "Student",
+      quote:
+        "Being a part of 3560 Mechawolves has been an incredible journey. I've learned so much about robotics, teamwork, and problem-solving. The hands-on experience and the support from mentors have truly inspired me to pursue a career in STEM. Thank you, 3560, for giving me this opportunity to grow and excel!",
+      image: imA,
+    },
+    {
+      name: "Paul Longboat",
+      title: "Mentor",
+      quote:
+        "Mentoring the students at 3560 Mechawolves has been one of the most rewarding experiences of my life. Watching these young minds collaborate, innovate, and overcome challenges is truly inspiring. This team is not just about building robots; it's about building future leaders and innovators. I'm proud to be a part of this journey.",
+      image: imB,
+    },
+    {
+      name: "Samuel Van Wilderman",
+      title: "Alumni",
+      quote:
+        "As an alumnus of 3560 Mechawolves, I can confidently say that this team shaped my future. The skills I gained in programming, engineering, and teamwork have been invaluable in my career. Beyond the technical knowledge, the friendships and memories I made here will last a lifetime. Thank you, 3560, for an unforgettable experience!",
+      image: imC,
+    },
+    {
+      name: "Emily Carter",
+      title: "Parent",
+      quote:
+        "Seeing my child thrive as part of the 3560 Mechawolves team has been heartwarming. The dedication, creativity, and passion of the students and mentors are truly remarkable. This program has not only taught my child technical skills but also instilled confidence and a sense of purpose. I couldn't be more grateful for this amazing team.",
+      image: imD,
+    },
+    {
+      name: "Jessica Lee",
+      title: "Sponsor",
+      quote:
+        "Supporting 3560 Mechawolves has been an honor. This team exemplifies the spirit of innovation and collaboration. Their commitment to excellence and community outreach is inspiring. I'm thrilled to see how our sponsorship contributes to empowering the next generation of STEM leaders. Keep up the fantastic work, 3560!",
+      image: imE,
+    },
+  ];
 
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
@@ -43,7 +86,7 @@ function Testimonials() {
 
   return (
     <section className="color-wolf-black flex flex-col gap-4 w-screen my-20">
-      <div className="w-screen h-[441px] relative">
+      <div className="w-screen h-[441px] relative flex items-center justify-center">
         {width > 600 && (
           <img
             className="absolute left-0 translate-x-[-160px] lg:translate-x-[-60px] scale-x-[-1.0] scale-y-[-1.0]"
@@ -63,24 +106,68 @@ function Testimonials() {
             left: width > 600 ? "16.66%" : "0%",
           }}
         ></div>
-        <div className="flex flex-col items-center justify-center gap-8 relative z-10 w-full h-full mt-4 lg:px-[145px] px-[45px]">
+        {/* <div className="flex flex-col items-center justify-center gap-8 relative z-10 w-full h-full mt-4 lg:px-[145px] px-[45px]">
           <p className="text-3xl text-wolf-black font-medium italic text-center">
             "{testimonials[Object.keys(testimonials)[activeTestimonial]]}"
           </p>
           <div className="flex gap-4">
             {Object.keys(testimonials).map((name, i) => (
-              <p
+              <button
                 onMouseOver={() => setActiveTestimonial(i)}
-                className={`${
-                  i == activeTestimonial
-                    ? "text-wolf-black -translate-y-[5px]"
-                    : "text-white"
-                } text-2xl font-[Passion_One] transition-transform duration-300`}
+                // className={`${
+                //   i == activeTestimonial
+                //     ? "text-wolf-black -translate-y-[5px]"
+                //     : "text-white"
+                // } text-2xl font-[Passion_One] transition-transform duration-300`}
+                className="text-wolf-black text-xl font-semibold p-3 px-4 bg-blue-300 rounded-sm"
               >
-                {i == activeTestimonial ? "-" : ""} {name}
-              </p>
+                {name}
+              </button>
             ))}
           </div>
+        </div> */}
+        <div className="w-3/4 h-3/4 relative p-8 flex gap-10 items-center">
+          <motion.img
+            className="h-full aspect-square rounded-full object-cover object-top"
+            src={testimonials[activeTestimonial].image}
+            initial={{ filter: "blur(8px)" }}
+            animate={{ filter: "none" }}
+            exit={{ filter: "blur(8px)" }}
+            transition={{ duration: 0.3 }}
+            key={activeTestimonial + "-image"}
+          />
+          <motion.div
+            className="flex flex-col justify-between h-3/4"
+            initial={{ opacity: 0, x: 10, filter: "blur(2px)" }}
+            animate={{ opacity: 1, x: 0, filter: "none" }}
+            exit={{ opacity: 0, x: -10, filter: "blur(2px)" }}
+            transition={{ duration: 0.5 }}
+            key={activeTestimonial}
+          >
+            <p className="text-xl italic">
+              {testimonials[activeTestimonial].quote}
+            </p>
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-2xl font-bold">
+                  {testimonials[activeTestimonial].name}
+                </h1>
+                <h2 className="text-lg font-medium">
+                  {testimonials[activeTestimonial].title}
+                </h2>
+              </div>
+              <button
+                className="cursor-pointer"
+                onClick={() =>
+                  setActiveTestimonial(
+                    (prev) => (prev + 1) % testimonials.length
+                  )
+                }
+              >
+                <LucideArrowRightCircle size={32} />
+              </button>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -163,6 +250,45 @@ export default function Home() {
   const [position, setPosition] = useState(0);
   const [velocity, setVelocity] = useState(0);
 
+  const teamDescriptions = [
+    {
+      name: "PROGRAMMING",
+      src: Code,
+      description:
+        "The Programming team writes the code that controls the robot, developing software for autonomous and driver-controlled functions using advanced logic and problem-solving.",
+    },
+    {
+      name: "MECHANICAL",
+      src: Wrench,
+      description:
+        "The Mechanical team designs, builds, and assembles the robot’s physical components, focusing on structure, movement, and durability to ensure peak performance.",
+    },
+    {
+      name: "ELECTRICAL",
+      src: Lightbulb,
+      description:
+        "The Electrical team handles the wiring and power systems, ensuring that all components are properly connected and the robot operates safely and efficiently.",
+    },
+    {
+      name: "CAD",
+      src: Cuboid,
+      description:
+        "The CAD (Computer-Aided Design) team creates detailed 3D models of the robot, using precision design to plan and simulate its structure before building.",
+    },
+    {
+      name: "GRAPHICS",
+      src: WandSparkles,
+      description:
+        "The Graphic team focuses on branding and visual design, creating logos, team merchandise, and digital content to represent the team’s identity.",
+    },
+    {
+      name: "BUSINESS",
+      src: BriefcaseBusiness,
+      description:
+        "The Business team manages outreach, fundraising, and sponsorships, ensuring the team has the resources and support needed for success. They also handle marketing and team communications.",
+    },
+  ];
+
   useEffect(() => {
     let lastTime = performance.now();
     let lastScrollY = window.scrollY;
@@ -193,6 +319,45 @@ export default function Home() {
   }, []);
 
   const cappedVel = Math.min(velocity / 5, 1);
+
+  const [faq, setFaq] = useState([
+    {
+      question: 'What does "FRC" stand for?',
+      answer:
+        "FRC stands for FIRST Robotics Competition. It is a global high school robotics competition where teams of students design, build, and program robots to complete specific tasks in a competitive environment.",
+      expanded: false,
+    },
+    {
+      question: "Who can join Mechawolves?",
+      answer:
+        "Mechawolves is open to all students at our school who are interested in robotics, technology, engineering, and programming. No prior experience is needed, as we provide training and mentorship to all new members.",
+      expanded: false,
+    },
+    {
+      question: "Do I need any experience to join?",
+      answer:
+        "No prior experience is necessary! We welcome students of all skill levels and backgrounds. Our team mentors and experienced members will guide you through the process of learning robotics, programming, and other related skills.",
+      expanded: false,
+    },
+    {
+      question: "What skills can I learn by joining the team?",
+      answer:
+        "By joining Mechawolves, you'll gain hands-on experience in robotics, programming, CAD (computer-aided design), mechanical engineering, and electronics. You'll also develop valuable teamwork, problem-solving, and leadership skills that are essential for future STEM careers.",
+      expanded: false,
+    },
+    {
+      question: "How often does the team meet?",
+      answer:
+        "We meet regularly after school, with additional meetings during the build season leading up to competitions. Our schedule includes weekly practice sessions, special workshops, and collaborative events with other teams.",
+      expanded: false,
+    },
+    {
+      question: "What impact does Mechawolves have on the community?",
+      answer:
+        "Mechawolves not only sparks interest in STEM among students but also engages with the local community through outreach programs, demonstrations, and partnerships. We strive to inspire the next generation of engineers, coders, and innovators!",
+      expanded: false,
+    },
+  ]);
 
   return (
     <>
@@ -309,44 +474,7 @@ export default function Home() {
               </p>
             </article>
             <div className="grid lg:grid-cols-3 sm:grid-cols-2 max:sm:grid-cols-1 gap-16 pt-10">
-              {[
-                {
-                  name: "PROGRAMMING",
-                  src: Code,
-                  description:
-                    "The Programming team writes the code that controls the robot, developing software for autonomous and driver-controlled functions using advanced logic and problem-solving.",
-                },
-                {
-                  name: "MECHANICAL",
-                  src: Wrench,
-                  description:
-                    "The Mechanical team designs, builds, and assembles the robot’s physical components, focusing on structure, movement, and durability to ensure peak performance.",
-                },
-                {
-                  name: "ELECTRICAL",
-                  src: Lightbulb,
-                  description:
-                    "The Electrical team handles the wiring and power systems, ensuring that all components are properly connected and the robot operates safely and efficiently.",
-                },
-                {
-                  name: "CAD",
-                  src: Cuboid,
-                  description:
-                    "The CAD (Computer-Aided Design) team creates detailed 3D models of the robot, using precision design to plan and simulate its structure before building.",
-                },
-                {
-                  name: "GRAPHICS",
-                  src: WandSparkles,
-                  description:
-                    "The Graphic team focuses on branding and visual design, creating logos, team merchandise, and digital content to represent the team’s identity.",
-                },
-                {
-                  name: "BUSINESS",
-                  src: BriefcaseBusiness,
-                  description:
-                    "The Business team manages outreach, fundraising, and sponsorships, ensuring the team has the resources and support needed for success. They also handle marketing and team communications.",
-                },
-              ].map((subteam) => (
+              {teamDescriptions.map((subteam) => (
                 <article className="relative">
                   <h3 className="font-[Passion_One] text-2xl mb-3">
                     {subteam.name}
@@ -366,7 +494,7 @@ export default function Home() {
           </section>
         </div>
         <Testimonials />
-        <div className="px-36 mt-12 flex flex-col gap-8">
+        <div className="px-36 mt-10 flex flex-col gap-8">
           <div>
             <h1 className="text-3xl font-[Passion_One] uppercase">
               Ready to get in touch?
@@ -378,13 +506,64 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex gap-4">
+          <div id="FAQ" className="flex gap-4">
             <WolfButton
               title="Sponsorship Package"
               callback={openSponsorModal}
               hollow
             />
-            <WolfButton title="Let's Chat" href="/" />
+            <WolfButton title="Let's Chat" href="#contact" />
+          </div>
+        </div>
+        <div className="px-36 mt-22 flex flex-col gap-8">
+          <h1 className="text-3xl font-[Passion_One] uppercase">
+            Frequently Asked Questions
+          </h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 border border-gray-800 bg-gray-900/75 rounded-2xl shadow-sm">
+            {faq.map((qa, index) => (
+              <div className="flex flex-col gap-6 justify-between">
+                <div key={index} className="flex flex-col gap-4">
+                  <button
+                    className="cursor-pointer flex z-10 justify-between items-center outline-0"
+                    onClick={() => {
+                      setFaq((prevFaq) =>
+                        prevFaq.map((item, i) =>
+                          i === index
+                            ? { ...item, expanded: !item.expanded }
+                            : item
+                        )
+                      );
+                    }}
+                  >
+                    <h1 className="text-xl font-semibold">{qa.question}</h1>
+                    <motion.div
+                      animate={{ rotate: qa.expanded ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <LucideChevronDown />
+                    </motion.div>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {qa.expanded && (
+                      <motion.div
+                        key="answer"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <p className="text-lg transition-all duration-300">
+                          {qa.answer}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+                {index < 4 && (
+                  <div className="w-full border border-gray-800"></div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -140,18 +140,33 @@ function Bar({
   );
 }
 
-function TeamMember({ pName, src }: { pName: string; src: string }) {
+export function TeamMember({
+  pName,
+  src,
+  title,
+}: {
+  pName: string;
+  src: string;
+  title?: string;
+}) {
   return (
     <div className="flex flex-col justify-center items-center gap-4 w-60">
       <div
         style={{
           backgroundImage: `url(${src})`,
-          backgroundPosition: "center",
+          backgroundPosition: "top",
           backgroundSize: "cover",
         }}
         className="h-90 w-60 rounded-lg"
       ></div>
-      <p className="font-[Inter] font-semibold">{pName}</p>
+      <div className="flex flex-col justify-center items-center">
+        <p className="font-[Inter] font-semibold">{pName}</p>
+        {title && (
+          <p className="font-[Inter] font-medium text-sm text-neutral-300">
+            {title}
+          </p>
+        )}
+      </div>
     </div>
   );
 }

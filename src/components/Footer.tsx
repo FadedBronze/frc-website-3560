@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Mails, Phone, Twitter, Youtube, Instagram } from "lucide-react";
 import windowSizeContext from "src/contexts/windowSizeContext";
 import Logo from "public/Logo.svg";
+import { openSponsorModal } from "src/functions/sponsor";
 
 export default function Footer() {
   const { width } = windowSizeContext();
@@ -77,66 +78,28 @@ export default function Footer() {
               Main Pages
             </h1>
             <ul className="font-semibold">
-              <li>
-                <a href="/" className="hover:underline">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="/about-us" className="hover:underline">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="/sponsorship" className="hover:underline">
-                  Sponsorship
-                </a>
-              </li>
-              <li>
-                <a href="/registration" className="hover:underline">
-                  Registration
-                </a>
-              </li>
-              <li>
-                <a href="/faq" className="hover:underline">
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a href="/first" className="hover:underline">
-                  FIRST
-                </a>
-              </li>
+              <FooterLink title="Home" href="/" />
+              <FooterLink
+                title="Sponsorship"
+                href="#"
+                callback={openSponsorModal}
+              />
+              <FooterLink title="Registration" href="/registration" />
+              <FooterLink
+                title="FIRST"
+                href="https://www.firstinspires.org/robotics/frc"
+              />
             </ul>
           </div>
           <div className="flex flex-col max-xl:flex-col gap-4">
             <h1 className="uppercase font-[Passion_One] text-3xl">Divisions</h1>
             <ul className="font-semibold">
-              <li>
-                <a href="/cad" className="hover:underline">
-                  CAD
-                </a>
-              </li>
-              <li>
-                <a href="/mechanical" className="hover:underline">
-                  Mechanical
-                </a>
-              </li>
-              <li>
-                <a href="/electrical" className="hover:underline">
-                  Electrical
-                </a>
-              </li>
-              <li>
-                <a href="/programming" className="hover:underline">
-                  Programming
-                </a>
-              </li>
-              <li>
-                <a href="/business" className="hover:underline">
-                  Business
-                </a>
-              </li>
+              <FooterLink title="CAD" href="/cad" />
+              <FooterLink title="Mechanical" href="/mechanical" />
+              <FooterLink title="Electrical" href="/electrical" />
+              <FooterLink title="Programming" href="/programming" />
+              <FooterLink title="Business" href="/business" />
+              <FooterLink title="Executive" href="/executive" />
             </ul>
           </div>
           <div className="flex flex-col max-xl:flex-col gap-4">
@@ -144,30 +107,33 @@ export default function Footer() {
               Contact info
             </h1>
             <ul className="font-semibold">
-              <li>
-                <a
-                  href="mailto:3560frc@gmail.com"
-                  className="flex gap-2 items-center hover:underline"
-                >
-                  <Mails color="#00041A" size={20} /> 3560frc@gmail.com
-                </a>
-              </li>
-              <li>
-                <a
-                  href="tel:+19057912400"
-                  className="flex gap-2 items-center hover:underline"
-                >
-                  <Phone color="#00041A" size={20} /> +1 905-791-2400
-                </a>
-              </li>
+              <FooterLink
+                title={
+                  <span className="flex gap-2 items-center">
+                    <Mails color="#00041A" size={20} /> 3560frc@gmail.com
+                  </span>
+                }
+                href="mailto:3560frc@gmail.com"
+              />
+              <FooterLink
+                title={
+                  <span className="flex gap-2 items-center">
+                    <Phone color="#00041A" size={20} /> +1 905-791-2400
+                  </span>
+                }
+                href="tel:+19057912400"
+              />
             </ul>
           </div>
         </div>
       </div>
       {width > 900 && (
-        <div className="absolute origin-bottom-right bottom-1/2 right-0 mechawolf" style={{
-          transform: "translateY(50%) translateY(80px) translateX(80px)",
-        }}>
+        <div
+          className="absolute origin-bottom-right bottom-1/2 right-0 mechawolf"
+          style={{
+            transform: "translateY(50%) translateY(80px) translateX(80px)",
+          }}
+        >
           <img
             className="animate-[breathe_7s_ease-in-out_infinite]"
             src={Logo}
@@ -175,5 +141,26 @@ export default function Footer() {
         </div>
       )}
     </footer>
+  );
+}
+
+function FooterLink({
+  title,
+  href,
+  callback,
+}: {
+  title: any;
+  href: string;
+  callback?: () => void;
+}) {
+  return (
+    <li>
+      <a
+        {...(callback ? { onClick: callback } : { href })}
+        className="hover:underline cursor-pointer"
+      >
+        {title}
+      </a>
+    </li>
   );
 }
