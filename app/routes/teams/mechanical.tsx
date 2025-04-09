@@ -3,6 +3,7 @@ import saket from "./assets/team/saket.png";
 import ishan from "./assets/team/ishan.jpg";
 import laksh from "./assets/team/laksh.png";
 import armaan from "./assets/team/armaan.png";
+import rishi from "./assets/team/rishi.jpg";
 import mechanical from "./assets/repr/mechanical.png";
 import { TeamPage } from "./TeamPage";
 
@@ -45,6 +46,7 @@ export function Mechanical() {
         { pName: "Ishan Kenth", src: ishan },
         { pName: "Laksh Kumar", src: laksh },
         { pName: "Armaan Sheikh", src: armaan },
+        { pName: "Rishi Anandjivala", src: rishi },
       ]}
     />
   );
