@@ -39,8 +39,8 @@ export function Programming() {
       cultureDescriptionTwo="are key for meeting programming deadlines and working effectively with the rest of the team."
       members={[
         { pName: "Aaryan Banerjee", src: aaryan },
-        { pName: "Jahvon Cockburn", src: jahvon },
         { pName: "Samyat Gautam", src: samyat },
+        { pName: "Jahvon Cockburn", src: jahvon },
       ]}
     />
   );
