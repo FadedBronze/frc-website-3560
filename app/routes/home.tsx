@@ -14,7 +14,6 @@ import {
   CircleArrowLeft,
   CircleArrowRight,
   Plus,
-  LucideChevronDown,
   LucideArrowRightCircle,
 } from "lucide-react";
 import { WolfButton } from "src/components/WolfButton";
@@ -89,7 +88,7 @@ function Testimonials() {
       <div className="w-screen h-[441px] relative flex items-center justify-center">
         {width > 600 && (
           <img
-            className="absolute left-0 translate-x-[-160px] lg:translate-x-[-60px] scale-x-[-1.0] scale-y-[-1.0]"
+            className="absolute left-0 translate-x-[-160px] lg:translate-x-[-60px] scale-x-[-1.0] scale-y-[-1.004]"
             src={BlueSection}
           />
         )}
@@ -519,12 +518,12 @@ export default function Home() {
           <h1 className="text-3xl font-[Passion_One] uppercase">
             Frequently Asked Questions
           </h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 border border-gray-800 bg-gray-900/75 rounded-2xl shadow-sm">
+          <div className="grid gap-4 grid-cols-1 md:grid-cols-2 pt-2 gap-x-6 -mb-24 rounded-2xl shadow-sm">
             {faq.map((qa, index) => (
-              <div className="flex flex-col gap-6 justify-between">
+              <div className="flex flex-col gap-4 pt-4 justify-between">
                 <div key={index} className="flex flex-col gap-4">
                   <button
-                    className="cursor-pointer flex z-10 justify-between items-center outline-0"
+                    className="cursor-pointer flex z-10 gap-2 items-center outline-0"
                     onClick={() => {
                       setFaq((prevFaq) =>
                         prevFaq.map((item, i) =>
@@ -535,13 +534,14 @@ export default function Home() {
                       );
                     }}
                   >
-                    <h1 className="text-xl font-semibold">{qa.question}</h1>
                     <motion.div
-                      animate={{ rotate: qa.expanded ? 180 : 0 }}
+                      animate={{ rotate: qa.expanded ? 135 : 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <LucideChevronDown />
+                      <Plus />
                     </motion.div>
+                    <h1 className="text-xl font-semibold">{qa.question}</h1>
+                    <div className="h-1 grow ml-2 bg-gray-800/25"></div>
                   </button>
                   <AnimatePresence initial={false}>
                     {qa.expanded && (
@@ -550,7 +550,7 @@ export default function Home() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ duration: 0.1 }}
                       >
                         <p className="text-lg transition-all duration-300">
                           {qa.answer}
@@ -559,9 +559,6 @@ export default function Home() {
                     )}
                   </AnimatePresence>
                 </div>
-                {index < 4 && (
-                  <div className="w-full border border-gray-800"></div>
-                )}
               </div>
             ))}
           </div>
