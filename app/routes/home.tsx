@@ -88,21 +88,21 @@ function Testimonials() {
       <div className="w-screen h-[441px] relative flex items-center justify-center">
         {width > 600 && (
           <img
-            className="absolute left-0 translate-x-[-160px] lg:translate-x-[-60px] scale-x-[-1.0] scale-y-[-1.004]"
+            className="absolute left-0 translate-x-[-160px] lg:translate-x-[-60px] scale-x-[-1.0] scale-y-[-1]"
             src={BlueSection}
           />
         )}
         {width > 600 && (
           <img
-            className="absolute right-0 translate-x-[160px] lg:translate-x-[60px] scale-x-[1.0]"
+            className="absolute right-0 translate-x-[145px] lg:translate-x-[45px] scale-x-[1.0]"
             src={BlueSection}
           />
         )}
         <div
           className="absolute top-0 h-full bg-wolf-blue"
           style={{
-            width: width > 600 ? "66.66%" : "100%",
-            left: width > 600 ? "16.66%" : "0%",
+            width: width > 1600 ? "80%" : (width > 600 ? "66.66%" : "100%"),
+            left: width > 1600 ? "10%" : (width > 600 ? "16.66%" : "0%"),
           }}
         ></div>
         {/* <div className="flex flex-col items-center justify-center gap-8 relative z-10 w-full h-full mt-4 lg:px-[145px] px-[45px]">
@@ -125,18 +125,26 @@ function Testimonials() {
             ))}
           </div>
         </div> */}
-        <div className="w-3/4 h-3/4 relative p-8 flex gap-10 items-center">
-          <motion.img
-            className="h-full aspect-square rounded-full object-cover object-top"
-            src={testimonials[activeTestimonial].image}
-            initial={{ filter: "blur(8px)" }}
-            animate={{ filter: "none" }}
-            exit={{ filter: "blur(8px)" }}
-            transition={{ duration: 0.3 }}
-            key={activeTestimonial + "-image"}
-          />
+        <div className="h-full lg:px-[145px] px-[45px] relative p-8 flex gap-10 items-center">
+          {
+            width > 800 && (
+              <motion.img
+                className="aspect-square rounded-full object-cover object-top"
+                src={testimonials[activeTestimonial].image}
+                width={width > 1400 ? "240px" : "180px"}
+                initial={{ filter: "blur(8px)" }}
+                animate={{ filter: "none" }}
+                exit={{ filter: "blur(8px)" }}
+                transition={{ duration: 0.3 }}
+                key={activeTestimonial + "-image"}
+              />
+            )
+          }
           <motion.div
-            className="flex flex-col justify-between h-3/4"
+            className="flex flex-col lg:justify-center gap-10 justify-between"
+            style={{
+              padding: width > 800 ? "0 2.75rem 0 0" : width > 600 ? "1rem" : "0",
+            }}
             initial={{ opacity: 0, x: 10, filter: "blur(2px)" }}
             animate={{ opacity: 1, x: 0, filter: "none" }}
             exit={{ opacity: 0, x: -10, filter: "blur(2px)" }}
@@ -147,13 +155,29 @@ function Testimonials() {
               {testimonials[activeTestimonial].quote}
             </p>
             <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-2xl font-bold">
-                  {testimonials[activeTestimonial].name}
-                </h1>
-                <h2 className="text-lg font-medium">
-                  {testimonials[activeTestimonial].title}
-                </h2>
+              <div className="flex gap-4">
+                {
+                  width < 800 && (
+                    <motion.img
+                      className="aspect-square rounded-full object-cover object-top"
+                      src={testimonials[activeTestimonial].image}
+                      width="60px"
+                      initial={{ filter: "blur(8px)" }}
+                      animate={{ filter: "none" }}
+                      exit={{ filter: "blur(8px)" }}
+                      transition={{ duration: 0.3 }}
+                      key={activeTestimonial + "-image"}
+                    />
+                  )
+                }
+                <div>
+                  <h1 className="text-2xl font-bold">
+                    {testimonials[activeTestimonial].name}
+                  </h1>
+                  <h2 className="text-lg font-medium">
+                    {testimonials[activeTestimonial].title}
+                  </h2>
+                </div>
               </div>
               <button
                 className="cursor-pointer"
@@ -189,13 +213,14 @@ function MainText() {
         cool projects, learn new skills, and compete in exciting challenges.
         Don’t wait—sign up today and start your robotics adventure!
       </p>
-      <WolfButton
-        title="Contact Us"
-        callback={() => {
-          document.querySelector("#contact")?.scrollIntoView();
-        }}
-        hollow
-      />
+      <div className="flex gap-4">
+        <WolfButton title="Let's Chat" href="/contact" />
+        <WolfButton
+          title="Sponsorship Package"
+          callback={openSponsorModal}
+          hollow
+        />
+      </div>
     </article>
   );
 }
@@ -493,7 +518,7 @@ export default function Home() {
           </section>
         </div>
         <Testimonials />
-        <div className="px-36 mt-10 flex flex-col gap-8">
+        <div className="lg:px-[145px] px-[45px] mt-10 flex flex-col gap-8">
           <div>
             <h1 className="text-3xl font-[Passion_One] uppercase">
               Ready to get in touch?
@@ -506,15 +531,15 @@ export default function Home() {
           </div>
 
           <div id="FAQ" className="flex gap-4">
+            <WolfButton title="Let's Chat" href="/contact" />
             <WolfButton
               title="Sponsorship Package"
               callback={openSponsorModal}
               hollow
             />
-            <WolfButton title="Let's Chat" href="#contact" />
           </div>
         </div>
-        <div className="px-36 mt-22 flex flex-col gap-8">
+        <div className="lg:px-[145px] px-[45px] mt-22 flex flex-col gap-8">
           <h1 className="text-3xl font-[Passion_One] uppercase">
             Frequently Asked Questions
           </h1>
@@ -541,7 +566,7 @@ export default function Home() {
                       <Plus />
                     </motion.div>
                     <h1 className="text-xl font-semibold">{qa.question}</h1>
-                    <div className="h-1 grow ml-2 bg-gray-800/25"></div>
+                    <div className="h-1 grow ml-2 bg-gray-800/45"></div>
                   </button>
                   <AnimatePresence initial={false}>
                     {qa.expanded && (

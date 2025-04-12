@@ -5,6 +5,7 @@ import { useState, type JSX } from "react";
 import windowSizeContext from "src/contexts/windowSizeContext";
 import { Fragment } from "react";
 import { openSponsorModal } from "src/functions/sponsor";
+import { Link } from "react-router"
 
 interface NavDropdownProps {
   name: string;
@@ -33,13 +34,15 @@ function NavDropdown(props: NavDropdownProps): JSX.Element {
       {props.open && (
         <div className="absolute bg-wolf-black/70 backdrop-blur py-2 rounded -translate-x-1/2 gap-3 left-1/2 flex flex-col">
           {options.map((option) => (
-            <a
+            <Link
+              to={{
+                pathname: option.link
+              }}
               key={option.name}
               className="hover:bg-white/10 rounded px-2 -my-2 py-0.5 w-full"
-              href={option.link}
             >
               {option.name.toUpperCase()}
-            </a>
+            </Link>
           ))}
         </div>
       )}
@@ -54,7 +57,6 @@ const links = [
     options: [
       { name: "Home", link: "/" },
       { name: "Gallery", link: "/gallery" },
-      { name: "FAQ", link: "#FAQ" },
     ],
   },
   {
@@ -115,17 +117,17 @@ export default function Navbar() {
                     {link.name.toUpperCase()}
                   </span>
                 ) : (
-                  <a
+                  <Link
                     key={link.name}
-                    href={
-                      link.link === window.location.pathname
+                    to={{
+                      pathname: link.link === window.location.pathname
                         ? undefined
                         : link.link
-                    }
+                    }}
                     className="font-[Passion_One] cursor-pointer"
                   >
                     {link.name.toUpperCase()}
-                  </a>
+                  </Link>
                 )
               )}
             </Fragment>
@@ -163,13 +165,15 @@ export default function Navbar() {
                         {link.name}
                       </span>
                     ) : (
-                      <a
-                        href={link.link}
-                        key={link.name}
+                      <Link
+                        to={{
+                          pathname: link.link,
+                        }}
                         className="transition-transform duration-100 hover:scale-[1.1] origin-left text-lg block font-[Inter]"
+                        key={link.name}
                       >
                         {link.name}
-                      </a>
+                      </Link>
                     )
                   )}
                 </div>

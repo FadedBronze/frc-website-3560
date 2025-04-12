@@ -16,7 +16,7 @@ export default function Registration() {
           technology!
         </p>
         <div className="grid max-w-[900px] md:grid-cols-2 lg:grid-cols-3 gap-4 py-10">
-          <Box title="Fee" body="$30 CAD" />
+          <Box title="Fee" body="$230 CAD" />
           <Box title="Deadline" body="September 30th" />
           <Box
             title="Time & Place"

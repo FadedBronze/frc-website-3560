@@ -3,6 +3,7 @@ import { Mails, Phone, Twitter, Youtube, Instagram } from "lucide-react";
 import windowSizeContext from "src/contexts/windowSizeContext";
 import Logo from "public/Logo.svg";
 import { openSponsorModal } from "src/functions/sponsor";
+import { Link } from "react-router"
 
 export default function Footer() {
   const { width } = windowSizeContext();
@@ -61,7 +62,7 @@ export default function Footer() {
                 key={social.link}
                 target="_blank"
                 className="rounded-full bg-wolf-black p-3 hover:scale-[110%] transition-transform duration-200"
-                href={social.link}
+                href={social.link} 
               >
                 <social.icon color="white" />
               </a>
@@ -153,14 +154,20 @@ function FooterLink({
   href: string;
   callback?: () => void;
 }) {
+  const className = "hover:underline cursor-pointer";
   return (
     <li>
-      <a
-        {...(callback ? { onClick: callback } : { href })}
-        className="hover:underline cursor-pointer"
-      >
-        {title}
-      </a>
+      {
+        href.includes("tel:") || href.includes("https://") || href.includes("mailto:") ? <a className={className} href={href}>{title}</a> : (
+        callback ? 
+            <button onClick={callback} className={className}>{title}</button> 
+          : (
+            <Link to={{ 
+              pathname: href, 
+            }} className={className}>{title}</Link>
+          )
+        )
+      }
     </li>
   );
 }
