@@ -3,7 +3,9 @@ import Navbar from "src/components/Navbar";
 import Box from "src/components/Box";
 import { WolfButton } from "src/components/WolfButton";
 import { Instagram, Phone, Mail, Package, MapPin } from "lucide-react";
+import { useState } from "react";
 import { openSponsorModal } from "src/functions/sponsor";
+import Map from "src/components/Map";
 
 export default function SponsorshipPage() {
   return <>
@@ -38,6 +40,8 @@ export default function SponsorshipPage() {
           ) 
         })}
       </div>
+      <h2 className="font-[Passion_One] text-3xl mb-3 mt-14">MAP</h2>
+      <Map />
     </div>
     <Footer></Footer>
   </>

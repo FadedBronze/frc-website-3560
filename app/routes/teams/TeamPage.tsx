@@ -19,7 +19,7 @@ export function TeamPage({
   teamDescription: string;
   teamList: string[];
   teamImage: string;
-  tools: { title: string; body: string }[];
+  tools: { title: string; body: string; link: string; }[];
   cultureDescriptionOne: string;
   cultureList: string[];
   cultureDescriptionTwo: string;
@@ -60,7 +60,7 @@ export function TeamPage({
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
             {tools.map((tool, index) => (
-              <Box key={index} title={tool.title} body={tool.body} />
+              <Box key={index} link={tool.link} title={tool.title} body={tool.body} />
             ))}
           </div>
         </div>
