@@ -16,7 +16,7 @@ export default function SponsorshipPage() {
     </div>
     <div className="px-[45px] lg:px-[145px] relative z-10 -mt-[calc(-7rem)] -mb-10">
       <h2 className="font-[Passion_One] text-3xl mb-3">SPONSORSHIP {"&"} CONTACT</h2>
-      <div className="grid max-md:grid-cols-1 grid-cols-2 gap-6">
+      <div className="grid max-md:grid-cols-1 max-xl:grid-cols-2 grid-cols-3 gap-6">
         {[
           { name: "Email", cta: "Get in touch", icon: Mail, link: "mailto:3560frc@gmail.com", description: "Lorem ipsum dolor sit amet, consecetur adipiscing elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua." },
           { name: "Sponsorship Package", cta: "Explore", icon: Package, link: "", onClick: openSponsorModal, description: "Lorem ipsum dolor sit amet, consecetur adipiscing elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua." },
@@ -40,6 +40,18 @@ export default function SponsorshipPage() {
           ) 
         })}
       </div>
+      <section className="bg-white py-12 px-[45px] lg:px-[125px] w-screen -ml-[45px] lg:-ml-[125px] mt-14">
+        <h2 className="font-[Passion_One] text-3xl mb-6 text-wolf-black">SPONSORS</h2>
+        <div className="flex gap-12 mb-14 flex-wrap">
+          <img className="h-40" src="/sponsors/B-Tech_Manufacturing.jpg"></img>
+          <img className="h-40" src="/sponsors/Brannon.jpg"></img>
+          <img className="h-40 -my-5 -mx-10" src="/sponsors/Ombrex_Telecom.png"></img>
+        </div>
+        <div className="flex gap-12">
+          <img className="h-20" src="/sponsors/CMI_FG.png"></img>
+          <img className="h-20" src="/sponsors/D4E.png"></img>
+        </div>
+      </section>
       <h2 className="font-[Passion_One] text-3xl mb-3 mt-14">MAP</h2>
       <Map />
     </div>
