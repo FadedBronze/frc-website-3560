@@ -147,7 +147,7 @@ export default function Navbar() {
           <nav
             className={`${
               menuOpen ? "translate-x-0" : "translate-x-full"
-            } fixed top-0 right-0 w-4/5 bg-wolf-blue h-screen text-left font-[Passion_One] rounded p-10 text-wolf-black ransition-transform duration-300 ease-[cubic-bezier(0.4,0.0,0.2,1)] flex flex-col gap-5`}
+            } fixed top-0 right-0 w-4/5 bg-wolf-black h-screen text-left font-[Passion_One] rounded p-10 text-wolf-white ransition-transform duration-300 ease-[cubic-bezier(0.4,0.0,0.2,1)] flex flex-col gap-5`}
           >
             {links.map((link) => (
               <div key={link.name}>

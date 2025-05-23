@@ -43,13 +43,13 @@ export default function SponsorshipPage() {
       <section className="bg-white py-12 px-[45px] lg:px-[125px] w-screen -ml-[45px] lg:-ml-[125px] mt-14">
         <h2 className="font-[Passion_One] text-3xl mb-6 text-wolf-black">SPONSORS</h2>
         <div className="flex gap-12 mb-14 flex-wrap">
-          <img className="h-40" src="/sponsors/B-Tech_Manufacturing.jpg"></img>
-          <img className="h-40" src="/sponsors/Brannon.jpg"></img>
-          <img className="h-40 -my-5 -mx-10" src="/sponsors/Ombrex_Telecom.png"></img>
+          <img className="h-30" src="/sponsors/B-Tech_Manufacturing.jpg"></img>
+          <img className="h-30" src="/sponsors/Brannon.jpg"></img>
+          <img className="h-30 -my-5 -mx-10" src="/sponsors/Ombrex_Telecom.png"></img>
         </div>
         <div className="flex gap-12">
-          <img className="h-20" src="/sponsors/CMI_FG.png"></img>
-          <img className="h-20" src="/sponsors/D4E.png"></img>
+          <img className="h-15" src="/sponsors/CMI_FG.png"></img>
+          <img className="h-15" src="/sponsors/D4E.png"></img>
         </div>
       </section>
       <h2 className="font-[Passion_One] text-3xl mb-3 mt-14">MAP</h2>
