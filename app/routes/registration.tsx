@@ -7,6 +7,10 @@ export default function Registration() {
   return (
     <>
       <Navbar />
+      <div className="relative -mt-20 h-[400px]">
+        <img className="absolute w-full h-full object-cover object-top left-0 top-0 z-0" src="/chinguacousy.jpeg" />
+        <div className="bg-black absolute w-full h-full top-0 left-0 opacity-60"></div>
+      </div>
       <article className="px-[45px] lg:px-[145px] pt-20 -mb-16">
         <h1 className="font-[Passion_One] text-3xl mb-3">REGISTRATION</h1>
         <p>

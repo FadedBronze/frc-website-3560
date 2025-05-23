@@ -8,7 +8,6 @@ export default [
   route("electrical", "routes/electrical.tsx"),
   route("mechanical", "routes/mechanical.tsx"),
   route("business", "routes/business.tsx"),
-  route("gallery", "routes/gallery.tsx"),
-  route("contact", "routes/contact.tsx"),
   route("executive", "routes/executive.tsx"),
+  route("sponsorship", "routes/sponsorship.tsx"),
 ] satisfies RouteConfig;

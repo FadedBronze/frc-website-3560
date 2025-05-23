@@ -35,7 +35,7 @@ export function Programming() {
         },
       ]}
       cultureDescriptionOne="Beyond writing code, we also collaborate with the Mechanical, Electrical, and CAD teams to ensure systems work seamlessly. We believe that"
-      cultureList={["communication", "leadership", "initiative"]}
+      cultureList={["Communication", "Leadership", "Initiative"]}
       cultureDescriptionTwo="are key for meeting programming deadlines and working effectively with the rest of the team."
       members={[
         { pName: "Aaryan Banerjee", src: aaryan },

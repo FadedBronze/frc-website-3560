@@ -499,7 +499,7 @@ export default function Home() {
             </article>
             <div className="grid lg:grid-cols-3 sm:grid-cols-2 max:sm:grid-cols-1 gap-16 pt-10">
               {teamDescriptions.map((subteam) => (
-                <article className="relative">
+                <article key={subteam.name} className="relative">
                   <h3 className="font-[Passion_One] text-2xl mb-3">
                     {subteam.name}
                   </h3>
@@ -545,7 +545,7 @@ export default function Home() {
           </h1>
           <div className="grid gap-4 grid-cols-1 md:grid-cols-2 pt-2 gap-x-6 -mb-24 rounded-2xl shadow-sm">
             {faq.map((qa, index) => (
-              <div className="flex flex-col gap-4 pt-4 justify-between">
+              <div key={qa.question} className="flex flex-col gap-4 pt-4 justify-between">
                 <div key={index} className="flex flex-col gap-4">
                   <button
                     className="cursor-pointer flex z-10 gap-2 items-center outline-0"

@@ -81,9 +81,12 @@ export default function Footer() {
             <ul className="font-semibold">
               <FooterLink title="Home" href="/" />
               <FooterLink
-                title="Sponsorship"
-                href="#"
-                callback={openSponsorModal}
+                title="Sponsorship & Contact"
+                href="/sponsorship"
+              />
+              <FooterLink
+                title="Contact"
+                href="/sponsorship"
               />
               <FooterLink title="Registration" href="/registration" />
               <FooterLink

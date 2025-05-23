@@ -56,7 +56,7 @@ const links = [
     break: true,
     options: [
       { name: "Home", link: "/" },
-      { name: "Gallery", link: "/gallery" },
+      //{ name: "Gallery", link: "/gallery" },
     ],
   },
   {
@@ -76,12 +76,10 @@ const links = [
     break: true,
     options: [
       {
-        name: "Sponsorship",
-        link: "",
-        onClick: openSponsorModal,
+        name: "Sponsorship & Contact",
+        link: "/sponsorship",
       },
       { name: "Registration", link: "/registration" },
-      { name: "Contact us", link: "/contact" },
     ],
   },
 ];
@@ -92,7 +90,7 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(-1);
 
   return (
-    <div className="flex gap-4 justify-end w-full z-10 sticky lg:px-[145px] px-[45px] pt-10 -mb-10 text-lg">
+    <div className="flex gap-4 justify-end w-full z-20 sticky lg:px-[145px] px-[45px] pt-10 -mb-10 text-lg">
       {width > 816 ? (
         links.map((link, i) =>
           link.break === false ? (
