@@ -41,15 +41,15 @@ export default function SponsorshipPage() {
         })}
       </div>
       <section className="bg-white py-12 px-[45px] lg:px-[125px] w-screen -ml-[45px] lg:-ml-[125px] mt-14">
-        <h2 className="font-[Passion_One] text-3xl mb-6 text-wolf-black">SPONSORS</h2>
-        <div className="flex gap-12 mb-14 flex-wrap">
-          <img className="h-30" src="/sponsors/B-Tech_Manufacturing.jpg"></img>
-          <img className="h-30" src="/sponsors/Brannon.jpg"></img>
-          <img className="h-30 -my-5 -mx-10" src="/sponsors/Ombrex_Telecom.png"></img>
+        <h2 className="font-[Passion_One] max-md:text-lg text-3xl mb-6 text-wolf-black">SPONSORS</h2>
+        <div className="flex max-md:gap-6 gap-12 mb-14 flex-wrap">
+          <img className="h-30 max-md:h-15" src="/sponsors/B-Tech_Manufacturing.jpg"></img>
+          <img className="h-30 max-md:h-15" src="/sponsors/Brannon.jpg"></img>
+          <img className="h-30 max-md:h-15 max-md:-mx-4 -my-5 -mx-8" src="/sponsors/Ombrex_Telecom.png"></img>
         </div>
-        <div className="flex gap-12">
-          <img className="h-15" src="/sponsors/CMI_FG.png"></img>
-          <img className="h-15" src="/sponsors/D4E.png"></img>
+        <div className="flex max-md:gap-6 gap-12">
+          <img className="h-15 max-md:h-8" src="/sponsors/CMI_FG.png"></img>
+          <img className="h-15 max-md:h-8" src="/sponsors/D4E.png"></img>
         </div>
       </section>
       <h2 className="font-[Passion_One] text-3xl mb-3 mt-14">MAP</h2>
