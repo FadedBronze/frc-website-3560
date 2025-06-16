@@ -10,4 +10,5 @@ export default [
   route("business", "routes/business.tsx"),
   route("executive", "routes/executive.tsx"),
   route("sponsorship", "routes/sponsorship.tsx"),
+  route("field building", "routes/fieldBuilding.tsx"),
 ] satisfies RouteConfig;
