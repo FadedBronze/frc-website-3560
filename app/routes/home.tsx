@@ -300,10 +300,10 @@ export default function Home() {
         "The CAD (Computer-Aided Design) team creates detailed 3D models of the robot, using precision design to plan and simulate its structure before building.",
     },
     {
-      name: "GRAPHICS",
-      src: WandSparkles,
+      name: "Field Building",
+      src: Cuboid,
       description:
-        "The Graphic team focuses on branding and visual design, creating logos, team merchandise, and digital content to represent the team’s identity.",
+        "The Field Building team constructs the competition field elements, ensuring they are built to specifications and ready for practice and competition.",
     },
     {
       name: "BUSINESS",
