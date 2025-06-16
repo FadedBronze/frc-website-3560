@@ -1,45 +1,49 @@
-import React from "react";
 import Footer from "src/components/Footer";
 import Navbar from "src/components/Navbar";
 import dhadde from "./assets/exec/dhadde.png";
 import harris from "./assets/exec/harris.png";
-import harsh from "./assets/exec/harsh.png";
 import kirsch from "./assets/exec/kirsch.png";
 
-import aaryan from "./assets/team/aaryan.png";
-import amber from "./assets/team/amber.png";
+import jahvon from "./assets/team/jahvon.jpg";
 import amer from "./assets/team/amer.png";
-import blake from "./assets/team/blake.png";
 import devesh from "./assets/team/devesh.png";
 import ishan from "./assets/team/ishan.jpg";
 import samyat from "./assets/team/samyat.jpg";
 import saket from "./assets/team/saket.png";
 import ravi from "./assets/team/ravi.png";
 import savyasaachi from "./assets/team/savyasaachi.png";
-import jenisha from "./assets/team/jenisha.png";
+import harrisStudent from "./assets/team/harris.png";
+import navin from "./assets/team/navin.png";
+import krisha from "./assets/team/krisha.png";
+import aditya from "./assets/team/aditya.png";
 
 import { TeamMember } from "./TeamPage";
 
 export function Executive() {
   let members = [
-    { pName: "Harsh Patel", src: harsh, title: "Team 3560 Captain" },
+    {
+      pName: "Savyasaachi Shimoga-Yogesh", src: savyasaachi, title: "Team 3560 Captain",
+    },
     { pName: "Mizanne Harris", src: harris, title: "Lead Coach" },
     { pName: "Kuljit Dhadde", src: dhadde, title: "Lead Coach" },
     { pName: "Elizabeth Kirsch", src: kirsch, title: "Teacher Supervisor" },
-    { pName: "Devesh Madnani", src: devesh, title: "CAD Head" },
-    {
-      pName: "Savyasaachi Shimoga-Yogesh",
-      src: savyasaachi,
-      title: "Mechanical Head",
-    },
-    { pName: "Blake Davison", src: blake, title: "Electrical Head" },
-    { pName: "Aaryan Banerjee", src: aaryan, title: "Programming Head" },
-    { pName: "Amber Brar", src: amber, title: "Business Head" },
-    { pName: "Amer Sandhu", src: amer, title: "CAD Co-Lead" },
-    { pName: "Saket Cherooli", src: saket, title: "Mechanical Co-Lead" },
+
+    { pName: "Saket Cherooli", src: saket, title: "Mechanical Co-Lead" }, 
+
     { pName: "Ravi Patel", src: ravi, title: "Electrical Co-Lead" },
+
+    { pName: "Navin Bedi", src: navin, title: "Field Build Co-Lead" },
+    { pName: "Krisha ", src: krisha, title: "Field Build Co-Lead" },
+
+    { pName: "Devesh Madnani", src: devesh, title: "CAD Co-Lead" },
+    { pName: "Amer Sandhu", src: amer, title: "CAD Co-Lead" },
+
+    { pName: "Jahvon Banerjee", src: jahvon, title: "Programming Co-Lead" },
     { pName: "Samyat Gautam", src: samyat, title: "Programming Co-Lead" },
-    { pName: "Jenisha Patel", src: jenisha, title: "Business Co-Lead" },
+
+    { pName: "Harris", src: harrisStudent, title: "Business Co-Lead" },
+    { pName: "Aditya", src: aditya, title: "Business Co-Lead" },
+
     { pName: "Ishan Kenth", src: ishan, title: "3560 Mascot" },
   ];
 
