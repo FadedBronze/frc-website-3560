@@ -101,6 +101,7 @@ export default function Footer() {
               <FooterLink title="CAD" href="/cad" />
               <FooterLink title="Mechanical" href="/mechanical" />
               <FooterLink title="Electrical" href="/electrical" />
+              <FooterLink title="Field Build" href="/field building" />
               <FooterLink title="Programming" href="/programming" />
               <FooterLink title="Business" href="/business" />
               <FooterLink title="Executive" href="/executive" />
