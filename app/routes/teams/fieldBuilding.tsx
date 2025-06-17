@@ -21,8 +21,8 @@ export function FieldBuilding() {
           body: "Used for assembling field components and securing structures.",
         },
         {
-          title: "Hammers",
-          body: "Essential for driving nails and securing materials.",
+          title: "Saw",
+          body: "Essential for cutting wood and other materials to the required dimensions for the field.",
         },
         {
           title: "Nails and Screws",
