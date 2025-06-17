@@ -49,49 +49,49 @@ export function Executive() {
 
   return (
     <>
-      <Navbar />
-      <main className="flex flex-col justify-center pt-16 pb-4 font-[Inter] px-10 lg:px-36 gap-16 md:gap-28 mt-10">
-        <div className="flex flex-col gap-8 w-full items-center">
-          {members.length > 2 && (
-            <div className="flex flex-col gap-10 w-fit items-center mt-10">
-              <div className="flex flex-col items-center justify-center">
-                <h2 className="uppercase text-3xl font-[Passion_One]">
-                  Executive Team
-                </h2>
-                <h3 className="uppercase text-lg font-[Passion_One]">
-                  Teachers, Mentors, Students
-                </h3>
-              </div>
+  <Navbar />
+  <main className="flex flex-col justify-center pt-16 pb-4 font-[Inter] px-6 lg:px-36 gap-16 md:gap-28 mt-10">
+    <div className="flex flex-col gap-8 w-full items-center">
+      {members.length > 2 && (
+        <div className="flex flex-col gap-10 w-full items-center mt-10">
+          <div className="flex flex-col items-center justify-center">
+            <h2 className="uppercase text-3xl font-[Passion_One] text-center">
+              Executive Team
+            </h2>
+            <h3 className="uppercase text-lg font-[Passion_One] text-center">
+              Teachers, Mentors, Students
+            </h3>
+          </div>
 
-              <div className="flex flex-col gap-20">
-                {Array.from(
-                  { length: Math.ceil(members.length / 5) },
-                  (_, groupIndex) => (
-                    <div
-                      key={groupIndex}
-                      className="flex flex-row gap-8 justify-center"
-                    >
-                      {members
-                        .slice(groupIndex * 5, groupIndex * 5 + 5)
-                        .map((member, index) => (
-                          <div key={index} className="flex justify-center">
-                            <TeamMember
-                              pName={member.pName}
-                              src={member.src}
-                              title={member.title}
-                            />
-                          </div>
-                        ))}
-                    </div>
-                  )
-                )}
-              </div>
-            </div>
-          )}
+          <div className="flex flex-col gap-10 w-full">
+            {Array.from(
+              { length: Math.ceil(members.length / 5) },
+              (_, groupIndex) => (
+                <div
+                  key={groupIndex}
+                  className="flex flex-col md:flex-row gap-8 justify-center items-center"
+                >
+                  {members
+                    .slice(groupIndex * 5, groupIndex * 5 + 5)
+                    .map((member, index) => (
+                      <div key={index} className="flex justify-center w-full md:w-auto">
+                        <TeamMember
+                          pName={member.pName}
+                          src={member.src}
+                          title={member.title}
+                        />
+                      </div>
+                    ))}
+                </div>
+              )
+            )}
+          </div>
         </div>
-      </main>
-      <Footer />
-    </>
+      )}
+    </div>
+  </main>
+  <Footer />
+</>
   );
 }
 
