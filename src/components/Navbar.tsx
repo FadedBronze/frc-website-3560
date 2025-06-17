@@ -6,7 +6,7 @@ import windowSizeContext from "src/contexts/windowSizeContext";
 import { Fragment } from "react";
 import { openSponsorModal } from "src/functions/sponsor";
 import { Link } from "react-router"
-
+import { motion } from "framer-motion";
 interface NavDropdownProps {
   name: string;
   options: { name: string; link: string }[];
@@ -32,7 +32,14 @@ function NavDropdown(props: NavDropdownProps): JSX.Element {
         />
       </span>
       {props.open && (
-        <div className="absolute bg-wolf-black/70 backdrop-blur py-2 rounded -translate-x-1/2 gap-3 left-1/2 flex flex-col">
+
+        <motion.div 
+          className="absolute bg-wolf-black/70 backdrop-blur py-2 rounded -translate-x-1/2 gap-3 left-1/2 flex flex-col"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
           {options.map((option) => (
             <Link
               to={{
@@ -44,7 +51,7 @@ function NavDropdown(props: NavDropdownProps): JSX.Element {
               {option.name.toUpperCase()}
             </Link>
           ))}
-        </div>
+        </motion.div>
       )}
     </nav>
   );
