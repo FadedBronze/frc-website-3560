@@ -84,10 +84,6 @@ export default function Footer() {
                 title="Sponsorship & Contact"
                 href="/sponsorship"
               />
-              <FooterLink
-                title="Contact"
-                href="/sponsorship"
-              />
               <FooterLink title="Registration" href="/registration" />
               <FooterLink
                 title="FIRST"
