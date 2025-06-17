@@ -1,4 +1,3 @@
-import aaryan from "./assets/team/aaryan.png";
 import jahvon from "./assets/team/jahvon.jpg";
 import samyat from "./assets/team/samyat.jpg";
 import computer from "./assets/repr/programming.png";
@@ -45,7 +44,6 @@ export function Programming() {
       cultureList={["Communication", "Leadership", "Initiative"]}
       cultureDescriptionTwo="are key for meeting programming deadlines and working effectively with the rest of the team."
       members={[
-        { pName: "Aaryan Banerjee", src: aaryan },
         { pName: "Samyat Gautam", src: samyat },
         { pName: "Jahvon Cockburn", src: jahvon },
       ]}

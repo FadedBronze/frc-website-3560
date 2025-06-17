@@ -1,4 +1,3 @@
-import savyasaachi from "./assets/team/savyasaachi.png";
 import saket from "./assets/team/saket.png";
 import ishan from "./assets/team/ishan.jpg";
 import laksh from "./assets/team/laksh.png";
@@ -38,15 +37,11 @@ export function Mechanical() {
         },
       ]}
       cultureDescriptionOne="In collaboration with the CAD, Electrical, and Programming teams, the Mechanical team ensures that the robot’s physical systems are robust and reliable. We believe that"
-      cultureList={["precision", "durability", "teamwork"]}
+      cultureList={["Precision", "Durability", "Teamwork"]}
       cultureDescriptionTwo="are key to building a robot that performs consistently and withstands the rigors of competition, ensuring success under challenging conditions."
       members={[
-        { pName: "Savyasaachi Shimoga-Yogesh", src: savyasaachi },
         { pName: "Saket Cherooli", src: saket },
-        { pName: "Ishan Kenth", src: ishan },
         { pName: "Laksh Kumar", src: laksh },
-        { pName: "Armaan Sheikh", src: armaan },
-        { pName: "Rishi Anandjivala", src: rishi },
       ]}
     />
   );

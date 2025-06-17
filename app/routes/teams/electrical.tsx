@@ -1,4 +1,3 @@
-import blake from "./assets/team/blake.png";
 import ravi from "./assets/team/ravi.png";
 import electrical from "./assets/repr/electrical.png";
 import { TeamPage } from "./TeamPage";
@@ -34,10 +33,9 @@ export function Electrical() {
         },
       ]}
       cultureDescriptionOne="In close collaboration with the Programming, Mechanical, and CAD teams, the Electrical team ensures that the robot’s systems are fully integrated. We believe that"
-      cultureList={["precision", "safety", "reliability"]}
+      cultureList={["Precision", "Safety", "Reliability"]}
       cultureDescriptionTwo="are key to maintaining a safe and organized system that powers the robot effectively during competition, ensuring peak performance under high-pressure scenarios."
       members={[
-        { pName: "Blake Davison", src: blake },
         { pName: "Ravi Patel", src: ravi },
       ]}
     />
