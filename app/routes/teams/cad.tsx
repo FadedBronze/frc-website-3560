@@ -34,7 +34,7 @@ export function CAD() {
         },
       ]}
       cultureDescriptionOne="Beyond just creating blueprints, the CAD team also focuses on optimizing the robot’s weight, balance, and efficiency. We believe that"
-      cultureList={["precision", "collaboration", "innovation"]}
+      cultureList={["Precision", "Collaboration", "Innovation"]}
       cultureDescriptionTwo="are key to transforming ideas into a functioning machine and ensuring the robot meets competition regulations while maintaining strength and flexibility."
       members={[
         { pName: "Devesh Madnani", src: devesh },

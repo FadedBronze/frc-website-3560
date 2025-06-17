@@ -1,5 +1,5 @@
-import amber from "./assets/team/amber.png";
-import jenisha from "./assets/team/jenisha.png";
+import aditya from "./assets/team/aditya.png";
+import harrisStudent from "./assets/team/harris.png";
 import business from "./assets/repr/business.png";
 import { TeamPage } from "./TeamPage";
 
@@ -36,11 +36,11 @@ export function Business() {
         },
       ]}
       cultureDescriptionOne="Beyond managing finances and outreach, the Business team emphasizes"
-      cultureList={["organization", "communication", "teamwork"]}
+      cultureList={["Organization", "Communication", "Teamwork"]}
       cultureDescriptionTwo="to ensure the team remains well-funded, recognized, and prepared for long-term success."
       members={[
-        { pName: "Amber Brar", src: amber },
-        { pName: "Jenisha Patel", src: jenisha },
+        { pName: "Harris", src: harrisStudent },
+        { pName: "Aditya", src: aditya }
       ]}
     />
   );

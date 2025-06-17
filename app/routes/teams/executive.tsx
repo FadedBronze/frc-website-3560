@@ -12,10 +12,10 @@ import samyat from "./assets/team/samyat.jpg";
 import saket from "./assets/team/saket.png";
 import ravi from "./assets/team/ravi.png";
 import savyasaachi from "./assets/team/savyasaachi.png";
-import harrisStudent from "./assets/team/harris.png";
 import navin from "./assets/team/navin.png";
 import krisha from "./assets/team/krisha.png";
 import aditya from "./assets/team/aditya.png";
+import harrisStudent from "./assets/team/harris.png";
 
 import { TeamMember } from "./TeamPage";
 
@@ -28,7 +28,7 @@ export function Executive() {
     { pName: "Kuljit Dhadde", src: dhadde, title: "Lead Coach" },
     { pName: "Elizabeth Kirsch", src: kirsch, title: "Teacher Supervisor" },
 
-    { pName: "Saket Cherooli", src: saket, title: "Mechanical Co-Lead" }, 
+    { pName: "Saket Cherooli", src: saket, title: "Mechanical Co-Lead & Safety Officer" }, 
 
     { pName: "Ravi Patel", src: ravi, title: "Electrical Co-Lead" },
 

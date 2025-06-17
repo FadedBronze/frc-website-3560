@@ -30,7 +30,7 @@ export function FieldBuilding() {
         }
       ]}
       cultureDescriptionOne="In close collaboration with the Programming, Mechanical, and CAD teams, the Field Building team ensures that the robot’s systems are fully integrated. We believe that "
-      cultureList={["precision", "safety",]}
+      cultureList={["Precision", "Safety",]}
       cultureDescriptionTwo="are key to maintaining a safe and organized system that powers the robot effectively during competition, ensuring peak performance under high-pressure scenarios."
       members={[
         { pName: "Navin Bedi", src: navin },
