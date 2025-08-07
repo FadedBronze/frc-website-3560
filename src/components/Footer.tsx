@@ -43,7 +43,7 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="py-10 flex relative lg:px-[145px] px-[45px] sm:h-[500px] bg-wolf-blue mt-24 md:mt-48 text-wolf-black items-center justify-left overflow-hidden"
+      className="py-10 flex relative lg:px-[145px] px-[45px] sm:h-[500px] bg-wolf-blue mt-48 text-wolf-black items-center justify-left overflow-hidden"
     >
       {width > 1024 && (
         <div className="absolute top-0 left-18 -translate-x-1/2 h-full">

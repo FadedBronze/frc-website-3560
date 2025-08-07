@@ -466,7 +466,7 @@ export default function Home() {
       <div className="w-full py-10 flex flex-col gap-4">
         <div className="lg:px-[145px] px-[45px] w-full h-full">
           <section className="gap-8 py-16 md:py-30 grid grid-cols-1 md:grid-cols-2">
-            <ResponsiveIframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" />
+            { /* <ResponsiveIframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" /> */ }
             <article>
               <h2 className="font-[Passion_One] text-3xl mb-3">
                 WELCOME TO 3560
@@ -517,7 +517,7 @@ export default function Home() {
             </div>
           </section>
         </div>
-        <Testimonials />
+        { /* <Testimonials /> */ }
         <div className="lg:px-[145px] px-[45px] mt-10 flex flex-col gap-8">
           <div>
             <h1 className="text-3xl font-[Passion_One] uppercase">

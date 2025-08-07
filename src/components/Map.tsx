@@ -1,41 +1,11 @@
-import "leaflet/dist/leaflet.css";
-import { useRef, useEffect } from "react";
-import L, {icon, Marker} from "leaflet";
+import ResponsiveIframe from "./ResponsiveIframe.tsx"
 
 export default function Map() {
-  const initRef = useRef(false);
-
-  useEffect(() => {
-    if (initRef.current == false) {
-      const iconRetinaUrl = '/marker-icon-2x.png';
-      const iconUrl = '/marker-icon.png';
-      const shadowUrl = '/marker-shadow.png';
-
-      const iconDefault = icon({
-        iconRetinaUrl,
-        iconUrl,
-        shadowUrl,
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        tooltipAnchor: [16, -28],
-        shadowSize: [41, 41]
-      });
-
-      Marker.prototype.options.icon = iconDefault;
-
-      let map = L.map('map').setView([43.738041, -79.727204], 17);
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href=https://www.openstreetmap.org/copyright>OpenStreetMap</a> contributors',
-      }).addTo(map);
-      let marker = L.marker([43.738041, -79.727204]).addTo(map);
-    }
-    
-    initRef.current = true;
-  }, [])
-
   return (
-    <div id="map" className="w-full h-96"></div> 
+    <>
+      <div className="w-full">
+        <ResponsiveIframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2882.740199700648!2d-79.73054252324336!3d43.73672364702396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3d9a64419cb5%3A0xa7535f73dc35d6da!2sChinguacousy%20Secondary%20School!5e0!3m2!1sen!2sca!4v1754521460003!5m2!1sen!2sca"></ResponsiveIframe>
+      </div>
+    </>
   )
 }
