@@ -11,29 +11,23 @@ export default function SponsorshipPage() {
   return ( 
     <div className="overflow-hidden" >
       <Navbar />
-      <div className="relative -mt-20 h-[400px] px-[45px] lg:px-[125px]">
+      <div className="relative md:-mt-20 h-[200px] md:h-[400px] px-[45px] lg:px-[125px]">
         <img className="absolute w-full h-full object-cover object-top left-0 top-0 z-0" src="/chinguacousy.jpeg" />
         <div className="bg-black absolute w-full h-full top-0 left-0 opacity-60"></div>
       </div>
 
-      <section className="py-18 xl:px-[20%]">
-        <div className="grid lg:grid-cols-3 gap-[4rem_0rem]">
+      <section className="p-9 xl:px-[20%]">
+        <div className="flex gap-8 justify-center flex-wrap">
           
           {[
-            { name: "Email", cta: "Get In Touch", icon: Mail, link: "mailto:3560frc@gmail.com", description: "Get in contact with us via email" },
-            { name: "Phone", cta: "Get In Touch", icon: Phone, link: "tel:+19057912400", description: "Get in contact with us by phone" },
-            { name: "Instagram", cta: "Explore", icon: Instagram, link: "https://www.instagram.com/3560frc/", description: "Come explore our Instagram page and find more on what we do!" },
+            { icon: Mail, link: "mailto:3560frc@gmail.com", name:"3560frc@gmail.com" },
+            { icon: Phone, link: "tel:+19057912400", name:"+1-905-791-2400" },
+            { icon: Instagram, link: "https://www.instagram.com/3560frc/", name:"@3560frc" },
           ].map((box) => {
             return (
-              <div key={box.link + box.onClick} className="max-w-66 justify-self-center last:max-lg:sm:col-span-2 items-center grid max-sm:gap-2 gap-4" >
-                <div className="flex flex-col items-center max-sm:gap-2 gap-4">
-                  <div className="w-fit flex gap-2 font-[Inter] text-2xl items-center text-white">
-                    <box.icon color="var(--color-white)"></box.icon>
-                    <h2 className="font-bold">{box.name}</h2>
-                  </div>
-                  <p className="font-[Inter] text-md text-center text-white">{box.description}</p>
-                </div>
-                <a href={box.link} className="text-center w-fit h-fit px-3 py-1 lg:px-4 lg:py-3 hover:bg-white/30 bg-white/20 text-white rounded-md text-lg lg:text-xl font-[Passion_One] justify-self-center">{box.cta}</a>
+              <div className="w-fit flex gap-2 font-[Inter] md:text-lg text-sm items-center text-white">
+                <box.icon color="var(--color-white)"></box.icon>
+                <a href={box.link}>{box.name}</a>
               </div>
             ) 
           })}
