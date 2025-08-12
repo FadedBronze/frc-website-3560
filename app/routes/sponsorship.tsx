@@ -17,7 +17,7 @@ export default function SponsorshipPage() {
       </div>
 
       <section className="p-9 xl:px-[20%]">
-        <div className="flex gap-8 justify-center flex-wrap">
+        <div className="flex gap-8 justify-center">
           
           {[
             { icon: Mail, link: "mailto:3560frc@gmail.com", name:"3560frc@gmail.com" },
@@ -25,9 +25,9 @@ export default function SponsorshipPage() {
             { icon: Instagram, link: "https://www.instagram.com/3560frc/", name:"@3560frc" },
           ].map((box) => {
             return (
-              <div className="w-fit flex gap-2 font-[Inter] md:text-lg text-sm items-center text-white">
-                <box.icon color="var(--color-white)"></box.icon>
-                <a href={box.link}>{box.name}</a>
+              <div className="truncate w-fit flex gap-2 font-[Inter] md:text-lg text-sm items-center text-white">
+                <box.icon color="var(--color-white)" className="max-sm:w-6"></box.icon>
+                <a className="truncate max-sm:hidden" href={box.link}>{box.name}</a>
               </div>
             ) 
           })}
