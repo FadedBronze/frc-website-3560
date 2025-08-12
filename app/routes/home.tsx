@@ -24,6 +24,7 @@ import imB from "./teams/assets/team/amber.png";
 import imC from "./teams/assets/team/armaan.png";
 import imD from "./teams/assets/team/blake.png";
 import imE from "./teams/assets/team/devesh.png";
+import ResponsiveIframe from "../../src/components/ResponsiveIframe"
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -222,31 +223,6 @@ function MainText() {
         />
       </div>
     </article>
-  );
-}
-
-function ResponsiveIframe(props: any) {
-  const divRef = useRef<HTMLDivElement>(null);
-  const { width, height } = windowSizeContext();
-  const [divWidth, setDivWidth] = useState(480);
-
-  const setWidth = () => {
-    if (divRef.current == null) return;
-    setDivWidth(divRef.current.clientWidth);
-  };
-
-  useEffect(setWidth, []);
-
-  useEffect(setWidth, [width, height]);
-
-  return (
-    <div ref={divRef} {...props}>
-      <iframe
-        width={divWidth}
-        height={(divWidth * 1080) / 1920}
-        src={props.src}
-      ></iframe>
-    </div>
   );
 }
 
@@ -463,7 +439,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <div className="w-full py-10 flex flex-col gap-4">
+      <div className="w-full py-10 flex flex-col gap-4 overflow-hidden">
         <div className="lg:px-[145px] px-[45px] w-full h-full">
           <section className="gap-8 py-16 md:py-30 grid grid-cols-1 md:grid-cols-2">
             { /* <ResponsiveIframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" /> */ }
@@ -539,11 +515,11 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="lg:px-[145px] px-[45px] mt-22 flex flex-col gap-8">
+        <div className="lg:px-[145px] px-[45px] mt-22 flex flex-col gap-8 h-fit">
           <h1 className="text-3xl font-[Passion_One] uppercase">
             Frequently Asked Questions
           </h1>
-          <div className="grid gap-4 grid-cols-1 md:grid-cols-2 pt-2 gap-x-6 -mb-24 rounded-2xl shadow-sm">
+          <div className="grid gap-4 grid-cols-1 md:grid-cols-2 pt-2 gap-x-6 rounded-2xl shadow-sm">
             {faq.map((qa, index) => (
               <div key={qa.question} className="flex flex-col gap-4 pt-4 justify-between">
                 <div key={index} className="flex flex-col gap-4">
@@ -565,7 +541,7 @@ export default function Home() {
                     >
                       <Plus />
                     </motion.div>
-                    <h1 className="text-xl font-semibold">{qa.question}</h1>
+                    <h1 className="text-left text-xl font-semibold">{qa.question}</h1>
                     <div className="h-1 grow ml-2 bg-gray-800/45"></div>
                   </button>
                   <AnimatePresence initial={false}>

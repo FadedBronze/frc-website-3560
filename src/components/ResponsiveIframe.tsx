@@ -5,22 +5,25 @@ export default function ResponsiveIframe(props: any) {
   const divRef = useRef<HTMLDivElement>(null);
   const { width, height } = windowSizeContext();
   const [divWidth, setDivWidth] = useState(480);
+  const [divHeight, setDivHeight] = useState(360);
 
-  const setWidth = () => {
+  const setSize = () => {
     if (divRef.current == null) return;
     setDivWidth(divRef.current.clientWidth);
+    setDivHeight(divRef.current.clientHeight);
   };
 
-  useEffect(setWidth, []);
-
-  useEffect(setWidth, [width, height]);
+  useEffect(setSize, [width, height])
 
   return (
-    <div ref={divRef} {...props}>
+    <div ref={divRef} {...props} className="w-full h-full">
       <iframe
+        style={{
+          border: 0,
+        }}
         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
         width={divWidth}
-        height={(divWidth * 1080) / 1920}
+        height={props.holdAspect ? ((divWidth * 1080) / 1920) : divHeight }
         src={props.src}
       ></iframe>
     </div>

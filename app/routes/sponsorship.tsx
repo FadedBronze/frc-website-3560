@@ -2,42 +2,45 @@ import Footer from "src/components/Footer";
 import Navbar from "src/components/Navbar";
 import Box from "src/components/Box";
 import { WolfButton } from "src/components/WolfButton";
-import { Instagram, Phone, Mail, Package, MapPin } from "lucide-react";
+import { Instagram, Phone, Mail, Package, MapPin, Clock } from "lucide-react";
 import { useState } from "react";
 import { openSponsorModal } from "src/functions/sponsor";
 import Map from "src/components/Map";
 
 export default function SponsorshipPage() {
-  return <div className="overflow-hidden" >
-    <Navbar />
-    <div className="relative -mt-20 h-[400px]">
-      <img className="absolute w-full h-full object-cover object-top left-0 top-0 z-0" src="/chinguacousy.jpeg" />
-      <div className="bg-black absolute w-full h-full top-0 left-0 opacity-60"></div>
-    </div>
-    <div className="px-[45px] lg:px-[145px] relative z-10 mt-19 -mb-20">
-      <h2 className="font-[Passion_One] text-3xl mb-12 text-center">CONTACTS</h2>
-      <div className="grid mb-18 xl:grid-cols-3 gap-[3rem_0rem]">
-        
-        {[
-          { name: "Email", cta: "Get In Touch", icon: Mail, link: "mailto:3560frc@gmail.com", description: "Get in contact with us via email" },
-          { name: "Phone", cta: "Get In Touch", icon: Phone, link: "tel:+19057912400", description: "Get in contact with us by phone" },
-          { name: "Instagram", cta: "Explore", icon: Instagram, link: "https://www.instagram.com/3560frc/", description: "Come explore our Instagram page and find more on what we do!" },
-        ].map((box) => {
-          return (
-            <div key={box.link + box.onClick} className="max-w-86 justify-self-center last:max-xl:md:col-span-2 items-center grid max-md:gap-2 gap-4" >
-              <div className="flex flex-col items-center gap-4">
-                <div className="w-fit flex gap-2 font-[Inter] text-2xl items-center text-white">
-                  <box.icon color="var(--color-white)"></box.icon>
-                  <h2 className="font-bold">{box.name}</h2>
-                </div>
-                <p className="font-[Inter] text-lg text-center text-white">{box.description}</p>
-              </div>
-              <a href={box.link} className="text-center w-fit h-fit px-3 py-1 md:px-4 md:py-3 hover:bg-white/30 bg-white/20 text-white rounded-md text-lg md:text-xl font-[Passion_One] justify-self-center">{box.cta}</a>
-            </div>
-          ) 
-        })}
+  return ( 
+    <div className="overflow-hidden" >
+      <Navbar />
+      <div className="relative -mt-20 h-[400px] px-[45px] lg:px-[125px]">
+        <img className="absolute w-full h-full object-cover object-top left-0 top-0 z-0" src="/chinguacousy.jpeg" />
+        <div className="bg-black absolute w-full h-full top-0 left-0 opacity-60"></div>
       </div>
-      <section className="bg-[#fff9f0] py-18 px-[45px] lg:px-[125px] w-screen -ml-[45px] lg:-ml-[125px] mt-14">
+
+      <section className="py-18 xl:px-[20%]">
+        <div className="grid lg:grid-cols-3 gap-[4rem_0rem]">
+          
+          {[
+            { name: "Email", cta: "Get In Touch", icon: Mail, link: "mailto:3560frc@gmail.com", description: "Get in contact with us via email" },
+            { name: "Phone", cta: "Get In Touch", icon: Phone, link: "tel:+19057912400", description: "Get in contact with us by phone" },
+            { name: "Instagram", cta: "Explore", icon: Instagram, link: "https://www.instagram.com/3560frc/", description: "Come explore our Instagram page and find more on what we do!" },
+          ].map((box) => {
+            return (
+              <div key={box.link + box.onClick} className="max-w-66 justify-self-center last:max-lg:sm:col-span-2 items-center grid max-sm:gap-2 gap-4" >
+                <div className="flex flex-col items-center max-sm:gap-2 gap-4">
+                  <div className="w-fit flex gap-2 font-[Inter] text-2xl items-center text-white">
+                    <box.icon color="var(--color-white)"></box.icon>
+                    <h2 className="font-bold">{box.name}</h2>
+                  </div>
+                  <p className="font-[Inter] text-md text-center text-white">{box.description}</p>
+                </div>
+                <a href={box.link} className="text-center w-fit h-fit px-3 py-1 lg:px-4 lg:py-3 hover:bg-white/30 bg-white/20 text-white rounded-md text-lg lg:text-xl font-[Passion_One] justify-self-center">{box.cta}</a>
+              </div>
+            ) 
+          })}
+        </div>
+      </section>
+
+      <section className="bg-[#fff9f0] py-18 px-[45px] lg:px-[125px] w-screen">
         <div className="text-center text-lg">
           <h2 className="font-[Passion_One] text-3xl text-wolf-black">SPONSORS</h2>
           <p className="text-black mb-5">Our sponsors make everything we do possible, from parts to competitions. <br/> <b>Please reach out</b> if you can sponsor us!</p>
@@ -55,9 +58,18 @@ export default function SponsorshipPage() {
           <img src="/sponsors/D4E.png"></img>
         </div>
       </section>
-      <div className="font-[Passion_One] text-3xl mt-26 text-center" />
-      <Map />
+      <div className="max-md:p-0 md:py-18 md:px-[45px] lg:px-[125px] grid-cols-[1fr_max(15%,20rem)] max-lg:grid-cols-1 max-md:p-[45px] grid gap-4 gap-[34px_2rem] h-fit lg:h-[36rem]">
+        <Map />
+        <div>
+          <h2 className="font-[Passion_One] text-3xl mb-4">CHINGUACOUSY SS</h2>
+          <div className="flex gap-2 lg:gap-3 flex-col [&>*]:inline-grid [&>*]:grid-cols-[2rem_1fr] max-lg:text-sm">
+            <a href="https://www.google.com/maps?ll=43.73672,-79.727968&z=15&t=m&hl=en&gl=CA&mapclient=embed&cid=12057085578621343450"><MapPin /> 1370 Williams Pkwy E, Brampton, ON L6S 1V3</a>
+            <a href="tel:+19057912400"><Phone /> +1 905 791 2400</a>
+            <span><Clock /> Weekdays 8:00am - 2:34pm</span>
+          </div>
+        </div>
+      </div>
+      <Footer />
     </div>
-    <Footer />
-  </div>
+  )
 }

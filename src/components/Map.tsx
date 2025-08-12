@@ -3,7 +3,7 @@ import ResponsiveIframe from "./ResponsiveIframe.tsx"
 export default function Map() {
   return (
     <>
-      <div className="w-full">
+      <div className="w-full h-full rounded-lg overflow-clip">
         <ResponsiveIframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2882.740199700648!2d-79.73054252324336!3d43.73672364702396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3d9a64419cb5%3A0xa7535f73dc35d6da!2sChinguacousy%20Secondary%20School!5e0!3m2!1sen!2sca!4v1754521460003!5m2!1sen!2sca"></ResponsiveIframe>
       </div>
     </>
