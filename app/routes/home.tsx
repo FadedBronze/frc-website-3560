@@ -24,7 +24,7 @@ import imB from "./teams/assets/team/amber.png";
 import imC from "./teams/assets/team/armaan.png";
 import imD from "./teams/assets/team/blake.png";
 import imE from "./teams/assets/team/devesh.png";
-import ResponsiveIframe from "../../src/components/ResponsiveIframe"
+import ResponsiveIframe from "../../src/components/ResponsiveIframe";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -102,8 +102,8 @@ function Testimonials() {
         <div
           className="absolute top-0 h-full bg-wolf-blue"
           style={{
-            width: width > 1600 ? "80%" : (width > 600 ? "66.66%" : "100%"),
-            left: width > 1600 ? "10%" : (width > 600 ? "16.66%" : "0%"),
+            width: width > 1600 ? "80%" : width > 600 ? "66.66%" : "100%",
+            left: width > 1600 ? "10%" : width > 600 ? "16.66%" : "0%",
           }}
         ></div>
         {/* <div className="flex flex-col items-center justify-center gap-8 relative z-10 w-full h-full mt-4 lg:px-[145px] px-[45px]">
@@ -127,24 +127,23 @@ function Testimonials() {
           </div>
         </div> */}
         <div className="h-full lg:px-[145px] px-[45px] relative p-8 flex gap-10 items-center">
-          {
-            width > 800 && (
-              <motion.img
-                className="aspect-square rounded-full object-cover object-top"
-                src={testimonials[activeTestimonial].image}
-                width={width > 1400 ? "240px" : "180px"}
-                initial={{ filter: "blur(8px)" }}
-                animate={{ filter: "none" }}
-                exit={{ filter: "blur(8px)" }}
-                transition={{ duration: 0.3 }}
-                key={activeTestimonial + "-image"}
-              />
-            )
-          }
+          {width > 800 && (
+            <motion.img
+              className="aspect-square rounded-full object-cover object-top"
+              src={testimonials[activeTestimonial].image}
+              width={width > 1400 ? "240px" : "180px"}
+              initial={{ filter: "blur(8px)" }}
+              animate={{ filter: "none" }}
+              exit={{ filter: "blur(8px)" }}
+              transition={{ duration: 0.3 }}
+              key={activeTestimonial + "-image"}
+            />
+          )}
           <motion.div
             className="flex flex-col lg:justify-center gap-10 justify-between"
             style={{
-              padding: width > 800 ? "0 2.75rem 0 0" : width > 600 ? "1rem" : "0",
+              padding:
+                width > 800 ? "0 2.75rem 0 0" : width > 600 ? "1rem" : "0",
             }}
             initial={{ opacity: 0, x: 10, filter: "blur(2px)" }}
             animate={{ opacity: 1, x: 0, filter: "none" }}
@@ -157,20 +156,18 @@ function Testimonials() {
             </p>
             <div className="flex items-center justify-between">
               <div className="flex gap-4">
-                {
-                  width < 800 && (
-                    <motion.img
-                      className="aspect-square rounded-full object-cover object-top"
-                      src={testimonials[activeTestimonial].image}
-                      width="60px"
-                      initial={{ filter: "blur(8px)" }}
-                      animate={{ filter: "none" }}
-                      exit={{ filter: "blur(8px)" }}
-                      transition={{ duration: 0.3 }}
-                      key={activeTestimonial + "-image"}
-                    />
-                  )
-                }
+                {width < 800 && (
+                  <motion.img
+                    className="aspect-square rounded-full object-cover object-top"
+                    src={testimonials[activeTestimonial].image}
+                    width="60px"
+                    initial={{ filter: "blur(8px)" }}
+                    animate={{ filter: "none" }}
+                    exit={{ filter: "blur(8px)" }}
+                    transition={{ duration: 0.3 }}
+                    key={activeTestimonial + "-image"}
+                  />
+                )}
                 <div>
                   <h1 className="text-2xl font-bold">
                     {testimonials[activeTestimonial].name}
@@ -227,17 +224,22 @@ function MainText() {
 }
 
 export default function Home() {
-  const displays = [
-    { image: "https://3560.ca/wp-content/uploads/2024/09/6.png" },
-    { image: "https://3560.ca/wp-content/uploads/2024/09/1.png" },
-    { image: "https://3560.ca/wp-content/uploads/2024/09/8.png" },
-    { image: "https://3560.ca/wp-content/uploads/2024/09/5.png" },
-    { image: "https://3560.ca/wp-content/uploads/2024/09/4.png" },
-    { image: "https://3560.ca/wp-content/uploads/2024/09/3.png" },
-    { image: "https://3560.ca/wp-content/uploads/2024/09/2.png" },
-  ];
+  const [displays, setDisplays] = useState<string[]>([]);
 
   const [currentDisplay, setCurrentDisplay] = useState(0);
+
+  useEffect(() => {
+    const images = import.meta.glob("/public/gallery/*.webp");
+    const imagePaths = []
+    for (const image in images) {
+      imagePaths.push(image)
+    }
+
+    const randomArray = imagePaths.sort(() => Math.random() - .5);
+    const randomImages = randomArray.slice(0, 7)
+
+    setDisplays(randomImages)
+  }, []);
 
   useEffect(() => {
     const int = setInterval(() => {
@@ -369,7 +371,7 @@ export default function Home() {
             className={`w-full object-center object-cover h-full absolute transition-opacity duration-1000 ${
               index === currentDisplay ? "opacity-100" : "opacity-0"
             }`}
-            src={display.image}
+            src={display}
           />
         ))}
         <div className="bg-wolf-black opacity-85 w-full h-full absolute"></div>
@@ -393,7 +395,7 @@ export default function Home() {
                   "rounded-full w-2 h-2 " +
                   (i == currentDisplay ? "bg-wolf-blue" : "bg-blue-200")
                 }
-                key={display.image}
+                key={display}
               ></div>
             ))}
           </div>
@@ -442,7 +444,7 @@ export default function Home() {
       <div className="w-full py-10 flex flex-col gap-4 overflow-hidden">
         <div className="lg:px-[145px] px-[45px] w-full h-full">
           <section className="gap-8 py-16 md:py-30 grid grid-cols-1 md:grid-cols-2">
-            { /* <ResponsiveIframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" /> */ }
+            {/* <ResponsiveIframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" /> */}
             <article>
               <h2 className="font-[Passion_One] text-3xl mb-3">
                 WELCOME TO 3560
@@ -493,7 +495,7 @@ export default function Home() {
             </div>
           </section>
         </div>
-        { /* <Testimonials /> */ }
+        {/* <Testimonials /> */}
         <div className="lg:px-[145px] px-[45px] mt-10 flex flex-col gap-8">
           <div>
             <h1 className="text-3xl font-[Passion_One] uppercase">
@@ -521,7 +523,10 @@ export default function Home() {
           </h1>
           <div className="grid gap-4 grid-cols-1 md:grid-cols-2 pt-2 gap-x-6 rounded-2xl shadow-sm">
             {faq.map((qa, index) => (
-              <div key={qa.question} className="flex flex-col gap-4 pt-4 justify-between">
+              <div
+                key={qa.question}
+                className="flex flex-col gap-4 pt-4 justify-between"
+              >
                 <div key={index} className="flex flex-col gap-4">
                   <button
                     className="cursor-pointer flex z-10 gap-2 items-center outline-0"
@@ -541,7 +546,9 @@ export default function Home() {
                     >
                       <Plus />
                     </motion.div>
-                    <h1 className="text-left text-xl font-semibold">{qa.question}</h1>
+                    <h1 className="text-left text-xl font-semibold">
+                      {qa.question}
+                    </h1>
                     <div className="h-1 grow ml-2 bg-gray-800/45"></div>
                   </button>
                   <AnimatePresence initial={false}>
