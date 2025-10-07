@@ -232,7 +232,7 @@ export default function Home() {
     const images = import.meta.glob("/public/gallery/*.webp");
     const imagePaths = []
     for (const image in images) {
-      imagePaths.push(image)
+      imagePaths.push(image.split('/public/')[1])
     }
 
     const randomArray = imagePaths.sort(() => Math.random() - .5);

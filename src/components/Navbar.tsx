@@ -57,13 +57,23 @@ function NavDropdown(props: NavDropdownProps): JSX.Element {
   );
 }
 
-const links = [
+type LinkOption = {
+  name: string;
+  link: string;
+  onClick?: () => void;
+};
+
+const links: {
+  name: string;
+  break: boolean;
+  options: LinkOption[];
+}[] = [
   {
     name: "Info",
     break: true,
     options: [
       { name: "Home", link: "/" },
-      //{ name: "Gallery", link: "/gallery" },
+      { name: "Gallery", link: "/gallery" },
     ],
   },
   {
