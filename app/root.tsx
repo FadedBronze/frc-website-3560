@@ -7,7 +7,7 @@ import {
   ScrollRestoration,
 } from "react-router";
 
-import {WindowSizeContextProvider} from "src/contexts/windowSizeContext"
+import { WindowSizeContextProvider } from "src/contexts/windowSizeContext"
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -29,9 +29,18 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <title>3560 Mechawolves</title>
         <meta charSet="utf-8" />
+        <title>3560 Mechawolves</title>
+
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="3560 Mechawolves" />
+        <meta property="og:description" content="Official website of FRC Team 3560 Mechawolves - Robotics through business, CAD, electrical, mechanical, and programming." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://mechawolves.ca/" />
+        <meta property="og:image" content="/banner.png" />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:height" content="400" />
+
         <Meta />
         <Links />
       </head>
