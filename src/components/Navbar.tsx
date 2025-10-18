@@ -4,7 +4,7 @@ import DropdownArrowUnfilled from "/DropdownArrowUnfilled.svg";
 import { useState, type JSX } from "react";
 import windowSizeContext from "src/contexts/windowSizeContext";
 import { Fragment } from "react";
-import { openSponsorModal } from "src/functions/sponsor";
+import { openDonorPackageModal } from "src/functions/donorPackage";
 import { Link } from "react-router"
 import { motion } from "framer-motion";
 interface NavDropdownProps {
@@ -33,7 +33,7 @@ function NavDropdown(props: NavDropdownProps): JSX.Element {
       </span>
       {props.open && (
 
-        <motion.div 
+        <motion.div
           className="absolute bg-wolf-black/70 backdrop-blur py-2 rounded -translate-x-1/2 gap-3 left-1/2 flex flex-col"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -68,39 +68,39 @@ const links: {
   break: boolean;
   options: LinkOption[];
 }[] = [
-  {
-    name: "Info",
-    break: true,
-    options: [
-      { name: "Home", link: "/" },
-      { name: "Gallery", link: "/gallery" },
-    ],
-  },
-  {
-    name: "Subdivisions",
-    break: false,
-    options: [
-      { name: "Mechanical", link: "/mechanical" },
-      { name: "CAD", link: "/cad" },
-      { name: "Programming", link: "/programming" },
-      { name: "Electrical", link: "/electrical" },
-      { name: "Field Build", link: "/field building" },
-      { name: "Business", link: "/business" },
-      { name: "Executive", link: "/executive" },
-    ],
-  },
-  {
-    name: "Outreach",
-    break: true,
-    options: [
-      {
-        name: "Sponsorship & Contact",
-        link: "/sponsorship",
-      },
-      { name: "Registration", link: "/registration" },
-    ],
-  },
-];
+    {
+      name: "Info",
+      break: true,
+      options: [
+        { name: "Home", link: "/" },
+        { name: "Gallery", link: "/gallery" },
+      ],
+    },
+    {
+      name: "Subdivisions",
+      break: false,
+      options: [
+        { name: "Mechanical", link: "/mechanical" },
+        { name: "CAD", link: "/cad" },
+        { name: "Programming", link: "/programming" },
+        { name: "Electrical", link: "/electrical" },
+        { name: "Field Build", link: "/field building" },
+        { name: "Business", link: "/business" },
+        { name: "Executive", link: "/executive" },
+      ],
+    },
+    {
+      name: "Outreach",
+      break: true,
+      options: [
+        {
+          name: "Donors & Contact",
+          link: "/donors",
+        },
+        { name: "Registration", link: "/registration" },
+      ],
+    },
+  ];
 
 export default function Navbar() {
   const { width } = windowSizeContext();
@@ -163,9 +163,8 @@ export default function Navbar() {
           )}
 
           <nav
-            className={`${
-              menuOpen ? "translate-x-0" : "translate-x-full"
-            } fixed top-0 right-0 w-4/5 bg-wolf-black h-screen text-left font-[Passion_One] rounded p-10 text-wolf-white ransition-transform duration-300 ease-[cubic-bezier(0.4,0.0,0.2,1)] flex flex-col gap-5`}
+            className={`${menuOpen ? "translate-x-0" : "translate-x-full"
+              } fixed top-0 right-0 w-4/5 bg-wolf-black h-screen text-left font-[Passion_One] rounded p-10 text-wolf-white ransition-transform duration-300 ease-[cubic-bezier(0.4,0.0,0.2,1)] flex flex-col gap-5`}
           >
             {links.map((link) => (
               <div key={link.name}>

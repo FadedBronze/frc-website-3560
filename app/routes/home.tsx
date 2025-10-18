@@ -17,7 +17,7 @@ import {
   LucideArrowRightCircle,
 } from "lucide-react";
 import { WolfButton } from "src/components/WolfButton";
-import { openSponsorModal } from "src/functions/sponsor";
+import { openDonorPackageModal } from "src/functions/donorPackage";
 import { AnimatePresence, motion } from "framer-motion";
 import imA from "./teams/assets/team/aaryan.png";
 import imB from "./teams/assets/team/amber.png";
@@ -26,7 +26,7 @@ import imD from "./teams/assets/team/blake.png";
 import imE from "./teams/assets/team/devesh.png";
 import ResponsiveIframe from "../../src/components/ResponsiveIframe";
 
-export function meta({}: Route.MetaArgs) {
+export function meta({ }: Route.MetaArgs) {
   return [
     { title: "3560 Mechawolves" },
     {
@@ -43,42 +43,42 @@ function Testimonials() {
     quote: string;
     image: string;
   }[] = [
-    {
-      name: "David Smith",
-      title: "Student",
-      quote:
-        "Being a part of 3560 Mechawolves has been an incredible journey. I've learned so much about robotics, teamwork, and problem-solving. The hands-on experience and the support from mentors have truly inspired me to pursue a career in STEM. Thank you, 3560, for giving me this opportunity to grow and excel!",
-      image: imA,
-    },
-    {
-      name: "Paul Longboat",
-      title: "Mentor",
-      quote:
-        "Mentoring the students at 3560 Mechawolves has been one of the most rewarding experiences of my life. Watching these young minds collaborate, innovate, and overcome challenges is truly inspiring. This team is not just about building robots; it's about building future leaders and innovators. I'm proud to be a part of this journey.",
-      image: imB,
-    },
-    {
-      name: "Samuel Van Wilderman",
-      title: "Alumni",
-      quote:
-        "As an alumnus of 3560 Mechawolves, I can confidently say that this team shaped my future. The skills I gained in programming, engineering, and teamwork have been invaluable in my career. Beyond the technical knowledge, the friendships and memories I made here will last a lifetime. Thank you, 3560, for an unforgettable experience!",
-      image: imC,
-    },
-    {
-      name: "Emily Carter",
-      title: "Parent",
-      quote:
-        "Seeing my child thrive as part of the 3560 Mechawolves team has been heartwarming. The dedication, creativity, and passion of the students and mentors are truly remarkable. This program has not only taught my child technical skills but also instilled confidence and a sense of purpose. I couldn't be more grateful for this amazing team.",
-      image: imD,
-    },
-    {
-      name: "Jessica Lee",
-      title: "Sponsor",
-      quote:
-        "Supporting 3560 Mechawolves has been an honor. This team exemplifies the spirit of innovation and collaboration. Their commitment to excellence and community outreach is inspiring. I'm thrilled to see how our sponsorship contributes to empowering the next generation of STEM leaders. Keep up the fantastic work, 3560!",
-      image: imE,
-    },
-  ];
+      {
+        name: "David Smith",
+        title: "Student",
+        quote:
+          "Being a part of 3560 Mechawolves has been an incredible journey. I've learned so much about robotics, teamwork, and problem-solving. The hands-on experience and the support from mentors have truly inspired me to pursue a career in STEM. Thank you, 3560, for giving me this opportunity to grow and excel!",
+        image: imA,
+      },
+      {
+        name: "Paul Longboat",
+        title: "Mentor",
+        quote:
+          "Mentoring the students at 3560 Mechawolves has been one of the most rewarding experiences of my life. Watching these young minds collaborate, innovate, and overcome challenges is truly inspiring. This team is not just about building robots; it's about building future leaders and innovators. I'm proud to be a part of this journey.",
+        image: imB,
+      },
+      {
+        name: "Samuel Van Wilderman",
+        title: "Alumni",
+        quote:
+          "As an alumnus of 3560 Mechawolves, I can confidently say that this team shaped my future. The skills I gained in programming, engineering, and teamwork have been invaluable in my career. Beyond the technical knowledge, the friendships and memories I made here will last a lifetime. Thank you, 3560, for an unforgettable experience!",
+        image: imC,
+      },
+      {
+        name: "Emily Carter",
+        title: "Parent",
+        quote:
+          "Seeing my child thrive as part of the 3560 Mechawolves team has been heartwarming. The dedication, creativity, and passion of the students and mentors are truly remarkable. This program has not only taught my child technical skills but also instilled confidence and a sense of purpose. I couldn't be more grateful for this amazing team.",
+        image: imD,
+      },
+      {
+        name: "Jessica Lee",
+        title: "Donor",
+        quote:
+          "Supporting 3560 Mechawolves has been an honor. This team exemplifies the spirit of innovation and collaboration. Their commitment to excellence and community outreach is inspiring. I'm thrilled to see how our donation contributes to empowering the next generation of STEM leaders. Keep up the fantastic work, 3560!",
+        image: imE,
+      },
+    ];
 
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
@@ -214,8 +214,8 @@ function MainText() {
       <div className="flex gap-4">
         <WolfButton title="Let's Chat" href="/contact" />
         <WolfButton
-          title="Sponsorship Package"
-          callback={openSponsorModal}
+          title="Donor Package"
+          callback={openDonorPackageModal}
           hollow
         />
       </div>
@@ -287,7 +287,7 @@ export default function Home() {
       name: "BUSINESS",
       src: BriefcaseBusiness,
       description:
-        "The Business team manages outreach, fundraising, and sponsorships, ensuring the team has the resources and support needed for success. They also handle marketing and team communications.",
+        "The Business team manages outreach, fundraising, and donations, ensuring the team has the resources and support needed for success. They also handle marketing and team communications.",
     },
   ];
 
@@ -368,9 +368,8 @@ export default function Home() {
         {displays.map((display, index) => (
           <img
             key={index}
-            className={`w-full object-center object-cover h-full absolute transition-opacity duration-1000 ${
-              index === currentDisplay ? "opacity-100" : "opacity-0"
-            }`}
+            className={`w-full object-center object-cover h-full absolute transition-opacity duration-1000 ${index === currentDisplay ? "opacity-100" : "opacity-0"
+              }`}
             src={display}
           />
         ))}
@@ -410,9 +409,8 @@ export default function Home() {
 
         <div
           style={{
-            color: `rgb(${cappedVel * 255 * 0.3}, ${
-              8 + cappedVel * 247 * 0.6
-            }, ${34 + cappedVel * 221})`,
+            color: `rgb(${cappedVel * 255 * 0.3}, ${8 + cappedVel * 247 * 0.6
+              }, ${34 + cappedVel * 221})`,
             transition: "color",
             letterSpacing: "-2px",
           }}
@@ -430,9 +428,8 @@ export default function Home() {
               {Array.from({ length: 4 }).map((_, i) => (
                 <span
                   key={i}
-                  className={`transition-colors duration-500 relative marquee-item select-none ${
-                    velocity === 0 ? "hover:text-blue-950" : ""
-                  }`}
+                  className={`transition-colors duration-500 relative marquee-item select-none ${velocity === 0 ? "hover:text-blue-950" : ""
+                    }`}
                 >
                   MECHAWOLVES
                 </span>
@@ -471,7 +468,7 @@ export default function Home() {
                 The Electrical team manages wiring and power systems, and the
                 CAD team creates 3D models to plan the robot’s design. The
                 Graphic team focuses on branding and visual content, and the
-                Business team oversees fundraising, sponsorships, and outreach
+                Business team oversees fundraising, donations, and outreach
                 to ensure the team’s success.
               </p>
             </article>
@@ -511,8 +508,8 @@ export default function Home() {
           <div id="FAQ" className="flex gap-4">
             <WolfButton title="Let's Chat" href="/contact" />
             <WolfButton
-              title="Sponsorship Package"
-              callback={openSponsorModal}
+              title="Donor Package"
+              callback={openDonorPackageModal}
               hollow
             />
           </div>

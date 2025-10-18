@@ -7,11 +7,11 @@ export function Business() {
   return (
     <TeamPage
       teamName="business"
-      teamDescription="The Business team is essential for managing the operational aspects of the robotics team. They handle everything from securing sponsorships and fundraising to managing finances and budgets, ensuring the team has the resources needed to compete effectively. By building relationships with sponsors and the community, they provide financial support and visibility, allowing the team to focus on building and competing with their robot."
+      teamDescription="The Business team is essential for managing the operational aspects of the robotics team. They handle everything from securing donations and fundraising to managing finances and budgets, ensuring the team has the resources needed to compete effectively. By building relationships with companys and the community, they provide financial support and visibility, allowing the team to focus on building and competing with the robot."
       teamList={[
-        "Securing sponsorships and fundraising",
+        "Securing donations and fundraising",
         "Managing finances and budgets",
-        "Building relationships with sponsors and the community",
+        "Building relationships with companies and the community",
         "Coordinating outreach efforts and events",
         "Handling media relations and marketing materials",
         "Documentation and award submissions",
@@ -28,7 +28,7 @@ export function Business() {
         },
         {
           title: "CRM Software",
-          body: "Used for managing sponsor and community relationships.",
+          body: "Used for managing donations and community relationships.",
         },
         {
           title: "Presentation Tools",

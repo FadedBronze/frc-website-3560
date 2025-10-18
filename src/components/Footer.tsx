@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Mails, Phone, Twitter, Youtube, Instagram } from "lucide-react";
 import windowSizeContext from "src/contexts/windowSizeContext";
 import Logo from "public/Logo.svg";
-import { openSponsorModal } from "src/functions/sponsor";
+import { openDonorPackageModal } from "src/functions/donorPackage";
 import { Link } from "react-router"
 
 export default function Footer() {
@@ -28,9 +28,8 @@ export default function Footer() {
       const angle =
         Math.atan2(mouseOffsetY, mouseOffsetX) * sensitivity * (360 / Math.PI);
 
-      mechawolf.style.transform = `translateY(50%) translateY(80px) translateX(80px) rotate(${
-        angle + 360 * sensitivity
-      }deg)`;
+      mechawolf.style.transform = `translateY(50%) translateY(80px) translateX(80px) rotate(${angle + 360 * sensitivity
+        }deg)`;
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -62,7 +61,7 @@ export default function Footer() {
                 key={social.link}
                 target="_blank"
                 className="rounded-full bg-wolf-black p-3 hover:scale-[110%] transition-transform duration-200"
-                href={social.link} 
+                href={social.link}
               >
                 <social.icon color="white" />
               </a>
@@ -81,8 +80,8 @@ export default function Footer() {
             <ul className="font-semibold">
               <FooterLink title="Home" href="/" />
               <FooterLink
-                title="Sponsorship & Contact"
-                href="/sponsorship"
+                title="Donors & Contact"
+                href="/donors"
               />
               <FooterLink title="Registration" href="/registration" />
               <FooterLink
@@ -159,13 +158,13 @@ function FooterLink({
     <li>
       {
         href.includes("tel:") || href.includes("https://") || href.includes("mailto:") ? <a className={className} href={href}>{title}</a> : (
-        callback ? 
-            <button onClick={callback} className={className}>{title}</button> 
-          : (
-            <Link to={{ 
-              pathname: href, 
-            }} className={className}>{title}</Link>
-          )
+          callback ?
+            <button onClick={callback} className={className}>{title}</button>
+            : (
+              <Link to={{
+                pathname: href,
+              }} className={className}>{title}</Link>
+            )
         )
       }
     </li>
