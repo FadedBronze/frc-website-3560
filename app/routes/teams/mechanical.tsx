@@ -1,5 +1,4 @@
 import saket from "./assets/team/saket.png";
-import ishan from "./assets/team/ishan.jpg";
 import laksh from "./assets/team/laksh.png";
 import armaan from "./assets/team/armaan.png";
 import rishi from "./assets/team/rishi.jpg";

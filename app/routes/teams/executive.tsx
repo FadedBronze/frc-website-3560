@@ -1,21 +1,19 @@
 import Footer from "src/components/Footer";
 import Navbar from "src/components/Navbar";
-import dhadde from "./assets/exec/dhadde.png";
-import harris from "./assets/exec/harris.png";
-import kirsch from "./assets/exec/kirsch.png";
+import harris from "./assets/exec/mrs.harris.png";
+import kirsch from "./assets/exec/ms.kirsh.png";
 
 import jahvon from "./assets/team/jahvon.jpg";
 import amer from "./assets/team/amer.png";
 import devesh from "./assets/team/devesh.png";
-import ishan from "./assets/team/ishan.jpg";
+import sudit from "./assets/team/sudit.png";
 import samyat from "./assets/team/samyat.jpg";
 import saket from "./assets/team/saket.png";
 import ravi from "./assets/team/ravi.png";
 import savyasaachi from "./assets/team/savyasaachi.png";
 import navin from "./assets/team/navin.png";
 import krisha from "./assets/team/krisha.png";
-import aditya from "./assets/team/aditya.png";
-import harrisStudent from "./assets/team/harris.png";
+import aditya from "./assets/team/additya.png";
 
 import { TeamMember } from "./TeamPage";
 
@@ -25,7 +23,6 @@ export function Executive() {
       pName: "Savyasaachi Shimoga-Yogesh", src: savyasaachi, title: "Team 3560 Captain",
     },
     { pName: "Mizanne Harris", src: harris, title: "Lead Coach" },
-    { pName: "Kuljit Dhadde", src: dhadde, title: "Lead Coach" },
     { pName: "Elizabeth Kirsch", src: kirsch, title: "Teacher Supervisor" },
 
     { pName: "Saket Cherooli", src: saket, title: "Mechanical Co-Lead & Safety Officer" }, 
@@ -38,19 +35,18 @@ export function Executive() {
     { pName: "Devesh Madnani", src: devesh, title: "CAD Co-Lead" },
     { pName: "Amer Sandhu", src: amer, title: "CAD Co-Lead" },
 
-    { pName: "Jahvon Banerjee", src: jahvon, title: "Programming Co-Lead" },
+    { pName: "Jahvon Cockburn", src: jahvon, title: "Programming Co-Lead" },
     { pName: "Samyat Gautam", src: samyat, title: "Programming Co-Lead" },
 
-    { pName: "Harris", src: harrisStudent, title: "Business Co-Lead" },
     { pName: "Aditya", src: aditya, title: "Business Co-Lead" },
 
-    { pName: "Ishan Kenth", src: ishan, title: "3560 Mascot" },
+    { pName: "Sudit", src: sudit, title: "Business Co-Lead" },
   ];
 
   return (
     <>
   <Navbar />
-  <main className="flex flex-col justify-center pt-16 pb-4 font-[Inter] px-6 lg:px-36 gap-16 md:gap-28 mt-10">
+  <main className="flex flex-col justify-center pt-16 pb-4 font-[Inter] px-6 lg:px-36 gap-16 md:gap-28 mt-10 mb-16">
     <div className="flex flex-col gap-8 w-full items-center">
       {members.length > 2 && (
         <div className="flex flex-col gap-10 w-full items-center mt-10">

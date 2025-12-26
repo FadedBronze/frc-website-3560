@@ -74,7 +74,7 @@ export function TeamPage({
           </ul>
           <p>{cultureDescriptionTwo}</p>
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 mb-16">
           <h1 className="uppercase text-4xl font-[Passion_One] text-center">
             {teamName.charAt(0).toUpperCase() + teamName.slice(1)} Team
           </h1>

@@ -223,6 +223,77 @@ function MainText() {
   );
 }
 
+function Countdown() {
+  const [currentTime, setCurrentTime] = useState(0);
+
+  const counter = "This is a counter"
+
+  useEffect(() => {
+    const target = new Date(2026, 0, 5).getTime() / 1000;
+
+    const update = setInterval(() => {
+      const time = target - Math.floor(Date.now() / 1000);
+
+      setCurrentTime(time);
+    }, 1000)
+
+    return () => clearInterval(update)
+  }, [])
+
+  const days = Math.floor(currentTime / 60 / 60 / 24);
+  const hours = Math.floor(currentTime / 60 / 60 % 24);
+  const minutes = Math.floor(currentTime / 60 % 60);
+  const seconds = Math.floor(currentTime % 60);
+
+  const leftPad = (str, count, pad) => {
+    let result = ""
+
+    if (str.length < count) {
+      for (let i = (count - str.length) - 1; i >= 0; i--) {
+        result += pad
+      }
+    }
+
+    return result + str;
+  }
+
+  return (
+    <div className="flex justify-center">
+      <div className="max-md:items-center rounded-md flex flex-col gap-4">
+        <h3 className="text-xl font-[Passion_One]">DAYS UNTIL BUILD SEASON</h3>
+        <div>
+          <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
+            <div className="flex flex-col bg-wolf-blue p-2 rounded-md">
+              <span className="countdown font-mono max-sm:text-5xl text-7xl">
+                <span style={{"--value": days} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>{leftPad(days.toString(), 2, '0')}</span>
+              </span>
+              days
+            </div>
+            <div className="flex flex-col bg-white/20 p-2 rounded-md">
+              <span className="countdown font-mono max-sm:text-5xl text-7xl">
+                <span style={{"--value": hours} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>{leftPad(hours.toString(), 2, '0')}</span>
+              </span>
+              hours
+            </div>
+            <div className="flex flex-col bg-white/20 p-2 rounded-md">
+              <span className="countdown font-mono max-sm:text-5xl text-7xl">
+                <span style={{"--value": minutes} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>{leftPad(minutes.toString(), 2, '0')}</span>
+              </span>
+              min
+            </div>
+            <div className="flex flex-col bg-white/20 p-2 rounded-md">
+              <span className="countdown font-mono max-sm:text-5xl text-7xl">
+                <span style={{"--value": seconds} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>{leftPad(seconds.toString(), 2, '0')}</span>
+              </span>
+              sec
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function Home() {
   const [displays, setDisplays] = useState<string[]>([]);
 
@@ -321,8 +392,6 @@ export default function Home() {
   }, []);
 
   const cappedVel = Math.min(velocity / 5, 1);
-
-  const counter = "This is a counter"
 
   const [faq, setFaq] = useState([
     {
@@ -441,58 +510,30 @@ export default function Home() {
       </section>
       <div className="w-full py-10 flex flex-col gap-4 overflow-hidden relative">
         <div className="lg:px-[145px] px-[45px] w-full h-full">
-          <section className="gap-8 py-16 md:py-30 grid grid-cols-1 xl:grid-cols-2">
-            { /* <ResponsiveIframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" /> */ }
-            <article>
-              <h2 className="font-[Passion_One] text-3xl mb-3">
-                WELCOME TO 3560
-              </h2>
-              <p>
-                At 3560 FRC Robotics, we are a passionate team of students and
-                mentors dedicated to designing, building, and programming robots
-                for competition. Since 2011, our mission has been to foster
-                innovation, teamwork, and problem-solving skills while preparing
-                the next generation of STEM leaders. Through hands-on experience
-                and collaboration, we aim to inspire a love for technology and
-                make a positive impact on our community.
-              </p>
-            </article>
-            <div className="flex xl:justify-center">
-              <div className="py-10 max-md:items-center bg-wolf-blue max-lg:px-[45px] px-16 rounded-md flex flex-col gap-4 w-fit max-xl:w-full">
-                <h3 className="text-xl w-max-content font-[Passion_One] w-max-content">COMPETITIONS</h3>
-                <div>
-                  <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
-                    <div className="flex flex-col">
-                      <span className="countdown font-mono text-5xl">
-                        <span style={{"--value":15} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>15</span>
-                      </span>
-                      days
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="countdown font-mono text-5xl">
-                        <span style={{"--value":10} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>10</span>
-                      </span>
-                      hours
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="countdown font-mono text-5xl">
-                        <span style={{"--value":24} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>24</span>
-                      </span>
-                      min
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="countdown font-mono text-5xl">
-                        <span style={{"--value":59} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>59</span>
-                      </span>
-                      sec
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/*
+            <section className="gap-8 pt-16 md:pt-30 grid grid-cols-1 xl:grid-cols-2">
+              <ResponsiveIframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" /> 
+              <article className="lg:text-justify">
+                <h2 className="font-[Passion_One] text-3xl mb-3">
+                  WELCOME TO 3560
+                </h2>
+                <p>
+                  At 3560 FRC Robotics, we are a passionate team of students and
+                  mentors dedicated to designing, building, and programming robots
+                  for competition. Since 2011, our mission has been to foster
+                  innovation, teamwork, and problem-solving skills while preparing
+                  the next generation of STEM leaders. Through hands-on experience
+                  and collaboration, we aim to inspire a love for technology and
+                  make a positive impact on our community.
+                </p>
+              </article>
+            </section>
+          */}
+          <section className="rounded-md max-sm:mb-20 xl:mb-14 my-16">
+            <Countdown></Countdown>
           </section>
-          <section>
-            <article className="mb-8 md:mb-16">
+          <section className="border-1 rounded-md py-10 pb-14 max-sm:border-0 max-sm:px-0 px-8 max-sm:py-4 max-sm:pb-8 lg:px-16 border-white/20">
+            <article className="mb-8 md:mb-16 lg:text-justify align-self-center">
               <h2 className="font-[Passion_One] text-3xl mb-3">SUBDIVISIONS</h2>
               <p>
                 The 3560 FRC Robotics team is divided into specialized subteams
@@ -506,13 +547,13 @@ export default function Home() {
                 to ensure the team’s success.
               </p>
             </article>
-            <div className="grid lg:grid-cols-3 sm:grid-cols-2 max:sm:grid-cols-1 gap-16 pt-10">
+            <div className="grid lg:grid-cols-3 col-span-3 sm:grid-cols-2 max:sm:grid-cols-1 gap-16">
               {teamDescriptions.map((subteam) => (
                 <article key={subteam.name} className="relative">
                   <h3 className="font-[Passion_One] text-2xl mb-3">
                     {subteam.name}
                   </h3>
-                  <p className="mb-5">{subteam.description}</p>
+                  <p className="mb-7">{subteam.description}</p>
                   {subteam.name !== "GRAPHICS" && (
                     <WolfButton
                       title="Learn More"
@@ -526,8 +567,8 @@ export default function Home() {
             </div>
           </section>
         </div>
-        {/* <Testimonials /> */}
-        <div className="lg:px-[145px] px-[45px] mt-10 flex flex-col gap-8">
+        {/*<Testimonials />*/}
+        <div className="lg:px-[145px] px-[45px] mt-20 flex flex-col gap-8">
           <div>
             <h1 className="text-3xl font-[Passion_One] uppercase">
               Ready to get in touch?
@@ -548,7 +589,7 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="lg:px-[145px] px-[45px] mt-22 flex flex-col gap-8 h-fit">
+        <div className="lg:px-[145px] px-[45px] my-22 flex flex-col gap-8 h-fit">
           <h1 className="text-3xl font-[Passion_One] uppercase">
             Frequently Asked Questions
           </h1>
