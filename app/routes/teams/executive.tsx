@@ -47,7 +47,7 @@ export function Executive() {
 
     { pName: "Jenisha", src: jenisha, title: "Business Media" },
 
-    { pName: "Surina", src: surina, title: "Business Media" },
+    { pName: "Serina", src: surina, title: "Business Media" },
   ];
 
   return (

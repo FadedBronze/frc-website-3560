@@ -47,7 +47,7 @@ export function Business() {
         { pName: "Aditya", src: aditya },
         
         { pName: "Jenisha", src: jenisha },
-        { pName: "Surina", src: surina }
+        { pName: "Serina", src: surina }
       ]}
     />
   );
