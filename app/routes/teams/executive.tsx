@@ -15,6 +15,9 @@ import navin from "./assets/team/navin.png";
 import krisha from "./assets/team/krisha.png";
 import aditya from "./assets/team/additya.png";
 
+import jenisha from "./assets/team/jenisha.png";
+import surina from "./assets/team/_DSC5923.png";
+
 import { TeamMember } from "./TeamPage";
 
 export function Executive() {
@@ -41,6 +44,10 @@ export function Executive() {
     { pName: "Aditya", src: aditya, title: "Business Co-Lead" },
 
     { pName: "Sudit", src: sudit, title: "Business Co-Lead" },
+
+    { pName: "Jenisha", src: jenisha, title: "Business Media" },
+
+    { pName: "Surina", src: surina, title: "Business Media" },
   ];
 
   return (

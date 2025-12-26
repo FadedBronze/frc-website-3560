@@ -92,7 +92,7 @@ export function TeamPage({
             {members.length > 2 && (
               <div className="flex flex-col gap-10 w-full items-center mt-10">
                 <h2 className="uppercase text-3xl font-[Passion_One] text-center">
-                  General Members
+                  {teamName == "business" ? "Media" : "General Members" }
                 </h2>
                 <div className="flex flex-col gap-10 w-full">
                   {Array.from({

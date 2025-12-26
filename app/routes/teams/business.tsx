@@ -1,6 +1,9 @@
 import aditya from "./assets/team/additya.png";
 import sudit from "./assets/team/sudit.png";
-import krisha from "./assets/team/krisha.png";
+
+import jenisha from "./assets/team/jenisha.png";
+import surina from "./assets/team/_DSC5923.png";
+
 import business from "./assets/repr/business.png";
 import { TeamPage } from "./TeamPage";
 
@@ -42,7 +45,9 @@ export function Business() {
       members={[
         { pName: "Harris", src: sudit },
         { pName: "Aditya", src: aditya },
-        { pName: "Krisha", src: krisha }
+        
+        { pName: "Jenisha", src: jenisha },
+        { pName: "Surina", src: surina }
       ]}
     />
   );
