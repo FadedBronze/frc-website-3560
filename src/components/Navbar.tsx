@@ -102,13 +102,15 @@ const links: {
     },
   ];
 
-export default function Navbar() {
+export default function Navbar(props) {
   const { width } = windowSizeContext();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(-1);
 
+  const counter = "counter"
+
   return (
-    <div className="flex gap-4 justify-end w-full z-20 sticky lg:px-[145px] px-[45px] pt-10 -mb-10 text-lg">
+    <div className="z-20 flex sticky gap-4 pt-10 lg:px-[145px] px-[45px] justify-end text-lg w-full">
       {width > 816 ? (
         links.map((link, i) =>
           link.break === false ? (

@@ -322,6 +322,8 @@ export default function Home() {
 
   const cappedVel = Math.min(velocity / 5, 1);
 
+  const counter = "This is a counter"
+
   const [faq, setFaq] = useState([
     {
       question: 'What does "FRC" stand for?',
@@ -406,7 +408,6 @@ export default function Home() {
             }
           />
         </div>
-
         <div
           style={{
             color: `rgb(${cappedVel * 255 * 0.3}, ${8 + cappedVel * 247 * 0.6
@@ -438,10 +439,10 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <div className="w-full py-10 flex flex-col gap-4 overflow-hidden">
+      <div className="w-full py-10 flex flex-col gap-4 overflow-hidden relative">
         <div className="lg:px-[145px] px-[45px] w-full h-full">
-          <section className="gap-8 py-16 md:py-30 grid grid-cols-1 md:grid-cols-2">
-            {/* <ResponsiveIframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" /> */}
+          <section className="gap-8 py-16 md:py-30 grid grid-cols-1 xl:grid-cols-2">
+            { /* <ResponsiveIframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" /> */ }
             <article>
               <h2 className="font-[Passion_One] text-3xl mb-3">
                 WELCOME TO 3560
@@ -456,6 +457,39 @@ export default function Home() {
                 make a positive impact on our community.
               </p>
             </article>
+            <div className="flex xl:justify-center">
+              <div className="py-10 max-md:items-center bg-wolf-blue max-lg:px-[45px] px-16 rounded-md flex flex-col gap-4 w-fit max-xl:w-full">
+                <h3 className="text-xl w-max-content font-[Passion_One] w-max-content">COMPETITIONS</h3>
+                <div>
+                  <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
+                    <div className="flex flex-col">
+                      <span className="countdown font-mono text-5xl">
+                        <span style={{"--value":15} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>15</span>
+                      </span>
+                      days
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="countdown font-mono text-5xl">
+                        <span style={{"--value":10} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>10</span>
+                      </span>
+                      hours
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="countdown font-mono text-5xl">
+                        <span style={{"--value":24} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>24</span>
+                      </span>
+                      min
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="countdown font-mono text-5xl">
+                        <span style={{"--value":59} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>59</span>
+                      </span>
+                      sec
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
           <section>
             <article className="mb-8 md:mb-16">
