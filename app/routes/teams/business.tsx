@@ -43,7 +43,7 @@ export function Business() {
       cultureList={["Organization", "Communication", "Teamwork"]}
       cultureDescriptionTwo="to ensure the team remains well-funded, recognized, and prepared for long-term success."
       members={[
-        { pName: "Harris", src: sudit },
+        { pName: "Sudit", src: sudit },
         { pName: "Aditya", src: aditya },
         
         { pName: "Jenisha", src: jenisha },
