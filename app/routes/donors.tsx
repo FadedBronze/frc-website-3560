@@ -58,7 +58,7 @@ export default function DonsorsPage() {
           <h2 className="font-[Passion_One] text-3xl mb-4">CHINGUACOUSY SS</h2>
           <div className="flex gap-2 lg:gap-3 flex-col [&>*]:inline-grid [&>*]:grid-cols-[2rem_1fr] max-lg:text-sm">
             <a href="https://www.google.com/maps?ll=43.73672,-79.727968&z=15&t=m&hl=en&gl=CA&mapclient=embed&cid=12057085578621343450"><MapPin /> 1370 Williams Pkwy E, Brampton, ON L6S 1V3</a>
-            <a href="tel:+19057912400"><Phone /> +1 905 791 2400</a>
+            <a href="tel:+19057912400"><Phone /> +1 905-791-2400 ext 515</a>
             <span><Clock /> Weekdays 8:00am - 2:34pm</span>
           </div>
         </div>

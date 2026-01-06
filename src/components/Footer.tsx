@@ -118,7 +118,7 @@ export default function Footer() {
               <FooterLink
                 title={
                   <span className="flex gap-2 items-center">
-                    <Phone color="#00041A" size={20} /> +1 905-791-2400
+                    <Phone color="#00041A" size={20} /> +1 905-791-2400 ext 515
                   </span>
                 }
                 href="tel:+19057912400"
