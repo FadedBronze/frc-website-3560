@@ -1,5 +1,5 @@
 import jahvon from "./assets/team/jahvon.jpg";
-import samyat from "./assets/team/samyat.jpg";
+import samyat from "./assets/team/samyat.png";
 import computer from "./assets/repr/programming.png";
 import { TeamPage } from "./TeamPage";
 
