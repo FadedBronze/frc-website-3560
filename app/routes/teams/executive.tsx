@@ -7,16 +7,15 @@ import jahvon from "./assets/team/jahvon.jpg";
 import amer from "./assets/team/amer.png";
 import devesh from "./assets/team/devesh.png";
 import sudit from "./assets/team/sudit.png";
-import samyat from "./assets/team/samyat.jpg";
+import samyat from "./assets/team/samyat.png";
 import saket from "./assets/team/saket.png";
 import ravi from "./assets/team/ravi.png";
 import savyasaachi from "./assets/team/savyasaachi.png";
 import navin from "./assets/team/navin.png";
 import krisha from "./assets/team/krisha.png";
 import aditya from "./assets/team/additya.png";
-
 import jenisha from "./assets/team/jenisha.png";
-import surina from "./assets/team/_DSC5923.png";
+import serina from "./assets/team/_DSC5923.png";
 import laksh from "./assets/team/laksh.png";
 
 import { TeamMember } from "./TeamPage";
@@ -49,7 +48,7 @@ export function Executive() {
 
     { pName: "Jenisha", src: jenisha, title: "Business Media" },
 
-    { pName: "Serina", src: surina, title: "Business Media" },
+    { pName: "Serina", src: serina, title: "Business Media" },
   ];
 
   return (
