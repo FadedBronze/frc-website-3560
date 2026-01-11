@@ -17,6 +17,7 @@ import aditya from "./assets/team/additya.png";
 
 import jenisha from "./assets/team/jenisha.png";
 import surina from "./assets/team/_DSC5923.png";
+import laksh from "./assets/team/laksh.png";
 
 import { TeamMember } from "./TeamPage";
 
@@ -29,6 +30,7 @@ export function Executive() {
     { pName: "Elizabeth Kirsch", src: kirsch, title: "Teacher Supervisor" },
 
     { pName: "Saket Cherooli", src: saket, title: "Mechanical Co-Lead & Safety Officer" }, 
+    { pName: "Laksh", src: laksh, title: "Mechanical Co-Lead" }, 
 
     { pName: "Ravi Patel", src: ravi, title: "Electrical Co-Lead" },
 
