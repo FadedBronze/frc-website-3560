@@ -229,7 +229,7 @@ function Countdown() {
   const counter = "This is a counter"
 
   useEffect(() => {
-    const target = 1767993600;
+    const target = 1773364382;
 
     const update = setInterval(() => {
       const time = target - Math.floor(Date.now() / 1000);
@@ -260,7 +260,7 @@ function Countdown() {
   return (
     <div className="flex justify-center">
       <div className="max-md:items-center rounded-md flex flex-col gap-4">
-        <h3 className="text-xl font-[Passion_One]">DAYS UNTIL BUILD SEASON</h3>
+        <h3 className="text-xl font-[Passion_One]">DAYS UNTIL FIRST COMPETITON</h3>
         <div>
           <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
             <div className="flex flex-col bg-wolf-blue p-2 rounded-md">
