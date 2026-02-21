@@ -212,7 +212,7 @@ function MainText() {
         Don’t wait—sign up today and start your robotics adventure!
       </p>
       <div className="flex gap-4">
-        <WolfButton title="Let's Chat" href="/contact" />
+        <WolfButton title="Let's Chat" href="/donors" />
         <WolfButton
           title="Donor Package"
           callback={openDonorPackageModal}
@@ -265,25 +265,25 @@ function Countdown() {
           <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
             <div className="flex flex-col bg-wolf-blue p-2 rounded-md">
               <span className="countdown font-mono max-sm:text-5xl text-7xl">
-                <span style={{"--value": days} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>{leftPad(days.toString(), 2, '0')}</span>
+                <span style={{ "--value": days } /* as React.CSSProperties */} aria-live="polite" aria-label={counter}>{leftPad(days.toString(), 2, '0')}</span>
               </span>
               days
             </div>
             <div className="flex flex-col bg-white/20 p-2 rounded-md">
               <span className="countdown font-mono max-sm:text-5xl text-7xl">
-                <span style={{"--value": hours} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>{leftPad(hours.toString(), 2, '0')}</span>
+                <span style={{ "--value": hours } /* as React.CSSProperties */} aria-live="polite" aria-label={counter}>{leftPad(hours.toString(), 2, '0')}</span>
               </span>
               hours
             </div>
             <div className="flex flex-col bg-white/20 p-2 rounded-md">
               <span className="countdown font-mono max-sm:text-5xl text-7xl">
-                <span style={{"--value": minutes} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>{leftPad(minutes.toString(), 2, '0')}</span>
+                <span style={{ "--value": minutes } /* as React.CSSProperties */} aria-live="polite" aria-label={counter}>{leftPad(minutes.toString(), 2, '0')}</span>
               </span>
               min
             </div>
             <div className="flex flex-col bg-white/20 p-2 rounded-md">
               <span className="countdown font-mono max-sm:text-5xl text-7xl">
-                <span style={{"--value": seconds} /* as React.CSSProperties */ } aria-live="polite" aria-label={counter}>{leftPad(seconds.toString(), 2, '0')}</span>
+                <span style={{ "--value": seconds } /* as React.CSSProperties */} aria-live="polite" aria-label={counter}>{leftPad(seconds.toString(), 2, '0')}</span>
               </span>
               sec
             </div>
@@ -581,7 +581,7 @@ export default function Home() {
           </div>
 
           <div id="FAQ" className="flex gap-4">
-            <WolfButton title="Let's Chat" href="/contact" />
+            <WolfButton title="Let's Chat" href="/donors" />
             <WolfButton
               title="Donor Package"
               callback={openDonorPackageModal}
