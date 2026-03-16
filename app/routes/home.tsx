@@ -229,7 +229,7 @@ function Countdown() {
   const counter = "This is a counter"
 
   useEffect(() => {
-    const target = 1773364382;
+    const target = 1774008000;
 
     const update = setInterval(() => {
       const time = target - Math.floor(Date.now() / 1000);
