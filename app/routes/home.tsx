@@ -227,10 +227,10 @@ function Countdown() {
   const [currentTime, setCurrentTime] = useState(0);
 
   const counter = "This is a counter"
-  const countdown_text = "DAYS UNTIL Ontario Provincial Championship"
+  const countdown_text = "DAYS UNTIL 2026-2027 season BIOCORE™ presented by Haas"
 
   useEffect(() => {
-    const target = 1776348000;
+    const target = 1799470800; // Jan, 1st, 2027
 
     const update = setInterval(() => {
       const time = target - Math.floor(Date.now() / 1000);
@@ -241,9 +241,10 @@ function Countdown() {
     return () => clearInterval(update)
   }, [])
 
-  const days = Math.floor(currentTime / 60 / 60 / 24);
-  const hours = Math.floor(currentTime / 60 / 60 % 24);
-  const minutes = Math.floor(currentTime / 60 % 60);
+  const months = Math.floor(currentTime / (60 * 60 * 24 * 30));
+  const days = Math.floor((currentTime / (60 * 60 * 24)) % 30);
+  const hours = Math.floor((currentTime / (60 * 60)) % 24);
+  const minutes = Math.floor((currentTime / 60) % 60);
   const seconds = Math.floor(currentTime % 60);
 
   const leftPad = (str, count, pad) => {
@@ -264,7 +265,16 @@ function Countdown() {
         <h3 className="text-xl font-[Passion_One]">{countdown_text.toUpperCase()}</h3>
         <div>
           <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
-            <div className="flex flex-col bg-wolf-blue p-2 rounded-md">
+            {months > 0 && (
+              <div className="flex flex-col bg-wolf-blue p-2 rounded-md">
+              <span className="countdown font-mono max-sm:text-5xl text-7xl">
+                <span style={{ "--value": months } /* as React.CSSProperties */} aria-live="polite" aria-label={counter}>{leftPad(months.toString(), 2, '0')}</span>
+              </span>
+              months
+            </div>
+            )}
+
+            <div className={`flex flex-col ${months > 0 ? "bg-white/20" : "bg-wolf-blue"}  p-2 rounded-md`}>
               <span className="countdown font-mono max-sm:text-5xl text-7xl">
                 <span style={{ "--value": days } /* as React.CSSProperties */} aria-live="polite" aria-label={counter}>{leftPad(days.toString(), 2, '0')}</span>
               </span>
